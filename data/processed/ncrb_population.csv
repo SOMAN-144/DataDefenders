@@ -1,0 +1,330 @@
+state_code,year,population_lakh,published_rate,basis,kind,source_file
+AP,2016,517.4,1.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+AR,2016,13.2,0.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+AS,2016,325.8,2.1,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+BR,2016,1043.0,0.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+CG,2016,259.9,0.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+GA,2016,19.9,1.6,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+GJ,2016,630.8,0.6,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+HR,2016,276.1,1.5,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+HP,2016,71.2,0.4,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+JK,2016,124.6,0.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+JH,2016,338.0,0.8,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+KA,2016,625.7,1.8,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+KL,2016,357.5,0.8,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+MP,2016,782.6,0.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+MH,2016,1205.5,2.0,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+MN,2016,26.0,0.4,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+ML,2016,27.8,1.4,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+MZ,2016,10.7,0.1,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+NL,2016,23.9,0.1,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+OD,2016,425.9,0.7,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+PB,2016,292.0,0.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+RJ,2016,732.8,1.3,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+SK,2016,6.5,0.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+TN,2016,695.2,0.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+TG,2016,368.5,1.6,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+TR,2016,38.4,0.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+UP,2016,2192.4,1.2,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+UK,2016,106.8,0.6,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+WB,2016,938.3,0.5,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+AN,2016,5.5,0.5,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+CH,2016,18.0,1.4,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+DL,2016,214.9,0.5,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+LD,2016,0.8,0.0,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+PY,2016,16.8,0.1,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+DN,2016,7.6,,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+IN,2016,12739.9,,"Registrar General of India estimate based on the 2001 Census, as printed in CII 2016 Table 9A.1",projection,data/raw/ncrb_tables/2016/table-9A.1-2016.pdf
+AP,2017,521.3,1.8,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+AR,2017,13.3,0.1,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+AS,2017,329.3,3.4,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+BR,2017,1054.5,0.4,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+CG,2017,262.9,0.7,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+GA,2017,20.4,0.6,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+GJ,2017,637.7,0.7,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+HR,2017,280.0,1.8,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+HP,2017,71.7,0.8,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+JK,2017,125.9,0.5,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+JH,2017,342.1,2.1,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+KA,2017,630.9,5.0,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+KL,2017,359.4,0.9,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+MP,2017,793.3,0.6,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+MH,2017,1219.9,3.0,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+MN,2017,26.3,2.8,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+ML,2017,28.1,1.4,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+MZ,2017,10.8,0.9,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+NL,2017,24.1,0.0,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+OD,2017,429.2,1.9,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+PB,2017,294.6,0.6,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+RJ,2017,742.5,1.8,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+SK,2017,6.6,0.2,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+TN,2017,698.4,0.3,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+TG,2017,371.3,3.3,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+TR,2017,38.8,0.2,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+UP,2017,2226.1,2.2,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+UK,2017,108.0,1.1,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+WB,2017,946.0,0.6,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+AN,2017,5.7,0.5,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+CH,2017,18.9,1.7,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+DL,2017,221.0,0.7,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+LD,2017,0.8,0.0,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+PY,2017,17.6,0.3,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+DN,2017,7.9,,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+IN,2017,12885.3,,"RGI estimated population, as printed in CII 2017 Table 9A.1",projection,data/raw/ncrb_tables/2017/table-9A.1_1-2017.xlsx
+AP,2018,520.3,2.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+AR,2018,14.9,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+AS,2018,340.4,5.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+BR,2018,1183.3,0.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+CG,2018,284.7,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+GA,2018,15.3,1.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+GJ,2018,673.2,1.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+HR,2018,284.0,1.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+HP,2018,72.7,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+JK,2018,134.3,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+JH,2018,370.5,2.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+KA,2018,654.5,8.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+KL,2018,350.0,1.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+MP,2018,814.7,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+MH,2018,1213.9,2.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+MN,2018,30.8,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+ML,2018,32.0,2.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+MZ,2018,11.8,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+NL,2018,21.3,0.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+OD,2018,435.5,1.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+PB,2018,297.0,0.8,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+RJ,2018,765.9,1.4,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+SK,2018,6.6,0.2,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+TN,2018,754.6,0.4,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+TG,2018,370.3,3.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+TR,2018,39.6,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+UP,2018,2230.0,2.8,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+UK,2018,110.6,1.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+WB,2018,965.0,0.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+AN,2018,4.0,1.8,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+CH,2018,11.7,2.6,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+DL,2018,195.6,1.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+LD,2018,0.7,6.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+PY,2018,14.8,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+DN,2018,9.3,,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+IN,2018,13233.8,,"Technical Group on Population Projections (Nov 2019), as printed in CII 2018 Table 9A.1",projection,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+AP,2019,523.2,3.6,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+AR,2019,15.1,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+AS,2019,344.2,6.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+BR,2019,1201.1,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+CG,2019,288.5,0.6,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+GA,2019,15.4,1.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+GJ,2019,682.5,1.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+HR,2019,288.1,2.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+HP,2019,73.2,1.0,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+JK,2019,135.3,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+JH,2019,375.8,2.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+KA,2019,659.7,18.2,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+KL,2019,351.9,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+MP,2019,826.1,0.7,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+MH,2019,1225.3,4.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+MN,2019,31.1,0.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+ML,2019,32.3,2.8,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+MZ,2019,12.0,0.7,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+NL,2019,21.6,0.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+OD,2019,437.3,3.4,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+PB,2019,299.4,0.8,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+RJ,2019,776.0,2.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+SK,2019,6.7,0.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+TN,2019,758.1,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+TG,2019,372.8,7.2,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+TR,2019,40.0,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+UP,2019,2259.7,5.1,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+UK,2019,111.8,0.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+WB,2019,971.1,0.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+AN,2019,4.0,0.5,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+CH,2019,11.8,1.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+DL,2019,199.4,0.6,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+LD,2019,0.7,5.9,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+PY,2019,15.2,0.3,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+DN,2019,9.8,,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+IN,2019,13376.1,,"Technical Group on Population Projections (Nov 2019), as printed in CII 2019 Table 9A.1",projection,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+AP,2020,526.0,3.6,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+AR,2020,15.2,2.0,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+AS,2020,347.9,10.1,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+BR,2020,1219.0,1.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+CG,2020,292.4,1.0,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+GA,2020,15.5,2.6,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+GJ,2020,691.7,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+HR,2020,292.1,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+HP,2020,73.6,1.3,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+JH,2020,381.2,3.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+KA,2020,665.0,16.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+KL,2020,353.7,1.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+MP,2020,837.6,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+MH,2020,1236.8,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+MN,2020,31.4,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+ML,2020,32.6,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+MZ,2020,12.1,1.1,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+NL,2020,21.8,0.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+OD,2020,454.7,4.2,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+PB,2020,301.8,1.3,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+RJ,2020,786.1,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+SK,2020,6.7,0.0,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+TN,2020,761.7,1.0,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+TG,2020,375.4,13.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+TR,2020,40.4,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+UP,2020,2289.3,4.8,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+UK,2020,113.1,2.1,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+WB,2020,977.2,0.7,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+AN,2020,4.0,1.3,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+CH,2020,12.0,1.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+DN,2020,10.4,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+DL,2020,203.2,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+JK,2020,133.4,0.9,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+LA,2020,3.0,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+LD,2020,0.7,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+PY,2020,15.5,0.6,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+IN,2020,13533.9,,"Technical Group on Population Projections (July 2020), as printed in CII 2020 Table 9A.1",projection,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+AP,2021,528.5,3.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+AR,2021,15.4,3.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+AS,2021,351.6,13.8,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+BR,2021,1237.0,1.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+CG,2021,296.1,1.2,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+GA,2021,15.6,2.3,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+GJ,2021,700.8,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+HR,2021,296.0,2.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+HP,2021,74.1,0.9,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+JH,2021,386.4,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+KA,2021,669.9,12.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+KL,2021,355.4,1.8,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+MP,2021,848.6,0.7,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+MH,2021,1247.6,4.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+MN,2021,31.7,2.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+ML,2021,33.0,3.2,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+MZ,2021,12.2,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+NL,2021,22.0,0.4,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+OD,2021,457.9,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+PB,2021,304.0,1.8,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+RJ,2021,795.7,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+SK,2021,6.8,0.0,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+TN,2021,764.8,1.4,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+TG,2021,377.7,27.3,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+TR,2021,40.8,0.6,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+UP,2021,2317.0,3.8,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+UK,2021,114.4,6.3,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+WB,2021,982.9,0.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+AN,2021,4.0,2.0,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+CH,2021,12.1,1.2,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+DN,2021,11.1,0.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+DL,2021,207.0,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+JK,2021,134.4,1.1,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+LA,2021,3.0,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+LD,2021,0.7,1.5,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+PY,2021,15.8,0.0,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+IN,2021,13671.8,,"Technical Group on Population Projections (July 2020), as printed in CII 2021 Table 9A.1",projection,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+AP,2022,530.3,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+AR,2022,15.5,0.9,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+AS,2022,354.9,4.9,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+BR,2022,1255.3,1.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+CG,2022,299.5,1.5,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+GA,2022,15.7,5.7,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+GJ,2022,709.3,2.0,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+HR,2022,299.7,2.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+HP,2022,74.4,1.0,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+JH,2022,391.4,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+KA,2022,674.1,18.6,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+KL,2022,356.8,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+MP,2022,858.9,1.0,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+MH,2022,1257.4,6.6,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+MN,2022,32.0,0.6,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+ML,2022,33.3,2.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+MZ,2022,12.3,0.1,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+NL,2022,22.2,0.2,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+OD,2022,460.8,4.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+PB,2022,306.0,2.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+RJ,2022,804.4,2.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+SK,2022,6.8,3.8,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+TN,2022,767.1,2.7,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+TG,2022,379.5,40.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+TR,2022,41.2,0.7,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+UP,2022,2340.9,4.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+UK,2022,115.6,4.8,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+WB,2022,987.6,0.4,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+AN,2022,4.0,7.0,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+CH,2022,12.2,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+DN,2022,12.0,0.4,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+DL,2022,211.0,3.2,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+JK,2022,135.4,1.3,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+LA,2022,3.0,1.0,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+LD,2022,0.7,1.4,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+PY,2022,16.2,3.9,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+IN,2022,13797.5,,"Technical Group on Population Projections (July 2020), as printed in CII 2022 Table 9A.1",projection,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+AP,2023,532.2,4.4,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+AR,2023,15.7,1.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+AS,2023,358.2,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+BR,2023,1273.7,3.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+CG,2023,302.9,1.6,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+GA,2023,15.8,5.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+GJ,2023,717.9,2.8,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+HR,2023,303.3,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+HP,2023,74.8,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+JH,2023,396.3,2.7,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+KA,2023,678.3,32.3,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+KL,2023,358.2,9.2,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+MP,2023,869.2,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+MH,2023,1267.1,6.4,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+MN,2023,32.3,0.1,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+ML,2023,33.6,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+MZ,2023,12.4,2.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+NL,2023,22.4,0.1,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+OD,2023,463.7,5.1,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+PB,2023,308.0,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+RJ,2023,813.2,3.0,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+SK,2023,6.9,1.7,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+TN,2023,769.4,5.4,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+TG,2023,381.4,47.8,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+TR,2023,41.6,0.9,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+UP,2023,2364.8,4.6,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+UK,2023,116.8,4.2,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+WB,2023,992.4,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+AN,2023,4.0,11.7,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+CH,2023,12.4,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+DN,2023,12.9,0.5,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+DL,2023,214.9,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+JK,2023,136.4,1.4,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+LA,2023,3.0,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+LD,2023,0.7,1.4,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+PY,2023,16.6,8.9,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+IN,2023,13923.3,,"Technical Group on Population Projections (July 2020), as printed in CII 2023 Table 9A.1",projection,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+AP,2024,534.0,4.7,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+AR,2024,15.8,4.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+AS,2024,361.6,1.1,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+BR,2024,1292.1,4.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+CG,2024,306.4,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+GA,2024,15.9,4.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+GJ,2024,726.5,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+HR,2024,306.9,5.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+HP,2024,75.2,2.0,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+JH,2024,401.3,3.5,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+KA,2024,682.6,32.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+KL,2024,359.7,8.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+MP,2024,879.5,1.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+MH,2024,1276.8,7.8,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+MN,2024,32.6,0.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+ML,2024,33.9,2.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+MZ,2024,12.5,4.0,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+NL,2024,22.6,0.6,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+OD,2024,466.6,5.4,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+PB,2024,309.9,2.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+RJ,2024,821.9,1.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+SK,2024,7.0,2.2,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+TN,2024,771.7,7.5,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+TG,2024,383.2,71.1,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+TR,2024,41.9,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+UP,2024,2388.8,4.6,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+UK,2024,118.0,4.6,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+WB,2024,997.2,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+AN,2024,4.0,6.9,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+CH,2024,12.5,9.3,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+DN,2024,13.9,0.4,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+DL,2024,218.8,1.8,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+JK,2024,137.3,0.8,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+LA,2024,3.0,0.3,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+LD,2024,0.7,0.0,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+PY,2024,17.0,8.4,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+IN,2024,14049.1,,"Technical Group on Population Projections (July 2020), as printed in CII 2024 Table 9A.1",projection,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf

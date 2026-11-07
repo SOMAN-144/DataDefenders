@@ -1,0 +1,4 @@
+Observations: 9 (2016-2024)
+Selected by rolling-origin backtest: Linear trend (MAPE 11.9%)
+auto.arima on log cases, comparison only: ARIMA(0,1,0)
+NCRP amount and CERT-In incidents are deliberately not forecast: see methodology.

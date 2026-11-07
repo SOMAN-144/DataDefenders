@@ -1,0 +1,1313 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2148943" /><meta property="og:description" content="Government remains conscious of the cyber threats to India’s digital and physical infrastructure. Th" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="hubzg4yx2m6ei2xor6fq-f-70363e009-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":26,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"1395e180","ak.r":48061,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":57590,"ak.gh":"23.201.102.72","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794019211","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==8WQzESf26jZ/RuBw9BjY1+/RIpMOBam9uh7le1TjfuUKN53OHUrrzdeCN3Iaaa2O7odBnBHWL1SWQ6DKjuQgU2OnKsUR4/hn7nIY1kJjuXCORQVSLPmHuhfHHD2iRvBTYSyjIOnfP1RrZTi0WLfgYoK2qfYaePBw/jBB8NYRQNlqEWNw+vKUqMh81cyibwtju3cL0hSvGTMNX/ogbU7o8/a6MbQsD9D/oYkv7q0wko6VVAR4j/Y0Mk3WLiSr0rVOnjLl0YLVUwPPSIKbAJ0VGcwllF/M4rzj1d6Z0o6xIdxuNRQ1Tt0XirOVZyzxoj5gtugyMeb3NfaJQx6zpVG5lcgWSHaHOJvQj03E3YWmEr5jvr6UA1r23wveNuVQFUQ0v3xT60znHwntEWWACuewi/PWuX7AOnEW7aE6O8aAG/M=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2148943&amp;reg=48&amp;lang=2" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639191042600000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="PImlH8Jc9UX3B8+L/mx5J6GFAhuNu/oH3DQFJwjN2nyw1ckfnc9tTxljgc07tvPKu+N5NEnAPxWj7+DqGq/t5pxsiHW2aBH2X9FWfriPT5gc7kfVEu7xoSrhRwVZ6y/XJPXtggjdGz7xSexyEj6PfTFSqeYBDdwc18w01OPfxe5gmq0S/RyKYq1hKoYh9emBGKkp0FfFcUh2+LyBifEYjzFLlVp45R1uHuyfcqGSrR6jlH+eiVSK4Ot3vkOADrgNRPy0TENKcQmEmHlLuKvwyJ7ZUOE=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2148943" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Electronics & IT
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              26 JUL 2025 8:46PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Government remains conscious of the cyber threats to India&rsquo;s digital and physical infrastructure. The policies of Government of India are aimed at ensuring a safe, trusted, and accountable cyberspace for all users.&nbsp; Multiple initiatives have been undertaken to secure critical infrastructure sectors such as power, transport or banking for their uninterrupted and safe functioning.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:-4pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;Indian Computer Emergency Response Team (CERT-IN) and National Critical Information Infrastructure Protection Centre (NCIIPC) carry out cybersecurity audits under Information Technology Act and Rules made thereunder.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;The details of security and vulnerability audits of critical infrastructure sectors carried out in 2024-25 are under: </span></span></p>
+
+<table align="center" border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" class="Table" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Sector</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">CERT-In Security Audits (FY 2024-25)</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">NCIIPC audits</span></span></p>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;(FY 2024-25)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Power &amp; Energy</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">1,579</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">46</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Transport</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">582</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">3</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Banking, financial services, and insurance (BFSI</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">7,547</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">41</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">9,708</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">90</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">CERT-IN has empaneled 200 cybersecurity organizations for carrying out these audits. </span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government has undertaken several measures to improve cyber resilience which, inter alia, includes:</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In issues the necessary guidelines for setting up of State/sectoral Computer Security Incident Response Teams (CSIRTs).</span></span></p>
+
+<p style="margin-left:54pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">a. Sector-specific CSIRTs, such as CSIRT in Finance sector (CSIRT-Fin) and CSIRT in Power sector (CSIRT-Power), are operational to coordinate cyber security issues and improve cyber resilience within respective sectors. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2. Centre for Development of Advanced Computing (C-DAC) has developed a range of indigenous cyber security tools in mobile security, forensics, log collection &amp; analytics etc. to reduce reliance on foreign solutions. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">3.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In has formulated a Cyber Crisis Management Plan (CCMP) for all government bodies to counter cyber-attacks and cyber-terrorism. CCMP provides strategic framework to coordinate recovery from cyber-crisis and enhance resilience. </span></span></p>
+
+<p style="margin-left:54pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">a. In addition, guideline documents and templates have been published to assist development and implementation of state-level/sectoral Crisis Management Plans. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">4.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In also regularly conducts workshops for government bodies and key organizations to sensitize them about the cyber security threat landscape and enabling them to prepare &amp; implement the CCMP. So far, 205 such CCMP workshops have been conducted.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>This information was submitted by Union Minister of State for Electronics and Information Technology, Shri Jitin Prasada, in the Rajya Sabha on 25.07.2025</strong></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">******</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Dharmendra Tewari\Navin Sreejith</span></span></strong></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2148943)</span>
+                <span id="lblViews">Visitor Counter : 1682</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2149204' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2148973' target="_blank">
+                            हिन्दी </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2148943"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2148943"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2148943"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2148943"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2148943"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Electronics & IT
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          26 JUL 2025 8:46PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Government remains conscious of the cyber threats to India&rsquo;s digital and physical infrastructure. The policies of Government of India are aimed at ensuring a safe, trusted, and accountable cyberspace for all users.&nbsp; Multiple initiatives have been undertaken to secure critical infrastructure sectors such as power, transport or banking for their uninterrupted and safe functioning.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:-4pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;Indian Computer Emergency Response Team (CERT-IN) and National Critical Information Infrastructure Protection Centre (NCIIPC) carry out cybersecurity audits under Information Technology Act and Rules made thereunder.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;The details of security and vulnerability audits of critical infrastructure sectors carried out in 2024-25 are under: </span></span></p>
+
+<table align="center" border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" class="Table" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Sector</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">CERT-In Security Audits (FY 2024-25)</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">NCIIPC audits</span></span></p>
+
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;(FY 2024-25)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Power &amp; Energy</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">1,579</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">46</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Transport</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">582</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">3</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Banking, financial services, and insurance (BFSI</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">7,547</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">41</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:159.75pt">
+			<p style="margin-left:12pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Total</span></span></p>
+			</td>
+			<td style="width:147.75pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">9,708</span></span></p>
+			</td>
+			<td style="width:160.5pt">
+			<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">90</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">CERT-IN has empaneled 200 cybersecurity organizations for carrying out these audits. </span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Government has undertaken several measures to improve cyber resilience which, inter alia, includes:</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In issues the necessary guidelines for setting up of State/sectoral Computer Security Incident Response Teams (CSIRTs).</span></span></p>
+
+<p style="margin-left:54pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">a. Sector-specific CSIRTs, such as CSIRT in Finance sector (CSIRT-Fin) and CSIRT in Power sector (CSIRT-Power), are operational to coordinate cyber security issues and improve cyber resilience within respective sectors. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2. Centre for Development of Advanced Computing (C-DAC) has developed a range of indigenous cyber security tools in mobile security, forensics, log collection &amp; analytics etc. to reduce reliance on foreign solutions. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">3.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In has formulated a Cyber Crisis Management Plan (CCMP) for all government bodies to counter cyber-attacks and cyber-terrorism. CCMP provides strategic framework to coordinate recovery from cyber-crisis and enhance resilience. </span></span></p>
+
+<p style="margin-left:54pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">a. In addition, guideline documents and templates have been published to assist development and implementation of state-level/sectoral Crisis Management Plans. </span></span></p>
+
+<p style="margin-left:36pt; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">4.&nbsp;&nbsp;&nbsp;&nbsp; CERT-In also regularly conducts workshops for government bodies and key organizations to sensitize them about the cyber security threat landscape and enabling them to prepare &amp; implement the CCMP. So far, 205 such CCMP workshops have been conducted.</span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px"><strong>This information was submitted by Union Minister of State for Electronics and Information Technology, Shri Jitin Prasada, in the Rajya Sabha on 25.07.2025</strong></span></span></p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+<p style="margin-left:0cm; margin-right:0cm; text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">******</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Dharmendra Tewari\Navin Sreejith</span></span></strong></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2148943)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&text=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&title=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&text=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2148943&title=Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="Government Strengthens Cybersecurity Across Critical Sectors; Over 9,700 CERT-In Audits Conducted in 2024–25" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Government remains conscious of the cyber threats to India&amp;rsquo;s digital and physical infrastructure. The policies of Government of India are aimed at ensuring a safe, trusted, and accountable cyberspace for all users.&amp;nbsp; Multiple initiatives have been undertaken to secure critical infrastructure sectors such as power, transport or banking for their uninterrupted and safe functioning.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:-4pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;Indian Computer Emergency Response Team (CERT-IN) and National Critical Information Infrastructure Protection Centre (NCIIPC) carry out cybersecurity audits under Information Technology Act and Rules made thereunder.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;The details of security and vulnerability audits of critical infrastructure sectors carried out in 2024-25 are under: &lt;/span>&lt;/span>&lt;/p>
+
+&lt;table align=&quot;center&quot; border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot; class=&quot;Table&quot; style=&quot;border-collapse:collapse&quot;>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td style=&quot;width:159.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Sector&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:147.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>CERT-In Security Audits (FY 2024-25)&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:160.5pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>NCIIPC audits&lt;/span>&lt;/span>&lt;/p>
+
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;(FY 2024-25)&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;width:159.75pt&quot;>
+			&lt;p style=&quot;margin-left:12pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Power &amp;amp; Energy&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:147.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>1,579&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:160.5pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>46&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;width:159.75pt&quot;>
+			&lt;p style=&quot;margin-left:12pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Transport&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:147.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>582&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:160.5pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>3&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;width:159.75pt&quot;>
+			&lt;p style=&quot;margin-left:12pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Banking, financial services, and insurance (BFSI&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:147.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>7,547&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:160.5pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>41&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;width:159.75pt&quot;>
+			&lt;p style=&quot;margin-left:12pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Total&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:147.75pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>9,708&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:160.5pt&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>90&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>CERT-IN has empaneled 200 cybersecurity organizations for carrying out these audits. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Government has undertaken several measures to improve cyber resilience which, inter alia, includes:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;nbsp;1.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; CERT-In issues the necessary guidelines for setting up of State/sectoral Computer Security Incident Response Teams (CSIRTs).&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:54pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>a. Sector-specific CSIRTs, such as CSIRT in Finance sector (CSIRT-Fin) and CSIRT in Power sector (CSIRT-Power), are operational to coordinate cyber security issues and improve cyber resilience within respective sectors. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:36pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2. Centre for Development of Advanced Computing (C-DAC) has developed a range of indigenous cyber security tools in mobile security, forensics, log collection &amp;amp; analytics etc. to reduce reliance on foreign solutions. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:36pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>3.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; CERT-In has formulated a Cyber Crisis Management Plan (CCMP) for all government bodies to counter cyber-attacks and cyber-terrorism. CCMP provides strategic framework to coordinate recovery from cyber-crisis and enhance resilience. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:54pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>a. In addition, guideline documents and templates have been published to assist development and implementation of state-level/sectoral Crisis Management Plans. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:36pt; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>4.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; CERT-In also regularly conducts workshops for government bodies and key organizations to sensitize them about the cyber security threat landscape and enabling them to prepare &amp;amp; implement the CCMP. So far, 205 such CCMP workshops have been conducted.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&lt;strong>This information was submitted by Union Minister of State for Electronics and Information Technology, Shri Jitin Prasada, in the Rajya Sabha on 25.07.2025&lt;/strong>&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;margin-left:0cm; margin-right:0cm; text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>******&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Dharmendra Tewari\Navin Sreejith&lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="RIHVevJ4TxpRg3mmvfiUFAWoPsGwK9iEMZQE1bTMJe-OqZt__qIoCfhdcMkrpeN5fC7Fy62u8eL7uNQTc4veWDemnCaBqpXXD_WNaM8Cpr1T2QZkbnbvbQ=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>

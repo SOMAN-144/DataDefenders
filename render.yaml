@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: india-cybercrime-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false # Set this to your Vercel URL, e.g. https://your-site.vercel.app

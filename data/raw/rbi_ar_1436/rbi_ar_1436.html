@@ -1,0 +1,1592 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Annual Report | Official Website of Reserve Bank of India </title>
+    <meta name="description" content="Annual Report - Reserve Bank of India" />
+    <meta name="keyword" content="RBI Annual Report" />
+    <meta name="author " content="Reserve Bank of India" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="/js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body onload="SetTreeStyles()">
+    <form method="post" action="./AnnualReportPublications.aspx?Id=1436" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzY1MDIzMjgyZGTirogjiSKWyp2H7A6jss5xWpxVi6DImZfEwxE9PMK7EA==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E309B892" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAwK4FgjMZGo32+EsU73+QFSlK+XrsQEVyjeDxQ0A4GYXM3IfYFEMdbtkmb6zzJSc2CLrBfuDtX7nV3nL+5njT0xpTvjNMInTm7jDqH04NfPDGQ6cu1iZ73N7YF2NPAmCyQ/q33cCQLgaFQSElESF1pcG6ARGh77hh0/r4ObuL1TAsg3NivnNEt6QsKSovCCK9t9xf1loRXvygROM/A1O+NHJounKCGGAHd04zzVhBPZz3RgTJ25FWigbeFr84Vgoxd85GmzTs9g56MExTizjelamo8ZO6PQqH+9hU02GyNvAg==" />
+</div>
+        <input type="hidden" name="hdnYear" id="hdnYear" />
+        
+<link href="/JQuery/css/jquery-ui-1.8.18.custom2.css" rel="stylesheet" type="text/css" />
+<link href="/includes/print.css" rel="stylesheet" media="print" type="text/css" />
+
+<link href="/Styles/960.css?v=1.0" rel="stylesheet" type="text/css" />
+<link href="/Includes1/rbi.css?v=5.0" rel="Stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/libs/jquery.min.js"></script>
+<script type="text/javascript" src="/JQuery/ui/jquery.ui.revampRBI.js"></script>
+<script type="text/javascript" src="/js/ImgSaveDisable.js"></script>
+
+<script type="text/javascript">
+  
+//Redirect to mobile site start
+    function detectmob() {
+        if (screen.width <= 599 || screen.Height <= 975) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (detectmob()) {
+       window.location.href = "https://m.rbi.org.in" + window.location.pathname;
+		
+       
+    }
+
+	//Redirect to mobile site End
+    $(document).ready(function () {
+        Search();
+	SearchLastUpdateDate(); //Fetch Last Date Page
+    });
+
+
+
+  // Fetch Last Date Page
+
+    function SearchLastUpdateDate() {
+        var strFilterComments = new RegExp("^[a-zA-Z0-9 =_:.&?'%,()-–]+$");
+	var url=window.location.href;
+	if(url.indexOf("WSSViewDetail.aspx")>0 || url.indexOf("PublicationReportDetails.aspx")>0)
+	{
+		url=url.substring(url,url.indexOf("?"));
+	}
+        var param = { keyWord1: url.slice(url.lastIndexOf('/') + 1) };
+	param.keyWord1=param.keyWord1.replaceAll("%20"," ");
+	if(param.keyWord1.indexOf("#")>0)
+	{
+		param.keyWord1=param.keyWord1.substring(param.keyWord1,param.keyWord1.indexOf("#"));
+	}
+        if (!strFilterComments.test(param.keyWord1)) {            
+            return false;
+        }
+        else {
+            $.ajax({
+                url: "/Home.aspx/GetLastUpdateDate_new",
+                data: JSON.stringify(param),
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataFilter: function (data) { return data; },
+                success: function (data) {
+                    if (data.d.length > 0) {
+                        $('#lblGetLastUpdateDate').text(data.d);
+                    }
+                    else {
+                        response([{ label: "No results found", value: ""}]);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+
+        }
+    }
+    // Fetch Last Date Page
+
+
+
+    function Search() {
+        highlightTextAutocomplete();
+        $(".autoSuggest").autocomplete({
+
+
+            source: function (request, response) {
+                var param = { keyWord: document.getElementById('txtSearch').value };
+
+                $.ajax({
+                    url: "/Home.aspx/GetKeywords",
+                    data: JSON.stringify(param),
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataFilter: function (data) { return data; },
+                    success: function (data) {
+
+                        if (data.d.length > 0) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    value: RemoveSpecialChars(item)
+
+                                }
+                            }))
+                        }
+                        else {
+                            response([{ label: "No results found", value: ""}]);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert(textStatus);
+                    }
+                });
+            },
+
+            
+            minLength: 3
+
+        });
+    }
+
+    function highlightTextAutocomplete() {
+
+        var oldFn = $.ui.autocomplete.prototype._renderItem;
+
+        $.ui.autocomplete.prototype._renderItem = function (ul, item) {
+
+            var t = String(item.value).replace(
+                new RegExp(this.term, "gi"),
+                "<span class='ui-state-highlight'>$&</span>");
+            if (item.value != "") {
+                return $("<li class='borderAutocomplete'></li>")
+                  .data("item.autocomplete", item)
+                  .append("<a role='link'>" + t + "</a>")
+                  .appendTo(ul);
+            }
+
+            else {
+                return $("<li></li>")
+                  .data("item.autocomplete", item)
+                  .append("")
+                  .appendTo(ul);
+            }
+        };
+    }
+
+
+    function RemoveSpecialChars(inputText) {
+        var filteredString = inputText.replace(/[\*\^\'\!\@\$\.\#\(\)\-\?\<\>\;\"\&\+\{\}\:]/g, '');
+        
+        return filteredString;
+    }
+    
+
+    function LoadSearchData(id, key) {
+        if (id == "txtSearch") {
+            if (key == 13) {
+                validateSearchText();
+                return false;
+            }
+        }
+        else validateSearchText();
+        return true;
+    }
+    function validateSearchText() {
+        if (validation()) {
+            var strloc = new String(document.location.href.toString());
+            if (strloc.indexOf("SearchResults.aspx") == -1) {//             
+                window.open("/scripts/SearchResults.aspx?search=" + document.getElementById("txtSearch").value,"_self");
+            }
+            else window.open("/scripts/SearchResults.aspx?search=" + document.getElementById("txtSearch").value,"_self");
+        }
+    }
+    function validation() {
+        strSearch = trim(document.getElementById('txtSearch').value);
+        if (strSearch == "") { alert('Please enter the search text'); return false; }
+        else {
+           
+            var strFilterChars = new RegExp("^[0-9a-zA-Z ]*$");
+            if (!strFilterChars.test(strSearch)) { alert("Please remove special characters from search text"); return false; }
+        }
+        return true;
+    }
+    function trim(value) {
+        value = value.replace(/^\s+/, '');
+        value = value.replace(/\s+$/, '');
+        return value;
+    }
+
+</script>
+
+    <style type="text/css">
+    .blink_msm1 
+{
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 3s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@-moz-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+.blink_NewWebsite {
+        animation:blinker 1.5s linear 3;
+        color:blue;
+        font-size:1.5em;
+        margin-bottom:0px;
+        }
+    @keyframes blinker
+    {
+        50%{
+            opacity:0;
+        }
+    }
+
+.sr-only {
+position: absolute;
+left: -9999px;
+}
+</style>
+<div class="top_setting">
+    <div class="container_12">
+        <div class="grid_5 top_settings">
+            <a href="#mainsection">Skip to main content </a>
+        </div>
+        <div id="UsrFontCntr_tblThemes" style="float: right" class="grid_4 prefix_3 top_settings">
+            <ul style="margin:0px; padding:0px;">
+               <li class="fonts"> 
+                <a id="UsrFontCntr_LinkBtnSpace" role="button" title="Increase Letter Spacing" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnSpace&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/letspace.png" alt="Increase Letter Spacing" />
+                                <span id="UsrFontCntr_spanBtnSpace" class="sr-only">Not Pressed</span></a>                                
+            </li>
+
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontIncrease" role="button" title="Increase Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontIncrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-increase.gif" alt="Increase Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontRegular" role="button" title="Regular Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontRegular&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-reset.gif" alt="Regular Font Size" />
+                    
+                </a>
+            </li>
+            <li class="fonts">
+                <a id="UsrFontCntr_LinkBtnFontDecrease" role="button" title="Decrease Font Size" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnFontDecrease&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/font-decrease.gif" alt="Decrease Font Size" />
+                    
+                </a>
+            </li></ul>
+		<ul style="margin:0px;padding:0px;">
+            <li class="black">
+                <a id="UsrFontCntr_LinkBtnAccessibilty" role="button" title="Apply Dark Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/dark-theme.gif" alt="Apply Dark Theme" />
+                    
+                </a>
+            </li>
+            <li class="white">
+                <a id="UsrFontCntr_LinkBtnUndoAccessibilty" role="button" title="Apply Normal Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnUndoAccessibilty&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/bright-theme.gif" alt="Apply Normal Theme" />
+                     
+                </a>
+            </li>
+            <li class="white">
+            <a id="UsrFontCntr_LinkBtnGreyScale" role="button" title="Apply Grey Theme" href="javascript:__doPostBack(&#39;UsrFontCntr$LinkBtnGreyScale&#39;,&#39;&#39;)" style="text-decoration:none;"><img src="/images/graytheme.gif" alt="Apply Grey Theme" />
+                                
+                                </a></li>
+
+            </ul>
+		<div>
+		     <a href="#" onclick="javascript:window.print();" id="A1" title="Print This Page" style="text-decoration:none;" >
+                <img src="/images/print-icon.png" alt="Print this page" class="print" />
+		</a></div>
+            <div style="float: right">
+                <label style="margin-right: 6px;">
+                    Change Language</label>
+			
+			<a href="#" onclick="SetLink();" class="link1" title="Change language to Hindi">हिंदी</a>
+			</div>
+                   
+        </div>
+        <div class="clearfix">
+        </div>
+    </div>
+   
+</div>
+<div class="container_12">
+    <div class="grid_4" role="banner">
+        <div class="logo">
+            <a href="/home.aspx" >
+                <img src="/images/rbi-company-logo.jpg" alt="Logo of Official website of Reserve Bank of India" /></a></div>
+    </div>
+    <div class="grid_5" align="right" role="search" style="float: right">
+        <label for="searchbox" class="search_label">
+            Search the Website</label>
+        <input name="UsrFontCntr$txtSearch" type="text" maxlength="103" id="txtSearch" class="search_box autoSuggest" title="Search the Website" aria-label="Search the Website" onkeydown="return LoadSearchData(&#39;txtSearch&#39;,event.keyCode);" placeHolder="Search" />
+        <button id="btnSearch" onclick="return LoadSearchData('btnSearch',event.keyCode);"
+            type="button" class="search_button">
+            Search</button>
+    </div>
+	<div class="grid_2" align="CENTER" role="" style="float: right">
+        <div class="logo" >
+           
+            <img src="../images/BBBP_Logo_4.png" alt="Beti Bachao Beti Padhao Logo" style="width:47%;">
+        </div>
+    	</div>
+    <div class="clearfix">
+    </div>
+</div>
+<!--  NAVIGATION START-->
+<nav role="navigation" aria-label="Main">
+       <div class="menu"><div class="centermenu">
+<ul class="menu">
+  <li><a href="https://rbi.org.in/home.aspx">Home</a></li>
+<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-Sub1">About Us ▼</a>
+ <ul class="submenu1" id="Ab-Sub1" >
+	 <li><a href="/scripts/AboutUsDisplay.aspx">About Us</a></li>
+     <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-org">Organisation & Functions <span aria-hidden="true">▶</span></a>
+		 <ul class="submenu1" id="Ab-org">             
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=OrganizationStructure.htm">Organisation Structure</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=Depts.htm">Departments</a></li>
+            <li><a href="Regionaloffices.aspx">Offices</a></li>
+			<li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-tra">Training Establishment <span aria-hidden="true">▶</span></a>                
+				<ul class="submenu1" id="Ab-tra">
+                    <li ><a href="https://cab.rbi.org.in" target="_blank" id="CBOverview">College of Agricultural Banking</a></li>
+                    <li ><a href="/scripts/rbsc.aspx" id="CBNotifications">Reserve Bank Staff College</a></li>
+					<li ><a href="https://cos.rbi.org.in/" id="CBSupervisors">College of Supervisors</a></li>
+                </ul>
+            </li>
+            <li><a href="/scripts/OccasionalPublications.aspx?head=RBI%27s%20Functions%20and%20Working">RBI's Functions and Working</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=PastGovernors.htm">Governors</a></li>
+			<li><a href="/scripts/AboutUsDisplay.aspx?pg=deputygovernors.htm">Deputy Governors</a></li>
+			<li><a href="/scripts/AboutUsDisplay.aspx?pg=ExecutiveDirectors.htm">Executive Directors</a></li>
+        </ul>		
+	 </li>
+<li><a href="AboutUsDisplay.aspx?pg=MediaKit.htm">Media Kit</a></li>
+	 <li><a href="CommunicationPolicy.aspx">Communication Policy of RBI</a></li>
+	
+     <li>
+        <a href="#" aria-expanded="false" role="button" aria-controls="Ab-soi">Sources of Information <span aria-hidden="true">▶</span></a>
+        <ul class="submenu1" id="Ab-soi">
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#AP">Annual Publications</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#HP">Half-yearly Publications</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#QP">Quarterly Publications</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#MP">Monthly Publications</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#WP">Weekly Publications</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#OP">Occasional Publications</a></li>
+            <li><a href="/scripts/SDDSview.aspx">SDDS</a></li>
+            <li><a href="/scripts/BS_NSDPDisplay.aspx">NSDP</a></li>
+            <li><a href="/scripts/Statistics.aspx">Data Releases</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#PS">Publications available on Subscription</a></li>
+            <li><a href="/scripts/AboutUsDisplay.aspx?pg=AllPublications.htm#GI">General Information</a></li>	  
+        </ul>
+     </li>  
+	 <li><a href="/scripts/Project1.aspx">RBI History</a></li>
+	 <li><a href="#" aria-expanded="false" role="button" aria-controls="Ab-mus">Museum <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="Ab-mus">
+			<li><a href="https://therbimuseum.rbi.org.in/">The RBI Museum</a></li>
+			<li><a href="/scripts/ic_museum.aspx">RBI Monetary Museum</a></li>
+         </ul>
+	 </li>
+</ul>
+</li>
+  <li>
+    <a href="#" aria-expanded="false" role="button" aria-controls="No-Sub1">Notifications ▼</a>
+    <ul class="submenu1" id="No-Sub1">
+      <li><a href="/scripts/NotificationUser.aspx">Notifications </a></li>
+             <li><a href="/scripts/BS_ViewMasterDirections.aspx">Master Directions </a></li>
+             <li><a href="/scripts/BS_ViewMasterCirculardetails.aspx">Master Circulars </a></li> 
+	     <li><a href="/scripts/Fs_AmendmentDirections.aspx">Amendment Directions </a></li> 
+	     <li><a href="#" aria-expanded="false" role="button" aria-controls="No-draft">Draft Notifications/Guidelines <span aria-hidden="true">▶</span></a>
+		<ul class="submenu1" id="No-draft">
+			<li><a href="/scripts/DraftNotificationsGuildelines.aspx">Draft Notifications/Guidelines</a></li>
+			<li><a href="/scripts/BS_ViewREwiseDraftDirections.aspx">Draft Directions (RE-wise)</a></li> 
+         	</ul>
+	     </li>
+
+            
+             <li><a href="/scripts/BS_CircularIndexDisplay.aspx">Index To RBI Circulars </a></li> 
+             <li><a href="/scripts/BS_ViewListofstandalonecirculars.aspx">Standalone Circulars </a></li>
+             <li><a href="/scripts/NotificationUserWithdrawnCircular.aspx">Circulars Withdrawn </a></li>
+
+      
+    </ul>
+  </li>
+
+  <li><a href="/scripts/BS_PressReleaseDisplay.aspx">Press Releases</a></li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Sp-Sub1">Speeches & Media Interactions ▼</a>
+	<ul class="submenu1" id="Sp-Sub1">
+	  <li><a href="/scripts/BS_ViewSpeeches.aspx">Speeches</a></li>
+      <li><a href="/scripts/BS_ViewInterviews.aspx">Media Interactions</a></li>
+      <li><a href="/scripts/Lectures.aspx">Memorial Lectures</a></li>
+      <li><a href="/scripts/BS_ViewPodcast.aspx">Podcasts</a></li>
+	</ul>
+  </li>
+  <li><a href="#"  aria-expanded="false" role="button" aria-controls="Pu-Sub1">Publications ▼</a>
+		<ul class="submenu1" id="Pu-Sub1">
+			<li><a href="/scripts/Publications.aspx?publication=Biennial">Biennial</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Annual">Annual</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=HalfYearly">Half-Yearly</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Quarterly">Quarterly</a></li>
+		    <li><a href="/scripts/Publications.aspx?publication=Bimonthly">Bi-monthly</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Monthly">Monthly</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Weekly">Weekly</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Occasional">Occasional</a></li>
+            <li><a href="/scripts/Publications.aspx?publication=Reports">Reports</a></li>
+		    <li><a href="/scripts/OccasionalPublications.aspx?head=Working Papers">Working Papers</a></li>
+		</ul>
+	</li>				  
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Le-Sub1">Legal Framework ▼</a>
+	<ul class="submenu1" id="Le-Sub1">
+	   <li><a href="/scripts/Act.aspx">Act </a></li>
+       <li><a href="/scripts/Rules.aspx">Rules </a></li>
+       <li><a href="/scripts/Regulations.aspx">Regulations </a></li> 
+       <li class="last"><a href="/scripts/Schemes.aspx">Schemes </a></li>
+	   </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="Re-Sub1">Research ▼</a>
+		<ul class="submenu1" id="Re-Sub1">
+			<li><a href="/Scripts/ExternalResearchSchemes.aspx">External Research Schemes</a></li>
+			<li><a href="/Scripts/OccasionalPapers.aspx">RBI Occasional Papers</a></li>
+			<li><a href="/Scripts/OccasionalPublications.aspx?head=Working%20Papers">Working Papers</a></li>
+			<li><a href="/Scripts/BS_ViewBulletin.aspx">RBI Bulletin</a></li>
+			<li><a href="/Scripts/Project1.aspx">History</a></li>
+			<li><a href="/Scripts/Occas_DRG_Studies.aspx">DRG Studies</a></li>
+			<li><a href="/Scripts/KLEMS.aspx">KLEMS</a></li>
+			<li class="last"><a href="/Scripts/StateStatisticsFinances.aspx">State Statistics and Finances</a></li>
+        </ul>
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Statistics ▼</a>
+		<ul class="submenu1" id="St-Sub1">
+		  <li><a href="/scripts/Statistics.aspx">Data Releases</a></li>
+          <li><a href="https://data.rbi.org.in" target="_blank">Database on Indian Economy</a></li>
+          <li><a href="/scripts/FS_PDS.aspx">Public Debt Statistics</a></li>
+		</ul> 
+  </li>
+  <li><a href="#" aria-expanded="false" role="button" aria-controls="St-Sub1">Regulatory Reporting ▼</a>
+		<ul class="submenu1">
+			<li><a href="/scripts/BS_Listofallreturns.aspx">List of Returns</a></li>
+			<li><a href="/scripts/DataDefinition.aspx">Data Definition</a></li>
+			<li><a href="/scripts/ValidationRules.aspx">Validation rules/ Taxonomy</a></li>
+			<li><a href="/scripts/ReportingPlaform.aspx">List of RBI Reporting Portals</a></li>
+			<li class="last"><a href="/scripts/ReportingFAQ.aspx">FAQs of RBI Reporting Portals</a></li>
+		</ul>
+   </li>
+</ul>
+</div></div>
+</nav>
+<div class="container_12" >
+    <section>
+        <div class="grid_12" >
+            <div id="dialogAlert" title="" tabindex="-1"  style="text-align: center; display: none;">
+                <p id="AM_Message" tabindex="-1" style="color: #444; font-size: 15px; margin: 20px 0; min-height: 40px;"></p>
+            </div>
+        </div>
+    </section>
+</div>
+<!--  NAVIGATION END-->
+<!--HEADER END-->
+<input type="submit" name="UsrFontCntr$btn" value="" id="btn" style="visibility: hidden; height: 0px; width: 0px;" />
+
+<script type="text/javascript">
+    function SetLink() {
+        //a.href = "https://www.rbi.org.in/hindi/Home.aspx";
+        var txt="This will lead you to Hindi (हिन्दी) language website. Are you sure you want to switch to this language?"
+        if(window.confirm(txt)==true){
+            //document.cookie = 'preferLang' + '=;secure; expires=Thu, 01-Jan-70 00:00:01 GMT;path=/;';
+            window.location.replace("https://www.rbi.org.in/hindi/");
+        }
+        else return false;
+        
+    }
+
+
+
+
+	const allMenuItems = document.querySelectorAll("nav ul li");
+	
+	allMenuItems.forEach(item => {
+		item.addEventListener("focusin", (event) => {	
+			const MenuText =event.target.textContent;
+			const allMenuItems1 = document.querySelectorAll(".hasSubmenu");
+			allMenuItems1.forEach(item1 => {
+				if (MenuText === 'Press Releases')
+				{	
+					
+					item1.classList.remove('focused');
+					rollback(item1)
+					item1.classList.remove('open');
+				}
+			});
+			
+		});
+	});
+
+
+const menuItems = document.querySelectorAll(".hasSubmenu");
+menuItems.forEach(item => {
+	item.addEventListener("mouseenter", (event) => {
+		item.className="hasSubmenu open focused"
+		expandThis(item);
+	});
+	item.addEventListener("mouseleave", (event) => {		
+		rollback(item)
+		item.className="hasSubmenu"
+	});
+	item.addEventListener("focusin", (event) => {		
+		const allMenuItems = document.querySelectorAll("nav ul li");
+		allMenuItems.forEach(item1 => {
+			item1.classList.remove('focused');
+			if(item!==item1)
+			rollback(item1)
+			item1.classList.remove('open');	
+		});							
+		item.classList.add('focused');
+	});
+	item.addEventListener("focusout", (event) => {
+		
+		if(!item.className.includes('focused')){
+		
+		rollback(item)
+		item.className="hasSubmenu"
+		}
+		item.classList.remove('focused');
+		item.classList.remove('open');
+	});
+
+    item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+		if(item.className.includes("hasSubmenu open")){
+			rollback(item)
+			item.className="hasSubmenu"
+		}
+		else{
+          	item.className="hasSubmenu open focused"
+		var ele=item.querySelectorAll("a")[0];
+		
+		expandThis(item);	
+		}
+				
+        }
+	
+    });
+	
+});
+function expandThis(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+				    if ($targetul.queue().length <= 1) 
+				        if (this.istopheader)
+					$targetul.css({ left: $(this).children('a').eq(0).position().left, top: $mainmenu.position().top + this._dimensions.h - 2 })
+				            
+				    if (document.all && !window.XMLHttpRequest) 
+				        $mainmenu.find('ul').css({ overflow: (this.istopheader) ? 'hidden' : 'visible' })
+					
+					
+				    $targetul.dequeue().stop(true, true).slideDown(droplinemenu.animateduration.over)
+}
+const menuItemsf = document.querySelectorAll("nav .midmenu ul li");
+
+menuItemsf.forEach(item => {
+    item.addEventListener("keydown", (event) => {
+	
+	if(item.className.includes("last") ){
+		 if (pressedKeys['shift'] && event.key === "Tab"){}else{
+		var lastItem = document.getElementsByClassName('hasSubmenu open');
+		rollback(lastItem[0])
+		lastItem[0].className="hasSubmenu";
+		}
+	}
+	
+	});
+	
+	});
+	
+
+function rollback(menu){
+ var $targetul = $(menu).children("ul:eq(0)")
+$targetul.dequeue().stop(true, true).slideUp(droplinemenu.animateduration.out);
+}
+ 
+
+function setLetterSpace(val) {
+    
+	
+    if (false) {
+                    document.body.setAttribute("style", "letter-spacing:1px; line-height:20px; word-spacing:2px;");
+       
+    }
+    else {
+                    document.body.removeAttribute("style");
+    }
+    return false;
+
+    
+    }
+   
+
+// Toggle submenu
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if (submenu && submenu.classList.contains('submenu1')) {linkMessage();
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentLi = this.parentElement;
+
+                // Close sibling menus ONLY (not entire menu)
+                closeSiblings(parentLi);   
+ 
+
+               
+ 
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+        }
+        });
+    });
+
+    //  Close only sibling menus (important fix)
+    function closeSiblings(currentLi) {
+        const siblings = currentLi.parentElement.children;
+
+        Array.from(siblings).forEach(li => {
+            if (li !== currentLi) {
+            const submenus = li.querySelectorAll('.submenu1');
+        submenus.forEach(menu => menu.classList.remove('show'));
+    }
+    });
+    }
+
+    //  Click outside → close all
+    document.addEventListener('click', function () {
+		
+        document.querySelectorAll('.menu li > a').forEach(menu => {
+		if(menu.hasAttribute('aria-expanded')){
+            menu.setAttribute('aria-expanded','false');
+	}
+	
+    });
+
+    document.querySelectorAll('.submenu1').forEach(menu => {
+        menu.setAttribute('aria-hidden','true');
+    menu.classList.remove('show');
+	
+
+    });
+    });
+
+    //  Prevent closing when clicking inside menu
+    document.querySelector('.menu').addEventListener('click', function (e) {linkMessage();
+        e.stopPropagation();
+    });
+
+
+    //  Keyboard support
+    document.querySelectorAll('.menu li > a').forEach(link => {
+        link.addEventListener('keydown', function (e) {
+            const submenu = this.nextElementSibling;
+
+            if ((e.key === 'Enter' || e.key === ' ') && submenu) {
+                e.preventDefault();
+
+                const parentLi = this.parentElement;
+                closeSiblings(parentLi);
+
+
+                const isExpanded=link.getAttribute('aria-expanded') ==='true';
+                link.setAttribute('aria-expanded',!isExpanded);
+                submenu.hidden=isExpanded;
+                submenu.setAttribute('aria-hidden', isExpanded);
+                setTimeout(()=>{
+                    // Toggle current submenu
+                    submenu.classList.toggle('show', !isExpanded);
+            },50);
+
+
+           
+        }
+
+          if (e.key === 'Escape') {
+        document.querySelectorAll('.submenu').forEach(menu => {
+            menu.classList.remove('show');
+    });
+    this.blur();
+    }
+    });
+    });
+    // When focusing main menu items → close other submenus
+    document.querySelectorAll('.menu > li > a').forEach(item => {
+        item.addEventListener('focus', function() {
+
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                
+                if (menu !== this.nextElementSibling) {
+              
+
+            document.querySelectorAll('.menu li > a').forEach(menu => {
+                if(menu.hasAttribute('aria-expanded'))
+                menu.setAttribute('aria-expanded','false');
+		
+            document.querySelectorAll('.submenu1').forEach(menu => {
+                menu.setAttribute('aria-hidden','true');
+            
+            menu.classList.remove('show');
+            
+
+
+        });
+
+	
+    });
+
+    }
+    });
+
+    });
+    });
+
+    //  Close submenu when focus leaves it (TAB navigation)
+    document.querySelectorAll('.menu li').forEach(li => {
+        li.addEventListener('focusout', function (e) {
+            // Check if focus is still inside this <li>
+            if (!li.contains(e.relatedTarget)) {
+                const submenu = li.querySelector('.submenu1');
+                if (submenu) {
+                    submenu.classList.remove('show');
+                    if(li.querySelector('a').hasAttribute('aria-expanded'))
+                        li.querySelector('a').setAttribute('aria-expanded','false');
+	
+
+                    submenu.setAttribute('aria-hidden','true');
+                }
+            }
+        });
+    });
+</script>
+        <main class="container_12">
+        <a id="mainsection" name="mainsection"></a>
+
+        <nav aria-label="Breadcrumb" class="grid_12 breadcrumbs">
+<ul>
+                <li><a href="../home.aspx">Home</a></li>
+                <li><a href="publications.aspx">Publications</a></li>
+                <li><a href="publications.aspx">Annual</a></li>
+                <li><a href="AnnualReportMainDisplay.aspx">Annual Report Of The RBI</a></li>
+                <span id="lblNav"><li><a href="AnnualReportPublications.aspx?year=2012">VI. Regulation, Supervision and Financial Stability</a></li></span>
+            </ul>
+ </nav>
+
+        <div class="clear">
+        </div>
+        <div class="grid_11 omega right_blue_border">
+            <div id="example-one" class="text1">
+                <div class="list-wrap">
+                    <div id="annual">
+
+                        <h1 class="page_title">Annual Report</h1>
+                        <br />
+                        <span id="lblNote" style="text-align: justify"> <font color="RED"><b>Note : </b></font>To read the chapter of your choice, please click on the links below. You can also read past reports by accessing the archives in the right panel.</span>
+                        <div>
+                            <div id="doublescroll">
+                                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                    
+                                    <table class="tablebg" width="100%"> <tr><td class="tableheader" align="left"><a id='APDF_06REGULATION29052025B32EB726AB144B19B7D887E0324650BE' target="_blank" href="https://rbidocs.rbi.org.in/rdocs/AnnualReport/PDFs/06REGULATION29052025B32EB726AB144B19B7D887E0324650BE.PDF" aria-labelledby='APDF_06REGULATION29052025B32EB726AB144B19B7D887E0324650BE SPDF_06REGULATION29052025B32EB726AB144B19B7D887E0324650BE'>
+   <img alt='PDF - VI. Regulation, Supervision and Financial Stability' style='padding: 8px;' src="../Images/pdf.gif" border="0" align="absmiddle"></a> (<span id='SPDF_06REGULATION29052025B32EB726AB144B19B7D887E0324650BE' aria-hidden="true">352 kb</span>)</td></tr><tr><td class="tableheader" align="right"><b> Date : May 29, 2025</b></td></tr><tr><td align="center" class="tableheader"><b>VI. Regulation, Supervision and Financial Stability</b></td></tr><tr><td><table width="100%" border="0" align="center" class="td">  <tr>    <td><p><em>Preserving financial stability while building a resilient and sound financial system continued to remain as the primary objective of regulatory and supervisory initiatives during the year. Accordingly, several regulatory and supervisory measures were undertaken in line with global best practices towards further strengthening governance and risk management practices and regulatory reporting system. Harnessing technology for effective supervision along with a focus on enhancing cyber security, strengthening fraud detection mechanism and consumer protection were also pursued as concurrent objectives.</em></p>      <p>VI.1 The domestic financial system remained sound and resilient during the year. The Reserve Bank continued with concerted endeavours to fortify the financial system and promote responsible innovations amidst emerging challenges from technological disruptions, cyber risks and climate change. As part of the overall objective of aligning the regulatory/supervisory framework with global best practices, significant strides in the areas of risk management, regulatory compliance and enforcement, and consumer education and protection were undertaken during the year.</p>      <p>VI.2 The Department of Regulation (DoR) issued guidelines, inter alia, on key facts statement (KFS) on loans and advances; eligibility criteria for voluntary transition of small finance banks (SFBs) to universal bank; harmonisation of regulations applicable to housing finance companies (HFCs) and non-banking financial companies (NBFCs); submission of information to credit information companies (CICs) by asset reconstruction companies (ARCs); operational risk management and operational resilience; and prudential treatment to be followed while implementing debt relief schemes.</p>      <p>VI.3 The FinTech Department expanded the scope and coverage of central bank digital currency (CBDC) pilots by testing use cases of programmability and offline functionalities and distribution of CBDC wallets by select non-banks in CBDC-retail (CBDC-R); addition of standalone primary dealers to CBDC-wholesale (CBDC-W) ecosystem and upgradation in technical architecture; scaled up the ongoing pilot on unified lending interface (ULI) to include more lenders, data service providers and loan journeys; released framework for self-regulatory organisations (SROs) for FinTech sector and recognised an Association as SRO; and launched FinTech and EmTech repositories.</p>      <p>VI.4 The Department of Supervision (DoS) initiated measures to further strengthen and integrate both onsite and offsite supervision, including cyber/information technology (IT) related risk assessment, emphasis on fraud risk management and know your customer (KYC)/ anti-money laundering (AML) supervision; guidelines on prompt corrective action (PCA) framework for urban cooperative banks (UCBs); enhancing cross-border supervisory engagements with overseas authorities in key global jurisdictions; and development of supervisory data quality index (sDQI). The Consumer Education and Protection Department (CEPD) continued with its efforts towards augmenting consumer awareness on safe banking practices and extant customer service regulations and protection; and strengthening grievance redress mechanism.</p>      <p>VI.5 This chapter discusses regulatory and supervisory measures undertaken during 2024-25 to strengthen the financial system and to preserve financial stability. The rest of this chapter is divided into five sections. <a href="#S2" class="links">Section 2</a> deals with the mandate and functions of the Financial Stability Department (FSD). <a href="#S3" class="links">Section 3</a> dwells upon regulatory measures undertaken by the DoR along with activities of the FinTech Department. <a href="#S4" class="links">Section 4</a> covers supervisory measures undertaken by the DoS and enforcement actions carried out by the Enforcement Department (EFD). <a href="#S5" class="links">Section 5</a> highlights the role played by CEPD and Deposit Insurance and Credit Guarantee Corporation (DICGC) in protecting consumer interests, spreading awareness and upholding consumer confidence. The agenda of these departments for 2025-26 are covered in the respective sections of this chapter. Concluding observations are set out in the <a href="#S6" class="links">last section</a>.</p><p class="head"><a id="S2"></a>2. FINANCIAL STABILITY DEPARTMENT (FSD)</p>      <p>VI.6 The FSD monitors risks to macrofinancial stability and evaluates the resilience of the financial system by undertaking macroprudential surveillance. It also functions as the secretariat to the Sub-Committee of the Financial Stability and Development Council (FSDC), an inter-regulatory institutional forum for preserving financial stability and promoting financial sector development. The FSD brings out half-yearly Financial Stability Report (FSR), highlighting key macrofinancial vulnerabilities along with results of macro-stress tests under various risk scenarios.</p>      <p class="head">Agenda for 2024-25</p>      <p>VI.7 The Department had set out the following goals for 2024-25:</p>      <ul>        <li>          <p>Implementation of recommendations of the peer review (Utkarsh 2.0) [Paragraph VI.8];</p>        </li>        <li>          <p>Development of a non-banking stability map/index (Utkarsh 2.0) [Paragraph VI.9]; and</p>        </li>        <li>          <p>Enhancement of single-factor stress tests (Utkarsh 2.0) [Paragraph VI.9].</p>        </li>      </ul>      <p class="head">Implementation Status</p>      <p>VI.8 Based on the recommendations of the peer review, the macro-stress testing framework for scheduled commercial banks (SCBs) has been revised and includes: (i) projection of internally consistent adverse macrofinancial scenarios by performing simulations using vector autoregression with exogenous variables (VARX) model; (ii) projection of slippage ratio, interest income and interest expense at bank level using panel regression models; (iii) incorporation of market risk in the solvency stress testing framework; and (iv) increasing the scenario horizon of macro-stress test from currently one year to 1.5 - 2.0 years and generating projections of key financial ratios as at end of the ensuing financial years.</p>      <p>VI.9 To make an overall assessment of the risk factors that have a bearing on the stability of the NBFC sector, a non-banking stability map/ index has been developed. Further, based on the recommendation of the International Monetary Fund (IMF) peer review, the Department has replaced the erstwhile liquidity stress test of SCBs by operationalising liquidity coverage ratio (LCR)-based liquidity stress test as part of enhancing single factor stress tests.</p>      <p class="head">Agenda for 2025-26</p>      <p>VI.10 In the year ahead, FSD will focus on the following:</p>      <ul>        <li>          <p>To enhance the stress testing framework further, a liquidity stress test framework for NBFCs will be developed in-house. Further, the extension of macro stress test to the UCBs sector (Tier-3 and Tier-4) will be explored. In addition to extending the stress testing framework, the Department also plans to assess the impact of climate transition risk on major carbon intensive sectors and its impact on balance sheets of banks having exposure to emission intensive sectors; and</p>        </li>        <li>          <p>&lsquo;Growth-at-Risk&rsquo; model will be developed for understanding how financial conditions and the level of financial vulnerabilities contribute to the possibility of future episodes of weak economic growth by linking current macrofinancial conditions to the distribution of future growth.</p>        </li>      </ul>      <p class="head"><a id="S3"></a>3. REGULATION OF FINANCIAL INTERMEDIARIES</p>      <p class="head">Department of Regulation (DoR)</p>      <p>VI.11 DoR is the nodal Department for regulation of commercial banks, cooperative banks, NBFCs, CICs and all-India financial institutions (AIFIs)<sup data-toggle="tooltip" title="Export-Import (EXIM) Bank, National Bank for Agriculture and Rural Development (NABARD), National Housing Bank (NHB), Small Industries Development Bank of India (SIDBI) and National Bank for Financing Infrastructure and Development (NaBFID)."><a href="#F1" class="links">1</a></sup>. The regulatory design and implementation is aligned to the evolving requirements of the Indian economy while adapting to international best practices.</p>      <p class="head">Agenda for 2024-25</p>      <p>VI.12 The Department had set out the following goals for 2024-25:</p>      <ul>        <li>          <p>Review of guidelines on valuation of properties based on international best practices (Utkarsh 2.0) [Paragraph VI.13];</p>        </li>        <li>          <p>Regulatory framework for web-aggregation of loan products (Paragraph VI.14);</p>        </li>        <li>          <p>With a view to strengthen the extant regulatory framework governing project finance and to harmonise the instructions across all regulated entities (REs), the extant prudential norms for projects under implementation were reviewed, and a comprehensive regulatory framework applicable for all REs is proposed to be issued (Paragraph VI.15);</p>        </li>        <li>          <p>A discussion paper on introduction of Expected Credit Loss (ECL) framework for provisioning by banks was issued on January 16, 2023, soliciting comments from stakeholders. While comments on the discussion paper are being examined, an external working group - comprising domain experts from academia, industry and select major banks - was constituted in October 2023 to holistically examine and provide independent comments on some of the technical aspects. The guidelines on the subject are being finalised by incorporating the feedback received on the discussion paper and the recommendations of the working group which submitted its report in February 2024 (Paragraph VI.15);</p>        </li>        <li>          <p>The extant regulations on interest rates on advances vary across REs. In order to harmonise the same, a comprehensive review of the extant regulatory instructions is underway (Paragraph VI.16);</p>        </li>        <li>          <p>Delineating the role of various committees (viz., Audit Committee of the Board, Nomination and Remuneration Committee, and Risk Management Committee) in NBFCs as mentioned in the scale-based regulatory framework issued on October 22, 2021 (Paragraph VI.17);</p>        </li>        <li>          <p>Reviewing the requirement of obtaining prior approval of the Reserve Bank for change in management of NBFCs/HFCs, which would result in change in more than 30 per cent of the directors, excluding independent directors (Paragraph VI.17);</p>        </li>        <li>          <p>In view of the operationalisation of a new overseas investment regime under Foreign Exchange Management (Overseas Investment) Rules, 2022, a review of extant guidelines on overseas investments by NBFCs and CICs shall be undertaken (Paragraph VI.17);</p>        </li>        <li>          <p>In April 2021, an external committee was set up by the Reserve Bank to review the existing legal and regulatory framework applicable to ARCs and recommend measures to enhance their efficacy. Major recommendations of the Committee were implemented vide circular dated October 11, 2022. Remaining recommendations of the Committee shall be examined and implemented during 2024-25 (Paragraph VI.18);</p>        </li>        <li>          <p>Standalone primary dealers (SPDs) are placed in middle layer of the scale-based regulatory framework for NBFCs. However, unlike NBFCs, the SPDs are subject to guidelines on minimum capital requirements for market risk in view of their exposure to government securities and other market related products and are also eligible to undertake various core and non-core activities which an NBFC is not allowed to undertake. A review of the framework for market risk for SPDs would be undertaken to bring about convergence with Basel III standards for banks (Paragraph VI.18); and</p>        </li>        <li>          <p>Connected lending can involve moral hazard issues leading to compromise in pricing and credit management. The extant guidelines on the issue are limited in scope and are not applicable uniformly to all REs. As announced in the Reserve Bank&rsquo;s Statement on Developmental and Regulatory Policies (December 8, 2023), a unified regulatory framework on connected lending for all the REs will be put in place for which a draft circular will be issued for public comments (Paragraph VI.18).</p>        </li>      </ul>      <p class="head">Implementation Status</p>      <p>VI.13 In the process of lending, institutions create charge on various primary or collateral securities with a view to secure their exposures. Most of such securities are non-financial in nature such as land, building, plants, machinery and inventories. While there are explicit standards and regulations on objective valuation of financial securities, the extant instructions on valuation of non-financial securities are relatively broad in nature and vary across REs. With a view to harmonise the regulations in this regard across REs and to bring more consistency in the valuation process, a comprehensive review is currently underway.</p>      <p>VI.14 Presently, most lending service providers (LSPs) make available web-aggregation service by partnering with multiple lending partners. Generally, LSPs exercise discretion in choosing a suitable lender for a given borrower and seldom display all the available loan offers to the borrower for making an informed choice. In line with the objective of customer centricity in digital lending, it was proposed vide a draft circular dated April 26, 2024 to mandate REs to ensure that all LSPs having arrangements with multiple REs present a digital view of loan offers available to the borrowers from the willing lenders over their digital lending apps (DLAs). The digital view shall at least include details such as name of the RE, amount of loan, the annual percentage rate (APR), tenor and other associated terms and conditions. LSPs, while displaying all available options, shall not use any &lsquo;dark patterns&rsquo;<sup data-toggle="tooltip" title="Dark patterns are design interfaces and tactics used to trick users into desired behaviour."><a href="#F2" class="links">2</a></sup> in their user interface to nudge the borrowers in choosing a particular loan offer which may not be suited to their requirements. The final guidelines incorporating the feedback received from various stakeholders have been issued as part of &lsquo;Reserve Bank of India (Digital Lending) Directions, 2025&rsquo;.</p>      <p>VI.15 Based on a comprehensive review of experience of banks with regard to financing of project loans and the structural issues prevalent in the sector, the draft guidelines on the prudential norms for projects under implementation were issued on May 3, 2024. The draft guidelines aim to bring the norms in alignment with a more principle-based approach to resolution of such exposures, while ensuring that the REs recognise risks in a timely manner and build adequate buffers to absorb any future shocks that may arise from such exposures. The revised guidelines, taking into account the feedback received from the stakeholders, are being finalised. These guidelines will also be brought in alignment with the proposed provisioning regime based on expected credit loss (ECL), the draft circular on which is also under finalisation, incorporating the feedback received on the discussion paper issued earlier and the recommendations of the external working group.</p>      <p>VI.16 Extensive consultations<sup data-toggle="tooltip" title="Annex II of this Report provides a list of regulatory measures undertaken post public consultations during April 2022 to March 2025."><a href="#F3" class="links">3</a></sup> have been undertaken internally as well as with key stakeholders regarding the approach to be adopted relating to the framework on interest rates on advances, considering the objectives of monetary transmission, risk pricing and conduct related aspects. In order to solicit wider public feedback, it is proposed to issue a discussion paper delineating the various imperatives of moving to a harmonised regime for interest rates on loans and advances across all REs.</p>      <p>VI.17 The draft guidelines on functions and responsibilities of the board committees in NBFCs and HFCs are under consideration. The extant regulatory requirement for NBFCs/HFCs to obtain prior approval of the Reserve Bank for management changes involving more than 30 per cent of the directors, excluding independent directors, is also being reviewed. The draft circular on overseas investments by NBFCs and CICs for seeking public comments is underway.</p>      <p>VI.18 Appropriate guidelines on remaining recommendations of the ARC committee shall be issued in 2025-26. The market risk framework for SPDs would be reviewed based on the revised market risk framework for banks, which is currently underway. Connected lending or loans to related parties have inherent moral hazard issues. A comprehensive review of connected lending has been undertaken after considering the extant instructions and definition of related parties in statutes such as Income Tax Act, 1961, Insolvency and Bankruptcy Code, 2016, and Companies Act, 2013. Accordingly, the draft circular is under preparation and will be issued for public comments.</p>      <p class="head">Major Developments<sup data-toggle="tooltip" title="This sub section highlights the major circulars/guidelines issued by the DoR. Annex I of this Report provides a comprehensive department-wise chronology of policy announcements during April 2024 to March 2025."><a href="#F4" class="links">4</a></sup></p>      <p>Regulatory Principles for Management of Model Risks in Credit</p>      <p>VI.19 REs use models for variety of activities to facilitate and enhance decision making. The application of rule-based algorithms and machine learning (ML) have increased the reliance on such models. With a view to ensuring prudence and to impart robustness in usage of such models, a draft circular on &lsquo;Regulatory Principles for Management of Model Risks in Credit&rsquo; was issued on August 5, 2024, which provides broad regulatory principles to be followed for model risk management. The draft framework covers aspects related to governance and oversight, model development and deployment, and model validation framework. In light of the feedback received during the consultation period, the Reserve Bank will issue the finalised guidelines, which will encompass a broader scope to include models deployed across all relevant functional and operational domains.</p>      <p>Creation of a Directory of Digital Lending Apps (DLAs)</p>      <p>VI.20 Although the guidelines on digital lending issued in September 2022 cover the entire gamut of digital lending activities of REs, the issue of illegal lending apps has recently been gaining attention with reported harassment by such illegal apps. In many cases, these illegal apps falsely advertise their relationship with REs, with some entities creating a fake website of NBFC for listing their app as a partner app of the NBFC. Accordingly, to aid the customers in verifying the claim of DLAs&rsquo; association with REs, the Reserve Bank has issued instructions regarding operationalisation of the public directory of DLAs directing REs to furnish the details of their DLAs through the Centralised Information Management System (CIMS) portal of the Reserve Bank. REs have time till June 15, 2025 to report the initial data on the portal.</p>      <p>Key Facts Statement (KFS) on Loans and Advances</p>      <p>VI.21 As announced in the Reserve Bank&rsquo;s Statement on Developmental and Regulatory Policies (February 8, 2024), a circular regarding KFS on loans and advances applicable to retail, and micro, small and medium enterprise (MSME) loans extended by all REs was issued on April 15, 2024. REs are required to provide their borrowers a statement containing the key information regarding loan agreement, including all-in cost of the loan, in a simple and easy to understand format.</p>      <p>Banks&rsquo; Exposure to Capital Market - Issue of Irrevocable Payment Commitments (IPCs)</p>      <p>VI.22 The settlement cycle for equities has been revised to &lsquo;T+1&rsquo; from &lsquo;T+2&rsquo; (&lsquo;T&rsquo; being the trade day) by the stock exchanges. Accordingly, the risk mitigation measures for intra-day exposures of banks arising out of issuance of IPCs have been revised vide circular dated May 3, 2024 as follows: (i) capital market exposures (CME) shall be computed at 30 per cent of the settlement amount; (ii) intra-day CME to the counterparty shall be subject to large exposure limits; and (iii) in case any exposure remains outstanding at the end of &lsquo;T+1&rsquo;, capital will have to be maintained as per the extant norms.</p>      <p>Gold Monetisation Scheme (GMS), 2015 - Amendment</p>      <p>VI.23 Government of India, vide press release dated March 25, 2025 regarding GMS, decided to discontinue the medium-term and long-term government deposit (MLTGD) components of GMS effective March 26, 2025. Accordingly, any gold deposits tendered at the designated collection and purity testing centre (CPTC)/ GMS mobilisation, collection and testing agent (GMCTA)/designated bank branches towards MLTGD component of GMS shall not be accepted after March 25, 2025. The designated banks, at their discretion, may offer short term bank deposits (STBD) under GMS. The MLTGD mobilised till March 25, 2025 shall continue till redemption as per the extant guidelines.</p>      <p>Climate Risks and Sustainable Finance</p>      <p>VI.24 During the year, the Reserve Bank continued to foster an ecosystem of sustainable and green finance, and comprehensive assessment of climate change risks, besides capacity building via conducting two workshops for the middle management level staff of the REs covering several aspects of climate risk mitigation and finance, risk assessment and management, scenario analysis and stress testing. The Reserve Bank also hosted the annual plenary and steering committee meetings of the Network for Greening the Financial System (NGFS) and organised a national level policy seminar on &lsquo;Climate Change Risks and Finance&rsquo; for exchange of ideas between the various stakeholders.</p>      <p>Creation of Reserve Bank - Climate Risk Information System (RB-CRIS)</p>      <p>VI.25 In October 2024, the Reserve Bank announced the creation of RB-CRIS (data repository) to bridge data related gaps for undertaking climate risk assessments by REs. It is proposed to set up a web-based directory, listing various data sources, which will be publicly accessible on the Reserve Bank&rsquo;s website, along with a data portal comprising datasets (i.e., processed data in standardised formats) accessible to the REs (<a href="#BVI1" class="links">Box VI.1</a>).</p>      <p>Government Debt Relief Schemes (DRS)</p>      <p>VI.26 DRS generally entails funding by a fiscal authority to cover either part or the entire debt obligations of the borrower and may also cast obligations on lending institutions to sacrifice/ waive the remaining loan exposure. This has implications from a credit discipline standpoint and potentially creates moral hazard and prudential concerns, including delays in receipt of funds; mismatch between the claims admitted/ submitted by the REs and accepted by the government; and mandatory requirement to sanction fresh credit. Accordingly, a circular on government debt relief schemes was issued on December 31, 2024, containing, inter alia, the prudential treatment to be followed by the REs while implementing DRS. The circular also contains model operating procedure (MOP) for consideration of state governments while designing and implementing such schemes through a consultative approach and in line with the expectations of the stakeholders involved, including the government, lenders and borrowers.</p>      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">        <tr>  <td width="100%"><p align="center" class="head"><a id="BVI1"></a>Box VI.1</p>          <p align="center" class="head">Reserve Bank - Climate Risk Information System (RB-CRIS)</p>          <p>Climate change is emerging as one of the significant risks to the financial system. It is crucial for REs to undertake proper assessment, quantification and mitigation of climate change risks. One of the major challenges by the REs in this regard is to have a comprehensive assessment of its financial impact, which is constrained due to lack of high quality data, besides modelling challenges.</p>          <p>Climate change risks are generally of two types, viz., physical risk and transition risk. The estimation of physical risks requires hazard data in the form of susceptibility of geographical locations to events such as flood, drought, cyclone, sea-level rise and vulnerability data, i.e., financial loss data. The final assessment regarding climate risk would rest on the quality of such data.</p>          <p>Similarly, the assessment of transition risk faces issues relating to data gaps in terms of estimation of carbon prices, sectoral benchmark pathways and emission intensities. The data gaps are characterised by lack of uniform methodology, fragmentation in accessibility, lack of uniformity in publication of data and differences in metrics, units and formats. Although there are initiatives like NGFS, G20 Data Gap Initiative (DGI), and the Net-Zero Data Public Utility (NZDPU) to establish sources for comprehensive, consistent and comparable data; these initiatives need fine-tuning from a developing country perspective.</p>          <p>Against the above backdrop, the Reserve Bank has announced the creation of a data repository, viz., RB-CRIS, comprising two parts: (i) web-based directory, listing various data sources (meteorological and geospatial) which will be publicly accessible on the Reserve Bank&rsquo;s website; and (ii) data portal comprising datasets (processed data in standardised formats), accessible to the Reserve Bank&rsquo;s REs. Essentially, RB-CRIS is proposed to bridge and standardise three data gaps : (i) physical risk; (ii) transition risk; and (iii) carbon emission. Bridging these data gaps will ensure comprehensive assessment of the financial impact due to climate change risks, which will facilitate informed decision and policy making for the broader financial system.</p>          <p class="head">Reference:</p>          <p>Li, B., and Kroese, B. (2022), &lsquo;Bridging Data Gaps Can Help Tackle the Climate Crisis&rsquo;, IMF Blog, November 28.</p></td>        </tr>      </table>      <p>Exposures of SCBs to NBFCs</p>      <p>VI.27 To address the concerns on post-COVID risk build-up in certain segments of consumer credit and NBFCs&rsquo; growing reliance on SCBs for funding, a circular was issued on November 16, 2023 which, inter alia, increased the risk weights by 25 percentage points for certain consumer credit exposures of SCBs and NBFCs. Additionally, risk weight on SCB&rsquo;s exposure to NBFCs was increased by 25 percentage points in cases where the existing risk weight based on external ratings was below 100 per cent. On a review, vide a circular dated February 25, 2025, it was decided to restore the risk weight on SCBs funding to NBFCs to the risk weight associated with the given external rating of NBFCs (where the extant risk weight as per external rating of NBFCs is below 100 per cent).</p>      <p>Rupee Interest Rate Derivative Products - Small Finance Banks (SFBs)</p>      <p>VI.28 In order to provide greater flexibility and expand the avenues available for hedging interest rate risk in the balance sheet and commercial operations more effectively, SFBs were permitted to deal in permissible rupee interest rate derivative products.</p>      <p>Voluntary Transition of SFBs to Universal Banks</p>      <p>VI.29 On April 26, 2024, the Reserve Bank issued eligibility criteria for SFBs to transition into universal banks. The eligibility criteria require SFBs to have scheduled status, along with a satisfactory track record of performance for a minimum period of five years and its shares listed on a recognised stock exchange. Further, SFBs are required to have a minimum net worth of &#8377;1,000 crore as at the end of the previous quarter and meet their prescribed capital to risk-weighted assets ratio (CRAR) of 15 per cent. Moreover, they are mandated to have net profits in the preceding two financial years with gross non-performing asset (GNPA) and net non-performing asset (NNPA) ratios of less than or equal to 3 per cent and 1 per cent, respectively. Additionally, the eligible SFBs will be required to furnish a detailed rationale for the transition.</p>      <p>Formats of Financial Statements of Cooperative Banks</p>      <p>VI.30 The current format of the financial statements of cooperative banks was notified in 1981 under the Banking Regulation Act, 1949. Since then, there have been several developments in the financial market as well as accounting standards and practices. Accordingly, the Reserve Bank had undertaken a review of the format and released draft format on January 7, 2025 for public comments. The Reserve Bank is in the process of comprehensively reviewing the draft formats based on the comments/feedback received.</p>      <p>Forms of Business and Prudential Regulation for Investments</p>      <p>VI.31 In order to streamline the activities undertaken by banks and their group entities and provide more operational freedom to banks and non-operative financial holding companies (NOFHCs) for equity investments and setting up group entities, respectively, a draft circular on &lsquo;Forms of Business and Prudential Regulation for Investments&rsquo; was placed on the Reserve Bank&rsquo;s website on October 4, 2024, seeking feedback from stakeholders. Final guidelines would be issued based on the feedback received.</p>      <p>Harmonisation of Regulations Applicable to HFCs and NBFCs</p>      <p>VI.32 Post the transfer of regulation of HFCs from NHB to the Reserve Bank, various regulations have been issued treating HFCs as a category of NBFCs, duly considering their specialised nature. To ensure smooth regulatory transition, further harmonisation between the regulations of HFCs and NBFCs is being taken up in a phased manner. Accordingly, post a review, certain regulations of HFCs pertaining to deposit directions, diversification of activities, hedging avenues, technical specifications for account aggregator ecosystem and other miscellaneous regulations have been harmonised with NBFC regulations vide circular dated August 12, 2024, which became effective from January 1, 2025. Further, the guidelines on private placement of non-convertible debentures (NCDs) with maturity period of more than one year by HFCs were reviewed and have been completely aligned with NBFC regulations on the same vide circular dated January 29, 2025.</p>      <p>Submission of Information to Credit Information Companies (CICs) by ARCs</p>      <p>VI.33 With a view to align the CIC related guidelines for ARCs with the guidelines applicable to banks and NBFCs, and to maintain a track of borrowers&rsquo; credit history after transfer of loans by banks and NBFCs to ARCs, a circular on submission of information to CICs by ARCs was issued on October 10, 2024, the salient features of which include: (i) advising ARCs to become members of all four CICs; (ii) stipulating the submission of data by ARCs to CICs on a fortnightly basis or shorter intervals as agreed between the ARC and the CICs; (iii) prescription for rectification of rejected data within seven days of receipt of rejected data from CICs; and (iv) extension of best practices regarding regular submission/updation of data and customer grievance redressal to ARCs.</p>      <p>Guidelines on Settlement of Dues of Borrowers by ARCs</p>      <p>VI.34 Earlier guidelines on one-time settlement (OTS) of dues by ARCs, inter alia, required evaluation of all OTS proposals by an independent advisory committee (IAC) of professionals, followed by a review by the Board of Directors comprising at least two independent directors. Based on the feedback received, a comprehensive review of the OTS guidelines applicable to ARCs was undertaken and revised guidelines were issued on January 20, 2025, which, inter alia, prescribe that: (i) settlement should be done with the borrower after all possible ways to recover the dues have been examined and OTS is considered to be the best option available; (ii) settlement of accounts having aggregate outstanding value of more than &#8377;1 crore as well as of all accounts classified as fraud or wilful defaulter should be done after the proposal is examined by an IAC followed by a review by the Board of Directors comprising at least two independent directors; and (iii) settlement of accounts having aggregate outstanding value of less than &#8377;1 crore shall be done as per Board approved policy subject to the condition that any official who was part of the acquisition of the concerned financial asset shall not be part of processing/approving the OTS proposal of the same financial asset.</p>      <p>NBFC - Peer to Peer (NBFC-P2P) Lending Platform (Reserve Bank) Directions, 2017</p>      <p>VI.35 During the course of supervisory examinations, several concerns were observed in the operations of NBFC-P2Ps, which were not in conformity with the regulatory prescriptions. To ensure proper understanding of regulatory guidelines, certain clarifications were issued on August 16, 2024 which, inter alia, include: (i) lenders&rsquo; funds should not be deployed in any manner other than specified; (ii) funds of a lender should not be utilised for replacement of other lender(s); (iii) objective pricing policy and disclosure of the fees liable to be charged at the time of lending itself; such fees should be a fixed amount, or a fixed proportion of the principal amount involved in the lending transaction and should not be dependent upon the repayment by the borrower(s); (iv) funds transferred into the escrow accounts should not remain in the accounts for a period exceeding &lsquo;T+1&rsquo; day, where &lsquo;T&rsquo; is the date on which the funds are transferred to these escrow accounts; and (v) disclosure of the portfolio performance on the NBFC-P2P website in respect of losses borne by the lenders and non-performing assets (NPAs).</p>      <p>Wilful Defaulters and Large Defaulters</p>      <p>VI.36 The existing instructions on wilful defaulters were reviewed, taking into consideration various judgments/orders from the Hon&rsquo;ble Supreme Court and Hon&rsquo;ble High Courts, as well as feedback received from stakeholders. Subsequently, the final Master Direction was issued on July 30, 2024 after incorporating public comments received on draft Directions. The Master Direction serves as a comprehensive document delineating the regulatory framework and procedures for classification of borrowers as wilful defaulters. The guidelines are applicable to SCBs; scheduled UCBs; AIFIs; NBFC - Middle and above Layers as per the scale-based regulatory framework; non-scheduled UCBs falling under Tier 3 and 4 according to the revised regulatory framework; local area banks (LABs); and regional rural banks (RRBs). The process of classification of wilful defaulters has been refined by introducing disclosure of all materials and information on which show-cause notice is based; provision for written representation against the order of identification committee to the review committee; and a provision for personal hearing for the borrower by the review committee. For early detection of wilful default, review of all NPA accounts for identification of wilful default within six months of their classification as NPA has been prescribed. The Directions also provide clarity on the treatment of wilful default accounts subsequent to undergoing resolution under the IBC process or on loan assignment.</p>      <p>Credit Information Reporting</p>      <p>VI.37 The extant instructions on reporting of credit information issued to REs have been consolidated in a single direction to establish a standardised framework for reporting and dissemination of credit information, safeguarding the confidentiality and security of sensitive credit data, providing mechanisms for consumers to access their credit information and grievance redressal on the related matters. The Master Direction in this regard has been issued on January 6, 2025.</p>      <p>Enhancing Operational Risk Management and Operational Resilience</p>      <p>VI.38 To align the Reserve Bank of India&rsquo;s regulatory guidance with the Basel Committee on Banking Supervision (BCBS) principles, viz., (a) revisions to the principles for the sound management of operational risk; and (b) principles for operational resilience (both issued in March 2021), a &lsquo;Guidance Note on Operational Risk Management and Operational Resilience&rsquo; was issued on April 30, 2024. It provides overarching guidance to REs<sup data-toggle="tooltip" title="Commercial banks, primary UCBs/State Cooperative Banks (StCBs)/ Central Cooperative Banks (CCBs), AIFIs and NBFCs (includingHFCs)."><a href="#F5" class="links">5</a></sup> to strengthen their operational risk management framework and enhance their operational resilience enabling them to deliver critical operations even through disruption. It has been built on three pillars (consisting of 17 principles), viz., prepare and protect<sup data-toggle="tooltip" title="Focussing on governance and operational risk management."><a href="#F6" class="links">6</a></sup>, build resilience<sup data-toggle="tooltip" title="Consisting of areas such as business continuity, incident management and cyber security for ensuring delivery of critical operations in case of disruptions."><a href="#F7" class="links">7</a></sup>, and learn and adapt<sup data-toggle="tooltip" title="For the creation of a feedback loop through disclosures and lessons learnt exercises."><a href="#F8" class="links">8</a></sup>. The guidance note provides operational flexibility to ensure smooth implementation across REs of various sizes, nature, complexity, geographic location and risk profile of their business.</p>      <p>Review and Rationalisation of Prudential Norms &ndash; UCBs</p>      <p>VI.39 The Reserve Bank has, from time to time, prescribed various prudential norms for UCBs for enhancing their financial soundness and resilience. Some of these prudential norms have been issued with a view to reducing credit concentration risk, reducing exposures to sensitive sectors, and enhancing provisioning requirements for relatively riskier exposures. These norms, inter alia, include the stipulations relating to small value loans, exposure ceilings on housing and real estate loans, and provisioning requirements for investment in security receipts (SRs). With a view to rationalising these norms, and thereby allowing greater operational flexibility to UCBs without diluting the regulatory objectives, the above prudential norms have been reviewed vide circular dated February 24, 2025. The review includes increase in the dynamic and static upper limit of small value loans from 0.2 per cent of Tier-I capital to 0.4 per cent of Tier-I capital and &#8377;1 crore to &#8377;3 crore, respectively; rationalisation of aggregate exposure limits for housing loans to individuals with reference to total loans and advances instead of total assets and a stricter limit for real estate loans; enhanced monetary ceiling on individual housing loans for Tier-3 and Tier-4 UCBs; and further extension of the five year glide-path allowed to UCBs to provide for the valuation differential on the SRs held against the assets transferred by them to ARCs by additional two years till 2027-28.</p>      <p>Review of Risk Weights on Microfinance Loans</p>      <p>VI.40 As per circular on &lsquo;Regulatory Measures Towards Consumer Credit and Bank Credit to NBFCs&rsquo; dated November 16, 2023, the risk weight on consumer credit, excluding housing, education, vehicle loans, and loans secured by gold was increased to 125 per cent. It has been decided, vide circular dated February 25, 2025, that the microfinance loans in the nature of consumer credit shall be risk weighted at 100 per cent. Other microfinance loans may be classified under regulatory retail portfolio (RRP) and assigned risk weight of 75 per cent, provided that the banks put in place appropriate policies to ensure fulfilment of the qualifying criteria of RRP. Further, all microfinance loans extended by RRBs and LABs shall attract a risk weight of 100 per cent.</p>      <p class="head">Agenda for 2025-26</p>      <p>VI.41 During 2025-26, the Department will focus on the following key deliverables:</p>      <ul>        <li>          <p>Issuance of harmonised regulations on &lsquo;Income Recognition, Asset Classification and Provisioning Pertaining to Advances&rsquo; to REs;</p>        </li>        <li>          <p>Comprehensive review of all non-fund based contingent facilities issued by lending institutions;</p>        </li>        <li>          <p>A draft regulatory framework for all forms of co-lending arrangements among REs was issued for public comments on April 9, 2025. Final guidelines would be issued post examination of the comments received;</p>        </li>        <li>          <p>Framework for Securitisation of Stressed Assets: Discussion Paper was issued in January 2023, on which suggestions were received from the various stakeholders. Based on the same, the draft framework has been issued for public comments on April 9, 2025 and final guidelines are proposed to be issued post examination of the same;</p>        </li>        <li>          <p>Draft guidelines on Expected Credit Loss (ECL) framework;</p>        </li>        <li>          <p>The final phase of Basel III implementation: (a) Issuance of draft guidelines on Standardised Approach for credit risk; (b) Issuance of final guidelines on market risk; and (c) Updating Pillar 3 disclosure requirements in alignment with the Basel III framework of BCBS;</p>        </li>        <li>          <p>Issuance of guidelines on standardised approach to counterparty credit risk (SA-CCR);</p>        </li>        <li>          <p>Regulatory principles on model risk management;</p>        </li>        <li>          <p>Issuance of prudential guidelines on climate risk for banks. This includes issuance of final guidelines on disclosure of climate related financial risks and guidance on climate scenario analysis and stress testing;</p>        </li>        <li>          <p>Operationalisation of the data repository - Reserve Bank - Climate Risk Information System (RB-CRIS);</p>        </li>        <li>          <p>Issuance of principles for effective management and supervision of climate related financial risks;</p>        </li>        <li>          <p>Review of the framework for acceptance of green deposits;</p>        </li>        <li>          <p>Guidelines on sustainability linked loans;</p>        </li>        <li>          <p>Suitable guidelines to address mis-selling of financial products and services by REs (their own as well as third-party);</p>        </li>        <li>          <p>Issuance of &lsquo;Frequently Asked Questions (FAQs)&rsquo; on the Master Direction on know your customer (KYC);</p>        </li>        <li>          <p>Review of regulations on internet and mobile banking for all banks;</p>        </li>        <li>          <p>Differentiated regulatory framework for Type I &ndash; NBFCs, i.e, NBFCs without public funds and customer interface;</p>        </li>        <li>          <p>Development of a platform namely &lsquo;Regulatory Application Management System&rsquo; (RAMS) by the Department to undertake an end-to-end digital transformation of its internal processing of regulatory applications to ensure a life-cycle approach to regulation of any RE; and</p>        </li>        <li>          <p>Consolidation of existing guidelines on regulatory matters into thematic Master Directions.</p>        </li>      </ul>      <p class="head">FinTech Department</p>      <p>VI.42 The FinTech Department is entrusted with the responsibility of fostering innovation in the FinTech ecosystem, while remaining vigilant and addressing the associated risks. The Department undertook several measures in pursuance of this mandate to fulfil the objectives set out for 2024-25.</p>      <p class="head">Agenda for 2024-25</p>      <p>VI.43 The Department had set out the following goals for 2024-25:</p>      <ul>        <li>          <p>Expanding the scope of CBDC pilots to cover new use cases such as offline functionality, programmability, cross-border transactions and tokenisation of assets as well as new designs, technological considerations and more participants (Paragraph VI.44);</p>        </li>        <li>          <p>Exploring commencing CBDC pilots on cross-border payments both on bilateral and multilateral basis to overcome key challenges related to turnaround time (TAT), efficiency and transparency, considering India being the world&rsquo;s largest recipient of remittances (Paragraph VI.45);</p>        </li>        <li>          <p>Launching full scale public tech platform [renamed as Unified Lending Interface (ULI)] with more financial institutions/data service providers and product offerings (Paragraph VI.46);</p>        </li>        <li>          <p>Putting in place the framework for SRO(s) for the FinTech sector (Paragraph VI.47);</p>        </li>        <li>          <p>Setting up a repository for capturing essential information about FinTechs and repository for tech-related activities by REs in order to effectively discern the developments in its ecosystem (Paragraph VI.48);</p>        </li>        <li>          <p>Conduct of next global hackathon &lsquo;HaRBInger 2024&rsquo; (Paragraph VI.49); and</p>        </li>        <li>          <p>Testing innovative products/services and technology under sixth cohort of the regulatory sandbox (RS) [Paragraph VI.50].</p>        </li>      </ul>      <p class="head">Implementation Status</p>      <p>VI.44 The CBDC-R (e&#8377;-R) pilot started with the initial use cases of person-to-person (P2P) and person-to-merchant (P2M) transactions. The Reserve Bank has since rolled out multiple pilots exploring offline and programmability features as well. The programmability use cases include direct benefit transfers to farmers against generation of carbon credits and loans to tenant farmers under kisan credit card (KCC) in select locations. Employee allowances for fuel/meal purposes are being implemented by banks. Under Subhadra Yojana of the state government of Odisha, e&#8377; has been used as a payment channel for around 88,000 beneficiaries so far. Discussions are underway with multiple central government Ministries and state governments for leveraging programmability feature of CBDC to transfer funds to beneficiaries with a defined end use.</p>      <p>VI.45 Bilateral cross-border CBDC pilots with select countries are being actively explored and progress has been made in finalisation of roadmap, technical aspects and use cases. The Reserve Bank&rsquo;s participation in multilateral CBDC initiatives, particularly under the Bank for International Settlements (BIS) Innovation Hub, are also being considered.</p>      <p>VI.46 The development of ULI, previously called as Public Tech Platform for Frictionless Credit (PTPFC) and rechristened to ULI on August 26, 2024, was announced as part of the Reserve Bank&rsquo;s Statement on Developmental and Regulatory Policies on August 10, 2023. The ULI pilot commenced on August 17, 2023. ULI is an enterprise-grade, open architecture platform which connects lenders and data service providers through a standardised, open application programming interface (API) framework operating on a plug-and-play model. By eliminating the need for multiple bilateral integrations by banks, ULI streamlines credit assessments and decision-making by enabling access to a diverse array of data. As on March 31, 2025 the Platform has recorded 44 lenders including banks and NBFCs, using over 60 data services for 12 loan journeys including KCC loans, digital cattle loans, MSME loans, etc. Based on the learnings and the positive response from stakeholders, the scope and coverage of the platform are being expanded to include more products, data providers and lenders.</p>      <p>VI.47 The Reserve Bank released a &lsquo;Draft Framework for Recognising Self-Regulatory Organisation(s) for FinTech Sector&rsquo; on January 15, 2024, inviting comments and feedback from the stakeholders. Based on the inputs received and examination thereof, the &lsquo;Framework for Recognising SRO(s) for FinTech Sector&rsquo; (SRO-FT framework) was finalised and released on May 30, 2024, which laid down the characteristics of a FinTech SRO, and includes, inter alia, functions and governance standards. Accordingly, applications were invited and FinTech Association for Consumer Empowerment (FACE) was recognised as SRO-FT vide press release dated August 28, 2024.</p>      <p>VI.48 With a view to gather information on the FinTech sector including the use of emerging technologies by traditional financial institutions, a &lsquo;FinTech Repository&rsquo; was launched on May 28, 2024, to capture essential information about FinTech entities, their activities and technology stack. Simultaneously, a related repository for REs called &lsquo;EmTech Repository&rsquo; was also launched to capture information on their adoption of emerging technologies such as artificial intelligence (AI), machine learning (ML), cloud computing, distributed ledger technology (DLT), etc. The FinTech and EmTech Repositories are secure web-based applications and are managed by the Reserve Bank Innovation Hub (RBIH).</p>      <p>VI.49 The Reserve Bank launched the third edition of its annual Global Hackathon &ndash; &lsquo;HaRBInger 2024 &ndash; Innovation for Transformation&rsquo; &ndash; on June 7, 2024, focusing on two themes &lsquo;Zero Financial Frauds&rsquo; and &lsquo;Being Divyang Friendly&rsquo;. The Hackathon received 534 proposals, of which 39 were received from teams outside India. An independent jury evaluated and selected the winners based on several parameters, including comprehensiveness, innovation, feasibility, scalability and compliance.</p>      <p>VI.50 The Reserve Bank has been operating the RS framework since 2019, under which four thematic cohorts<sup data-toggle="tooltip" title="‘Retail Payments’, ‘Cross Border Payments’, ‘MSME Lending’ and ‘Prevention and Mitigation of Financial Frauds’."><a href="#F9" class="links">9</a></sup> have been announced and completed till date (<a href="#TVI1" class="links">Table VI.1</a>). Under the fourth cohort, three entities were found viable. The fifth cohort which is theme neutral is currently underway. The On-Tap<sup data-toggle="tooltip" title="The Reserve Bank vide press release dated April 9, 2025 allowed ‘Theme Neutral’ applications as part of the ‘On-Tap’ facility under the RS."><a href="#F10" class="links">10</a></sup> application facility under the RS is open for the closed themes.</p>      <table width="90%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">        <tr><td colspan="5" align="center" class="head"><a id="TVI1"></a>Table VI.1: Regulatory Sandbox - Experience So Far</td>        </tr>        <tr>          <td colspan="5" align="right">(Number)</td>        </tr>        <tr>          <td width="7%" align="center"><span class="head">Cohort</span></td>          <td width="42%" align="center"><span class="head">Theme</span></td>          <td width="17%" align="center"><span class="head">Applications Received</span></td>          <td width="17%" align="center"><span class="head">Shortlisted for Testing</span></td>          <td width="17%" align="center"><span class="head">Successfully Exited</span></td>        </tr>        <tr>          <td align="center"><span class="head">1</span></td>          <td align="center"><span class="head">2</span></td>          <td align="center"><span class="head">3</span></td>          <td align="center"><span class="head">4</span></td>          <td align="center"><span class="head">5</span></td>        </tr>        <tr>          <td align="center">1</td>          <td>Retail Payments</td>          <td align="right">32</td>          <td align="right">6</td>          <td align="right">6</td>        </tr>        <tr>          <td align="center">2</td>          <td>Cross-border Payments</td>          <td align="right">27</td>          <td align="right">8</td>          <td align="right">4</td>        </tr>        <tr>          <td align="center">3</td>          <td>MSME Lending</td>          <td align="right">22</td>          <td align="right">8</td>          <td align="right">5</td>        </tr>        <tr>          <td align="center">4</td>          <td>Prevention and Mitigation of Financial Frauds</td>          <td align="right">9</td>          <td align="right">6</td>          <td align="right">3</td>        </tr>        <tr>          <td align="center">5</td>          <td>Theme Neutral</td>          <td align="right">22</td>          <td align="right">5</td>          <td align="right">Testing is going on</td>        </tr>        <tr>          <td align="center">On Tap</td>          <td>Closed Cohort Themes</td>          <td align="right">11</td>          <td align="right">3</td>          <td align="right">2</td>        </tr>    </table>    <p class="head">Major Initiatives</p>    <p>Framework for Responsible and Ethical Enablement of AI (FREE-AI)</p>    <p>VI.51 Driven by rapid advances in computing power and the vast availability of digital data, AI and ML technologies have seen growing interest and significant progress in recent years, with financial institutions globally and domestically increasingly adopting these technologies. The Reserve Bank is exploring and implementing AI/ML-driven solutions in its own functions. The Reserve Bank has constituted an external committee in December 2024 comprising experts with a mandate to recommend a Framework for Responsible and Ethical Enablement of AI in the financial sector.</p>    <p>Global Conference on Digital Public Infrastructure (DPI) and Emerging Technologies</p>    <p>VI.52 As part of the celebrations of the 90th year of its establishment, the Reserve Bank organised a global conference on &lsquo;Digital Public Infrastructure and Emerging Technologies&rsquo; during August 26-27, 2024 at Bengaluru. The Conference was attended by around 700 participants, including 81 distinguished delegates from 28 central banks and multilateral institutions such as World Bank, IMF, BIS Innovation Hub and European Central Bank (ECB).</p>    <p>VI.53 FinTech Department engages with FinTech ecosystem regularly through both structured and one to one basis, with a view to convey the policy initiatives, understand the new products/services, gather information on new innovations and identify areas which need solutions. This helps to chart out areas for policy support. During 2024-25, 486 interactions were conducted which included 22 structured group interactions. &lsquo;Finquiry&rsquo; is an initiative that provides an opportunity for FinTechs to visit the FinTech Department at Mumbai for open enquiries and policy clarifications, while &lsquo;Finteract&rsquo; is conducted across various cities on rotation, both at monthly intervals. Since April 2024, the Reserve Bank convened 12 structured interactions under &lsquo;FinTeract&rsquo; covering over 965 representatives from FinTechs, and 10 open interactions were convened through &lsquo;Finquiry&rsquo; (since June 2024) with over 300 participants. The Reserve Bank also launched an initiative named &lsquo;FinKonnect&rsquo; in June 2024 aimed at providing a platform to connect successful entities from the RS and HaRBInger with the potential users of such solutions such as banks, NBFCs and separately with investors.</p>    <p>RBIH Initiative: AI/ML- based Solution to Identify Mule Bank Accounts (MuleHunter.ai&trade;)</p>    <p>VI.54 In order to enable timely detection of mule accounts, RBIH has developed &lsquo;MuleHunter. ai&trade;&rsquo;, a supervised ML model designed for near-real-time identification of mule accounts. The model leverages advanced AI/ML techniques to learn patterns of mule account activity from data, achieving higher accuracy as compared to the traditional systems. This solution is currently being tested and deployed in a few large public sector banks.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.55 In 2025-26, the Department will focus on the following goals:</p>    <ul>      <li>        <p>Expand the scope and coverage of CBDC and introducing new use cases and features;</p>      </li>      <li>        <p>Introducing business-to-customer (B2C) functionality in ULI;</p>      </li>      <li>        <p>Scaling up &lsquo;MuleHunter.aiTM&rsquo;; and</p>      </li>      <li>        <p>Prepare a framework for responsible and ethical adoption of AI in financial sector.</p>      </li>      </ul>    <p class="head"><a id="S4"></a>4. SUPERVISION OF FINANCIAL INTERMEDIARIES</p>    <p class="head">Department of Supervision (DoS)</p>    <p>VI.56 The DoS is entrusted with the responsibility of supervising all SCBs (excluding RRBs), LABs, payments banks (PBs), SFBs, CICs, AIFIs, UCBs, NBFCs (excluding HFCs) and ARCs.</p>    <p class="head">Commercial Banks</p>    <p>VI.57 The Department took several measures to further strengthen both onsite and off-site supervision of the SCBs, LABs, PBs, SFBs, CICs and AIFIs during the year.</p>    <p class="head">Agenda for 2024-25</p>    <p>VI.58 The Department had set the following goals for 2024-25:</p>    <ul>      <li>        <p>Setting up of cyber range to augment cyber incident response capability of SCBs (Utkarsh 2.0) [Paragraph VI.59]; and</p>      </li>      <li>        <p>To augment supervisory capabilities by a suite of SupTech data tools on micro-data analytics and other similar use cases using artificial intelligence and machine learning (Utkarsh 2.0) [Paragraph VI.60].</p>      </li>      </ul>    <p class="head">Implementation Status</p>    <p>VI.59 The approach to implementation of cyber range was re-strategised as per the requirement of the Reserve Bank&rsquo;s Department of Information and Technology (DIT). The project is now set to be executed by Institute for Development and Research in Banking Technology (IDRBT) in coordination with DIT and DoS with the objective of enhancing synergies among the existing cyber drills conducted by IDRBT and other stakeholders. It is in advanced stage of finalising the implementation modalities.</p>    <p>VI.60 DoS has set up an Advanced Supervisory Analytics Group (ASAG) for increasing the use of techniques like AI/ML which has developed several advanced analytics models (microdata analytics, governance assessment model, social media monitoring model, fraud vulnerability index, borrowers&rsquo; vulnerability model and asset quality prediction model). The Department is in the process of developing more such models.</p>    <p class="head">Other Initiative</p>    <p>Fraud Analysis</p>    <p>VI.61 An assessment of bank group-wise fraud cases over the last three years indicates that while private sector banks reported maximum number of frauds, public sector banks continued to contribute maximum to the fraud amount (<a href="#TVI2" class="links">Table VI.2</a>). Frauds have occurred predominantly in the category of digital payments (card/internet) in terms of number and primarily in the loan portfolio (advances) in terms of value (<a href="#TVI3" class="links">Table VI.3</a>). While card/internet frauds contributed maximum to the number of frauds reported by private sector banks, frauds in public sector banks were mainly in loan portfolio. The increase in the amount involved in the total frauds reported during 2024-25 over 2023-24 was mainly due to removal of fraud classification in 122 cases amounting to &#8377;18,674 crore reported during previous financial years and reporting afresh during the current financial year after re-examination and ensuring compliance with the judgement of the Hon&rsquo;ble Supreme Court dated March 27, 2023.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.62 The Department has set out the following goals for 2025-26:</p>    <ul>      <li>        <p>Strengthening of liquidity stress tests of SCBs by developing a cash flow analysis to ensure banks remain resilient during episodes of stress. The process would evaluate the potential impact of extreme but plausible scenarios on a bank&rsquo;s liquidity position, ensuring it can meet obligations even during crises. It would provide forward-looking perspective and assess the stability of banks&rsquo; liquidity positions under adverse conditions. By identifying vulnerabilities and ensuring adequate liquidity buffers, stress testing would aid in ensuring resilience of banks, protect depositor interest and prevent systemic risks;</p>      </li>      <li>        <p>Further strengthening the supervisory framework for PBs and SFBs;</p>      </li>      <li>        <p>Digital services are important channels for servicing customers and ensuring resilience of the channels is of paramount importance. A framework will be devised with specific parameters for operational resilience of digital channels in REs;</p>      </li>      <li>        <p>Issuance of guidelines on digital forensic readiness; and</p>      </li>      <li>        <p>To provide a near-real-time view and analytics on the uptime of select digital services for the benefit of customers of banks, a dynamic online dashboard would be developed and the banks would be onboarded in a phased manner.</p>      </li>      </ul>    <table width="95%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">      <tr>  <td colspan="7" align="center" class="head"><a id="TVI2"></a>Table VI.2: Fraud Cases - Bank Group-wise</td>      </tr>      <tr>        <td colspan="7" align="right">(Amount in &#8377; crore)</td>      </tr>      <tr>        <td width="28%" rowspan="2" align="center"><span class="head">Bank Group/Institution</span></td>        <td colspan="2" align="center"><span class="head">2022-23</span></td>        <td colspan="2" align="center"><span class="head">2023-24</span></td>        <td colspan="2" align="center"><span class="head">2024-25</span></td>      </tr>      <tr>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>      </tr>      <tr>        <td align="center"><span class="head">1</span></td>        <td align="center"><span class="head">2</span></td>        <td align="center"><span class="head">3</span></td>        <td align="center"><span class="head">4</span></td>        <td align="center"><span class="head">5</span></td>        <td align="center"><span class="head">6</span></td>        <td align="center"><span class="head">7</span></td>      </tr>      <tr>        <td>Public Sector Banks</td>        <td align="right">3,331</td>        <td align="right">12,557</td>        <td align="right">7,460</td>        <td align="right">9,254</td>        <td align="right">6,935</td>        <td align="right">25,667</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(24.7)</td>        <td align="right">(66.2)</td>        <td align="right">(20.7)</td>        <td align="right">(75.6)</td>        <td align="right">(29.0)</td>        <td align="right">(71.3)</td>      </tr>      <tr>        <td>Private Sector Banks</td>        <td align="right">8,971</td>        <td align="right">5,206</td>        <td align="right">24,207</td>        <td align="right">2,722</td>        <td align="right">14,233</td>        <td align="right">10,088</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(66.4)</td>        <td align="right">(27.4)</td>        <td align="right">(67.2)</td>        <td align="right">(22.3)</td>        <td align="right">(59.4)</td>        <td align="right">(28.0)</td>      </tr>      <tr>        <td>Foreign Banks</td>        <td align="right">804</td>        <td align="right">292</td>        <td align="right">2,899</td>        <td align="right">154</td>        <td align="right">1,448</td>        <td align="right">181</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(6.0)</td>        <td align="right">(1.5)</td>        <td align="right">(8.0)</td>        <td align="right">(1.3)</td>        <td align="right">(6.0)</td>        <td align="right">(0.5)</td>      </tr>      <tr>        <td>Financial Institutions</td>        <td align="right">9</td>        <td align="right">888</td>        <td align="right">1</td>        <td align="right">1</td>        <td align="right">2</td>        <td align="right">13</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.1)</td>        <td align="right">(4.7)</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>      </tr>      <tr>        <td>Small Finance Banks</td>        <td align="right">311</td>        <td align="right">31</td>        <td align="right">1,019</td>        <td align="right">64</td>        <td align="right">1,217</td>        <td align="right">58</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(2.3)</td>        <td align="right">(0.2)</td>        <td align="right">(2.8)</td>        <td align="right">(0.5)</td>        <td align="right">(5.1)</td>        <td align="right">(0.2)</td>      </tr>      <tr>        <td>Payments Banks</td>        <td align="right">68</td>        <td align="right">7</td>        <td align="right">472</td>        <td align="right">35</td>        <td align="right">113</td>        <td align="right">6</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.5)</td>        <td align="right">-</td>        <td align="right">(1.3)</td>        <td align="right">(0.3)</td>        <td align="right">(0.5)</td>        <td align="right">-</td>      </tr>      <tr>        <td>Local Area Banks</td>        <td align="right">0</td>        <td align="right">0</td>        <td align="right">2</td>        <td align="right">0</td>        <td align="right">5</td>        <td align="right">1</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>      </tr>      <tr>        <td>Total</td>        <td align="right">13,494</td>        <td align="right">18,981</td>        <td align="right">36,060</td>        <td align="right">12,230</td>        <td align="right">23,953</td>        <td align="right">36,014</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>      </tr>      <tr>        <td colspan="7">-: Nil/Negligible.<br>          Note: 1. Figures in parentheses represent the percentage share of the total.<br>          2. Data are in respect of frauds of &#8377;1 lakh and above reported during the period.<br>          3. The figures reported by banks and FIs are subject to changes based on revisions filed by them.<br>          4. Frauds reported in a year could have occurred several years prior to year of reporting.<br>          5. Amounts involved reported do not reflect the amount of loss incurred. Depending on recoveries, the loss incurred gets reduced. Further, the entire amount involved is not necessarily diverted.<br>          6. As on March 31, 2025, 783 frauds amounting to &#8377;1,12,911 crore were withdrawn by banks due to non-compliance with the principles of natural justice as per the judgment of the Hon&rsquo;ble Supreme Court dated March 27, 2023.<br>          7. Data pertaining to 2024-25 includes fraud classification in 122 cases amounting to &#8377;18,674 crore, pertaining to previous financial years, reported afresh during the current financial year after re-examination and ensuring compliance with the judgement of the Hon&rsquo;ble Supreme Court, dated March 27, 2023.<br>          Source: RBI Supervisory Returns.</td>      </tr>    </table>    <p class="head">Urban Cooperative Banks (UCBs)</p>    <p>VI.63 The Department continued with its objective to monitor the performance of UCBs during the year and undertook measures for a safe and well-managed urban cooperative banking sector.</p>    <table width="95%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">      <tr>  <td colspan="7" align="center" class="head"><a id="TVI3"></a>Table VI.3: Frauds Cases - Area of Operations</td>      </tr>      <tr>        <td colspan="7" align="right">(Amount in &#8377; crore)</td>      </tr>      <tr>        <td width="28%" rowspan="2" align="center"><span class="head">Area of Operation</span></td>        <td colspan="2" align="center"><span class="head">2022-23</span></td>        <td colspan="2" align="center"><span class="head">2023-24</span></td>        <td colspan="2" align="center"><span class="head">2024-25</span></td>      </tr>      <tr>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>        <td width="12%" align="center"><span class="head">Number of Frauds</span></td>        <td width="12%" align="center"><span class="head">Amount Involved</span></td>      </tr>      <tr>        <td align="center"><span class="head">1</span></td>        <td align="center"><span class="head">2</span></td>        <td align="center"><span class="head">3</span></td>        <td align="center"><span class="head">4</span></td>        <td align="center"><span class="head">5</span></td>        <td align="center"><span class="head">6</span></td>        <td align="center"><span class="head">7</span></td>      </tr>      <tr>        <td>Advances</td>        <td align="right">4,021</td>        <td align="right">17,542</td>        <td align="right">4,118</td>        <td align="right">10,072</td>        <td align="right">7,950</td>        <td align="right">33,148</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(29.8)</td>        <td align="right">(92.4)</td>        <td align="right">(11.4)</td>        <td align="right">(82.4)</td>        <td align="right">(33.2)</td>        <td align="right">(92.1)</td>      </tr>      <tr>        <td>Off-balance Sheet</td>        <td align="right">13</td>        <td align="right">280</td>        <td align="right">11</td>        <td align="right">256</td>        <td align="right">8</td>        <td align="right">270</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.1)</td>        <td align="right">(1.5)</td>        <td align="right">-</td>        <td align="right">(2.1)</td>        <td align="right">-</td>        <td align="right">(0.7)</td>      </tr>      <tr>        <td>Forex Transactions</td>        <td align="right">13</td>        <td align="right">12</td>        <td align="right">19</td>        <td align="right">38</td>        <td align="right">23</td>        <td align="right">16</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.1)</td>        <td align="right">(0.1)</td>        <td align="right">(0.1)</td>        <td align="right">(0.3)</td>        <td align="right">(0.1)</td>        <td align="right">-</td>      </tr>      <tr>        <td>Card/Internet</td>        <td align="right">6,699</td>        <td align="right">278</td>        <td align="right">29,082</td>        <td align="right">1,457</td>        <td align="right">13,516</td>        <td align="right">520</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(49.7)</td>        <td align="right">(1.5)</td>        <td align="right">(80.6)</td>        <td align="right">(11.9)</td>        <td align="right">(56.5)</td>        <td align="right">(1.4)</td>      </tr>      <tr>        <td>Deposits</td>        <td align="right">652</td>        <td align="right">259</td>        <td align="right">2,002</td>        <td align="right">240</td>        <td align="right">1,208</td>        <td align="right">527</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(4.8)</td>        <td align="right">(1.4)</td>        <td align="right">(5.6)</td>        <td align="right">(2.0)</td>        <td align="right">(5.0)</td>        <td align="right">(1.5)</td>      </tr>      <tr>        <td>Inter-Branch Accounts</td>        <td align="right">3</td>        <td align="right">0</td>        <td align="right">29</td>        <td align="right">10</td>        <td align="right">14</td>        <td align="right">26</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">(0.1)</td>        <td align="right">(0.1)</td>        <td align="right">(0.1)</td>        <td align="right">(0.1)</td>      </tr>      <tr>        <td>Cash</td>        <td align="right">1,485</td>        <td align="right">159</td>        <td align="right">484</td>        <td align="right">78</td>        <td align="right">306</td>        <td align="right">39</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(11.0)</td>        <td align="right">(0.8)</td>        <td align="right">(1.3)</td>        <td align="right">(0.6)</td>        <td align="right">(1.3)</td>        <td align="right">(0.1)</td>      </tr>      <tr>        <td>Cheques/DDs, etc.</td>        <td align="right">118</td>        <td align="right">25</td>        <td align="right">127</td>        <td align="right">42</td>        <td align="right">122</td>        <td align="right">74</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.9)</td>        <td align="right">(0.1)</td>        <td align="right">(0.4)</td>        <td align="right">(0.3)</td>        <td align="right">(0.5)</td>        <td align="right">(0.2)</td>      </tr>      <tr>        <td>Clearing Accounts</td>        <td align="right">18</td>        <td align="right">3</td>        <td align="right">17</td>        <td align="right">2</td>        <td align="right">6</td>        <td align="right">2</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(0.1)</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>        <td align="right">-</td>      </tr>      <tr>        <td>Others</td>        <td align="right">472</td>        <td align="right">423</td>        <td align="right">171</td>        <td align="right">35</td>        <td align="right">800</td>        <td align="right">1,392</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(3.5)</td>        <td align="right">(2.2)</td>        <td align="right">(0.5)</td>        <td align="right">(0.3)</td>        <td align="right">(3.3)</td>        <td align="right">(3.9)</td>      </tr>      <tr>        <td>Total</td>        <td align="right">13,494</td>        <td align="right">18,981</td>        <td align="right">36,060</td>        <td align="right">12,230</td>        <td align="right">23,953</td>        <td align="right">36,014</td>      </tr>      <tr>        <td>&nbsp;</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>        <td align="right">(100.0)</td>      </tr>      <tr>        <td colspan="7">-: Nil/Negligible.<br>          Note: 1. Figures in parentheses represent the percentage share of the total.<br>          2. Refer to footnotes 2-7 of <a href="#TVI2" class="links">Table VI.2</a>.<br>          Source: RBI Supervisory Returns.</td>      </tr>    </table>    <p class="head">Agenda for 2024-25</p>    <p>VI.64 The Department had set out the following goal for supervision of UCBs in 2024-25:</p>    <ul>      <li>        <p>Strengthening the cyber/IT risks assessment (Paragraph VI.65).</p>      </li>      </ul>    <p class="head">Implementation Status</p>    <p>VI.65 A set of Level II UCBs<sup data-toggle="tooltip" title="Please refer to the Reserve Bank’s circular on ‘Comprehensive Cyber Security Framework for Primary (Urban) Cooperative Banks (UCBs) – A Graded Approach’ dated December 31, 2019 for definition of Level II UCBs."><a href="#F11" class="links">11</a></sup> offering digital payment services have been advised to carry out gap assessment through Computer Emergency Response Team-India (CERT-In) empanelled auditors. UCBs have been utilising the services of third-party IT service providers (ITSPs) for various services such as for hosting servers in data centres, automated teller machine (ATM) switch, core banking solution (CBS), card management and mobile banking. To evaluate the cyber risk, pooled audit of three such common ITSPs was conducted by select UCBs through CERT-In empanelled auditor. Cyber security related instructions issued to UCBs have been consolidated and an updated framework is being finalised.</p>    <p class="head">Other Initiatives</p>    <p>Risk-based Approach (RBA) for KYC/AML Supervision of UCBs</p>    <p>VI.66 The coverage of UCBs under RBA was aligned with the four-tiered regulatory framework and expanded to include Tier 3 and Tier 4 UCBs constituting around 60 per cent of the total deposit size of the sector.</p>    <p>Prompt Corrective Action (PCA) Framework for UCBs</p>    <p>VI.67 The Reserve Bank issued the guidelines on PCA framework for UCBs on July 26, 2024, superseding earlier instructions issued on supervisory action framework (SAF). The revised framework seeks to provide flexibility to design entity specific supervisory action plans based on the assessment of risks on a case-by-case basis. The provisions of the PCA framework will be effective from April 1, 2025. The PCA framework has been made applicable to all UCBs in Tier 2, Tier 3 and Tier 4, except UCBs under all-inclusive Directions<sup data-toggle="tooltip" title="All-inclusive Directions are restrictions imposed by the Reserve Bank on banks in the public interest. These directions are issued under Section 35A of the Banking Regulation Act, 1949."><a href="#F12" class="links">12</a></sup>. Tier 1 UCBs have been excluded from the PCA framework as of now; however, they will continue to be subjected to enhanced monitoring under the extant supervisory framework. Capital, asset quality and profitability are the key areas for monitoring in the revised PCA framework. The framework has been suitably harmonised with similar frameworks applicable for SCBs and NBFCs, with suitable modifications keeping in mind the underlying principle of proportionality. It is largely principle-based, with a fewer number of parameters as compared to the SAF, but ensuring sustenance of the supervisory rigour.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.68 The Department has identified the following goals for supervision of UCBs in 2025-26:</p>    <ul>      <li>        <p>Review of risk-based approach (RBA) for KYC/AML supervision of select UCBs (Utkarsh 2.0);</p>      </li>      <li>        <p>Examining the migration of UCBs to risk-based supervision (RBS); and</p>      </li>      <li>        <p>Issuance of updated guidelines on cyber security framework.</p>      </li>      </ul>    <p class="head">Non-Banking Financial Companies (NBFCs)</p>    <p>VI.69 The Department continued to closely monitor the NBFCs (excluding HFCs) and ARCs registered with the Reserve Bank.</p>    <p class="head">Other Initiative</p>    <p>Risk-based Approach (RBA) for KYC/AML Supervision of NBFCs</p>    <p>VI.70 Under RBA, the criterion to include NBFCs was reviewed and aligned with that of scale-based regulations. Accordingly, all upper layer NBFCs and those with an asset size above &#8377;5,000 crore in the middle layer are now covered.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.71 The Department has identified the following goals for supervision of NBFCs in 2025-26:</p>    <ul>      <li>        <p>Review of RBA for KYC/AML supervision of select NBFCs (Utkarsh 2.0);</p>      </li>      <li>        <p>As a thematic assessment, assessing adherence by REs to pricing guidelines prescribed vide extant regulations to ensure that the customers of such loans are not being charged exorbitant interest rates; and</p>      </li>      <li>        <p>Examining the migration of NBFCs to risk-based supervision (RBS).</p>      </li>      </ul>    <p class="head">Supervisory Measures for All Supervised Entities (SEs)</p>    <p>VI.72 A unified DoS has been operationalised in which the supervision of banks, UCBs and NBFCs is being undertaken in a holistic manner under one umbrella Department.</p>    <p class="head">Agenda for 2024-25</p>    <p>VI.73 The Department had set out the following supervisory goals for 2024-25:</p>    <ul>      <li>        <p>Examining information systems (IS) audit framework in REs (Paragraph VI.74);</p>      </li>      <li>        <p>Examining data governance framework for REs (Paragraph VI.75);</p>      </li>      <li>        <p>Developing data quality index (DQI) for offsite returns (Paragraph VI.76); and</p>      </li>      <li>        <p>Deeper integration of offsite analytics with onsite supervision (Paragraph VI.77).</p>      </li>      </ul>    <p class="head">Implementation Status</p>    <p>VI.74 An IS audit sub-group under Standing Committee on cyber security was formulated with representation from industry, academia and experts from IS audit profession. The report of the sub-group has been finalised and the recommendations are being examined for appropriate action.</p>    <p>VI.75 Data governance aspects, including localisation and data privacy, are being examined by an internal inter-departmental group on data governance. While &lsquo;The Digital Personal Data Protection Act&rsquo; was enacted in August, 2023, the rules related to the Act have not been framed, and the same will be examined before finalising the report of the sub-group.</p>    <p>VI.76 Supervisory DQI (sDQI) was developed to identify and address deficiencies in risk data aggregation capabilities and risk reporting practices across SEs. This sDQI model is used for assessing the quality of data submitted by SEs to DoS through various returns. The model generates SE-wise and aggregate sDQI scores each quarter. The movement in sDQI score is being monitored to identify improvement/decline in the quality of reporting by various SEs.</p>    <p>VI.77 A mechanism in the form of a feedback loop among various groups of the department is in place along with a structured framework for supervisory action.</p>    <p class="head">Other Initiatives</p>    <p>Strategy to Strengthen KYC/AML Supervision of SEs</p>    <p>VI.78 The specialised KYC/AML risk assessment of SEs, implemented through the &lsquo;Supervisory Assessment for KYC/AML Risks (SAKAR)&rsquo; framework in 2020, was further strengthened with increase in the coverage of the SEs under offsite risk assessment; inspection of SEs which were not previously subjected to onsite examination for KYC/AML/ Terrorist Financing (TF) risks; and carrying out thematic assessments on areas of emerging risks. The supervisory strategy has also been reoriented to identify the major deficiencies and areas of non-compliance, particularly in critical processes such as customer due diligence and transaction monitoring at the system level and to mitigate the KYC/AML/TF risks in a more focused manner through targeted assessments and close engagement with the SEs. Further, to utilise the supervisory resources in a more efficient manner, desktop assessments of smaller SEs have also been introduced.</p>    <p>Fraud Monitoring Returns and Return on Theft, Burglary, Dacoity and Robbery</p>    <p>VI.79 Commercial banks (excluding RRBs); NBFCs (excluding HFCs) in the upper layer, middle layer and base layer (with asset size of &#8377;500 crore and above); and UCBs are required to report incidents through returns on frauds and theft, burglary, dacoity and robbery on CIMS from November 18, 2024.</p>    <p>Cross-border Supervisory Cooperation</p>    <p>VI.80 During the year, the Reserve Bank proactively strengthened international supervisory cooperation by establishing and deepening formal relationships with authorities in key global jurisdictions. These efforts aim to enhance the stability of the financial system (<a href="#BVI2" class="links">Box VI.2</a>).</p>    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">      <tr>  <td width="100%"><p align="center" class="head"><a id="BVI2"></a>Box VI.2<br>          Exploring Supervisory Dimensions Through Cross-border Cooperation</p>          <p>Consolidated supervision of international banking groups by home and host country authorities is essential in a highly globalised and interconnected financial system. The increasing scale and complexity of cross-border banking operations across multiple jurisdictions pose significant risks to global financial stability. While banks leverage offshore centres to expand their business and attract investments, responsible supervision ensures that local operations meet the standards of domestic jurisdictions, preventing risk accumulation and contagion.</p>          <p>The Basel Committee on Banking Supervision (BCBS) has highlighted the importance of international cooperation in its core principles for effective banking supervision, particularly principle 3 (cooperation and collaboration) and principle 11 (home-host relationships). These principles establish minimum standards for prudential regulation and supervision, which are critical for safeguarding financial systems worldwide.</p>          <p>Supervisors across the globe are increasingly engaging in cross-border cooperation through formal agreements, bilateral exchanges and multilateral forums. Recognising the importance of international supervisory collaboration, the Reserve Bank has established formal arrangements, including 47 memoranda of understanding (MoUs) with overseas authorities, covering major jurisdictions with significant Indian bank operations. These arrangements facilitate onsite inspections, exchange of supervisory information, technical collaboration and coordinated crisis responses.</p>          <p>To enhance the supervision of cross-border banking groups, supervisory colleges were formalised as a platform for collaboration, coordination and information sharing. The Reserve Bank established its first supervisory college in 2012 for State Bank of India and ICICI Bank, later extending it to Axis Bank, Bank of Baroda, Bank of India, and Punjab National Bank. These colleges convene biennially in India, enabling home and host supervisors to address key supervisory concerns and risks. Similarly, the Reserve Bank actively participates in supervisory colleges for foreign banks with Indian operations, hosted by their respective home supervisors.</p>          <p>Furthering its commitment to global collaboration, the Reserve Bank is an active member of the Federal Reserve Bank of New York&rsquo;s Supervisors Roundtable, comprising 24 agencies from 18 jurisdictions.</p>          <p>In addition to multilateral engagements, the Reserve Bank has initiated High-Level Bilateral Supervisory Exchanges with authorities such as the UK&rsquo;s Financial Conduct Authority and Prudential Regulation Authority, the Monetary Authority of Singapore, and the Malta Financial Services Authority. These exchanges facilitate comprehensive knowledge sharing on emerging risks, including climate risk, SupTech, third-party outsourcing and operational resilience.</p>          <p>Additionally, to enhance preparedness against IT-based risks and digital fraud, the Reserve Bank is actively engaging with overseas supervisors to adopt global best practices in operational resilience and cyber security.</p>          <p>Source: RBI. &nbsp;</p></td>      </tr>    </table>    <p>Gold Loans</p>    <p>VI.81 In the backdrop of significant growth in gold loans in recent years, the Department of Supervision and Regulation jointly conducted a review of the adherence to prudential guidelines, as well as practices being followed by select SEs with regard to loans against pledge of gold ornaments and jewellery. The review and the findings of onsite inspection indicated several irregular practices such as: (i) shortcomings in the use of third parties for sourcing and appraisal of loans; (ii) valuation of gold without the presence of the customer; (iii) inadequate due diligence and lack of end use monitoring; (iv) lack of transparency during auction of gold ornaments and jewellery on default by the customer; (v) limitations in monitoring of loan-to-value (LTV); and (vi) incorrect application of risk-weights. The SEs have been advised vide circular dated September 30, 2024 to comprehensively review their policies, processes and practices on gold loans to identify gaps and initiate appropriate remedial measures in a timebound manner. The SEs have also been advised to closely monitor the portfolio and ensure that adequate controls are in place over outsourced activities and third-party service providers.</p>    <p>Cyber Security Related Measures for REs</p>    <p>VI.82 Cyber security continued to be assessed as a major operational risk. Cyber incident monitoring framework was updated and detailed guidance was provided to REs on reporting of cyber incidents. Thematic studies were carried out including on IT governance, third party IT service providers, comparative study on IT/ information system (IS) regulations to assess the relative areas and improve upon the existing risk mitigation measures. Advanced supervisory tools have been used to assess the SEs&rsquo; cyber resilience capabilities such as conduct of phishing simulation exercise. Frameworks on IS audit, forensic readiness and revised guidelines for cyber security for UCBs are being worked upon based on the updated risk environment.</p>    <p>Fraud Risk Management in REs</p>    <p>VI.83 The Reserve Bank issued the revised Master Directions on fraud risk management for REs on July 15, 2024. The revised Directions are principle-based and strengthen the role of the Board in overall governance and oversight of fraud risk management. Framework on early warning signals (EWS) and red flagging of accounts (RFA) has been further strengthened for early detection and prevention of frauds in the REs along with timely reporting to law enforcement agencies and supervisors. The Master Directions now explicitly require REs to ensure compliance with the principles of natural justice in a time-bound manner before classifying persons/entities as fraud, duly taking into account the Hon&rsquo;ble Supreme Court judgment dated March 27, 2023. These Directions have also been made applicable to RRBs, rural cooperative banks and HFCs.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.84 The Department has identified the following goals for supervision of all SEs in 2025-26:</p>    <ul>      <li>        <p>Review and issue of updated/harmonised regulatory instructions on statutory audit and concurrent audit in REs;</p>      </li>      <li>        <p>Conducting detailed thematic reviews on select areas of cyber risks;</p>      </li>      <li>        <p>Enhancing cyber resilience and capabilities of SEs through implementing recommendations of the inter-regulatory working group on uniformity in baseline cyber security guidelines of financial entities;</p>      </li>      <li>        <p>Enhancing cyber mapping of financial systems and conduct of cross-sectoral and market-wide cyber crisis simulation exercises in a phased manner; and</p>      </li>      <li>        <p>Enhance the existing framework for supervision of NBFCs in Base Layer.</p>      </li>      </ul>    <p class="head">Enforcement Department (EFD)</p>    <p>VI.85 The Enforcement Department was set up with a view to separate enforcement action from supervisory process and to put in place a structured, rule-based approach to identify and process violations by the REs of the applicable statutes and the directions issued thereunder, and to enforce the same consistently across the Reserve Bank. The objective of enforcement is to ensure compliance by the REs with the rules and regulations, within the overarching principles of financial stability, public interest and consumer protection.</p>    <p class="head">Agenda for 2024-25</p>    <p>VI.86 The Department had set out the following goal for 2024-25:</p>    <ul>      <li>        <p>Based on a feasibility study, a Scale-based Framework for Enforcement would be put in place (Paragraph VI.87).</p>      </li>      </ul>    <p class="head">Implementation Status</p>    <p>VI.87 The Scale-based Framework for Enforcement is being reviewed on the basis of the feasibility study and the feedback received.</p>    <p class="head">Major Developments</p>    <p>VI.88 During 2024-25, the Department undertook enforcement action against REs and imposed 353 penalties aggregating to &#8377;54.78 crore for contraventions/non-compliance<sup data-toggle="tooltip" title="Illustratively, some of them include contravention of/violation related to Section 26A of Banking Regulation Act, 1949; Cyber Security Framework in banks; Exposure Norms and IRAC Norms; Reserve Bank of India [Know Your Customer (KYC)] Directions, 2016; Reserve Bank of India (Frauds Classification and Reporting by Commercial Banks and Select FIs) Directions, 2016; Reporting Information on CRILC; Submission of Credit Information to Credit Information Companies (CICs); Customer Protection-Limiting Liability of Customers in Unauthorised Electronic Banking Transactions; Director Related Loans; the Housing Finance Companies (NHB) Directions, 2010; and the Non-Banking Financial Company - Peer to Peer Lending Platform (Reserve Bank) Directions, 2017."><a href="#F13" class="links">13</a></sup> with provisions of statutes and certain directions issued by the Reserve Bank from time to time (<a href="#TVI4" class="links">Table VI.4</a>).</p>    <p>VI.89 With the objective of rationalising and consolidating enforcement action by the Reserve Bank, the enforcement related work (i.e., imposition of monetary penalty and compounding) under the Payment and Settlement Systems (PSS) Act, 2007 was transferred to the Department and the circular on framework for enforcement action under the PSS Act, 2007 has been issued on January 30, 2025.</p>    <table width="85%" border="0" align="center" cellpadding="0" cellspacing="1" class="tablebg">      <tr>  <td colspan="3" align="center"><span class="head"><a id="TVI4"></a>Table VI.4 Enforcement Actions (April 2024 - March 2025)</span></td>      </tr>      <tr>        <td width="64%" align="center"><span class="head">Regulated Entity</span></td>        <td width="18%" align="center"><span class="head">Number of Penalties</span></td>        <td width="18%" align="center"><span class="head">Total Penalty<br>          (&#8377; crore)</span></td>      </tr>      <tr>        <td align="center"><span class="head">1</span></td>        <td align="center"><span class="head">2</span></td>        <td align="center"><span class="head">3</span></td>      </tr>      <tr>        <td>Public Sector Banks</td>        <td align="right">8</td>        <td align="right">11.11</td>      </tr>      <tr>        <td>Private Sector Banks</td>        <td align="right">15</td>        <td align="right">14.80</td>      </tr>      <tr>        <td>Foreign Banks</td>        <td align="right">6</td>        <td align="right">3.52</td>      </tr>      <tr>        <td>Payments Banks</td>        <td align="right">1</td>        <td align="right">0.27</td>      </tr>      <tr>        <td>Small Finance Banks</td>        <td align="right">2</td>        <td align="right">0.72</td>      </tr>      <tr>        <td>Regional Rural Banks</td>        <td align="right">6</td>        <td align="right">0.59</td>      </tr>      <tr>        <td>Cooperative Banks</td>        <td align="right">264</td>        <td align="right">15.63</td>      </tr>      <tr>        <td>Non-banking Financial Companies/Asset Reconstruction Companies</td>        <td align="right">37</td>        <td align="right">7.29</td>      </tr>      <tr>        <td>Credit Information Companies</td>        <td align="right">1</td>        <td align="right">0.02</td>      </tr>      <tr>        <td>Housing Finance Companies</td>        <td align="right">13</td>        <td align="right">0.83</td>      </tr>      <tr>        <td>Total</td>        <td align="right">353</td>        <td align="right">54.78</td>      </tr>      <tr>        <td colspan="3">Source: RBI.</td>      </tr>    </table>    <p class="head">Agenda for 2025-26</p>    <p>VI.90 During 2025-26, the Department proposes to achieve the following goal:</p>    <ul>      <li>        <p>Review the standard operating procedure (SOP) for enforcement action based on the experience gained (Utkarsh 2.0).</p>      </li>      </ul>    <p class="head"><a id="S5"></a>5. CONSUMER EDUCATION AND PROTECTION</p>    <p class="head">Consumer Education and Protection Department (CEPD)</p>    <p>VI.91 The CEPD frames policy guidelines for effective grievance redress mechanism at the level of the REs; monitors the functioning of internal grievance redress mechanism of REs; administers &lsquo;the Reserve Bank-Integrated Ombudsman Scheme, 2021&rsquo; (RB-IOS) through ombudsman offices; oversees the performance of the consumer education and protection cells at the regional offices; and creates public awareness on safe banking practices, extant regulations on customer service<sup data-toggle="tooltip" title="Annex III of this Report provides a list of customer centric measures undertaken during April 2022 to March 2025."><a href="#F14" class="links">14</a></sup> and protection, as also on the avenues for redress of customer complaints.</p>    <p class="head">Agenda for 2024-25</p>    <p>VI.92 The Department had proposed the following goals for 2024-25:</p>    <ul>      <li>        <p>Improvement in the complaint management system to enhance support in lodging complaints and ensure greater consistency in decisions and outcomes (Utkarsh 2.0) [Paragraph VI.93];</p>      </li>      <li>        <p>Development of consumer protection assessment matrix for REs (Utkarsh 2.0) [Paragraph VI.94];</p>      </li>      <li>        <p>Strengthen internal grievance redress framework to encourage banks to take proactive measures to improve customer service (Paragraph VI.95);</p>      </li>      <li>        <p>Conduct of survey to assess the reasons for the low level of complaints in the rural/semi-urban areas (Paragraph VI.96); and</p>      </li>      <li>        <p>Review and rollout of reoriented nationwide intensive awareness programme (NIAP) based on feedback received from REs and Offices of RBI Ombudsman (ORBIOs) [Paragraph VI.97].</p>      </li>      </ul>    <p class="head">Implementation Status</p>    <p>VI.93 The Reserve Bank is collaborating closely with Reserve Bank Information Technology Pvt. Ltd. (ReBIT) to integrate artificial intelligence (AI) into the complaint management system in a phased manner. While phase I will introduce a conversational AI chatbot for the complainants, phase II will have more advanced features for processing the complaints.</p>    <p>VI.94 The Reserve Bank is developing a consumer protection assessment matrix (CoPAM) to assess the quality of customer protection provided by the REs. The pilot test of the model with respect to select banks is currently underway.</p>    <p>VI.95 The Reserve Bank had issued &lsquo;Framework for Strengthening the Grievance Redress Mechanism in Banks&rsquo; in January 2021. The framework, inter alia, includes recovery of cost of redress of complaint from outlier banks to incentivise banks to strengthen their internal grievance redressal systems and to bring improvements in the quality of customer service. Based on the experience gained and feedback obtained, the framework is being reviewed to fine-tune the parameters, strengthen the mechanism and further nudge the concerned REs towards improving their internal grievance redress mechanisms.</p>    <p>VI.96 A survey has been undertaken to understand the reasons for the low level of complaints from the rural/semi-urban areas and assess the level of awareness in these areas, as also to provide inputs for geography/population specific awareness programmes. The findings of the survey are currently being analysed.</p>    <p>VI.97 The Reserve Bank had launched a month-long NIAP in November 2022, in collaboration with the REs, with focus on creating awareness in the hitherto unreached and isolated segments of the populations. Based on the feedback from all the stakeholders, the need was felt for sustaining consumer awareness efforts with a targeted approach on an ongoing basis. Accordingly, a systematic approach for augmenting awareness throughout the year has been initiated in January 2025.</p>    <p class="head">Major Developments</p>    <p>Receipt of Complaints at ORBIOs</p>    <p>VI.98 During 2024-25, 2.96 lakh complaints were received at ORBIOs, compared to 2.93 lakh complaints during 2023-24, showing a marginal increase. Complaints were mainly received against banks, followed by NBFCs, non-bank system participants and CICs. Majority of these complaints pertain to loans/advances and digital banking products.</p>    <p>Awareness Initiatives</p>    <p>VI.99 The Reserve Bank of India Ombudsmen conducted 47 townhall meetings and 239 awareness programmes in 2024-25, with focus on specific groups such as students, senior citizen and women. Moreover, thematic multimedia campaigns on safe banking practices for Aadhaar enabled payment system (AePS), complaint lodging procedure and &lsquo;Digital Arrest&rsquo; were conducted. Awareness booklets relating to safe banking practices were distributed in rural self-employment training institutes (RSETIs). The Reserve Bank is in the process of releasing animated short films depicting modus operandi of various frauds and safeguards to be exercised.</p>    <p class="head">Agenda for 2025-26</p>    <p>VI.100 During 2025-26, the Department has identified the following goals to focus:</p>    <ul>      <li>        <p>Review of &lsquo;Reserve Bank-Integrated Ombudsman Scheme, 2021&rsquo;, including consumer education and protection cells, centralised receipt and processing centre, and contact centre (Utkarsh 2.0); </p>      </li>      <li>        <p>Issuance of Master Direction on grievance redressal framework in REs; and</p>      </li>      <li>        <p>Improve the complaint management system to better support the lodging of complaints and ensure greater consistency in decisions and outcomes (Utkarsh 2.0).</p>      </li>    </ul>    <p class="head">Deposit Insurance and Credit Guarantee Corporation (DICGC)</p>    <p>VI.101 The DICGC, a wholly owned subsidiary of the Reserve Bank established under the DICGC Act, 1961, administers the deposit insurance scheme in India, the objective of which is to protect depositors of banks and preserve public confidence in the banking system thereby contributing to financial stability. The deposit insurance scheme is mandatory for all banks (commercial and co-operative) that are licensed by the Reserve Bank. The number of registered insured banks stood at 1,982 as on March 31, 2025, comprising 139 commercial banks (including 11 SFBs, 6 PBs, 43 RRBs and 2 LABs) and 1,843 co-operative banks (1,457 UCBs, 34 StCBs and 352 DCCBs).</p>    <p>VI.102 The current coverage limit of deposit insurance is &#8377;5 lakh per depositor of a bank for deposit accounts held &lsquo;in the same capacity and in the same right&rsquo;<sup data-toggle="tooltip" title="Deposit accounts are called so when the depositor has one or more types of deposit accounts and in one or more branches of a bank in his/her personal name. This also includes deposit held in the name of the proprietary concern where the depositor is the sole proprietor. If the depositor has deposit accounts in his/her capacity as a partner of a firm/guardian of a minor/director of a company/trustee of a trust/joint account, in one or more branches of the bank then such accounts are considered as held in different capacity and different right. In the case of joint accounts, if individuals open more than one joint accounts in which their names are not in the same order or group of persons are different, then the deposits held in these joint accounts are considered as held in the different capacity and different right."><a href="#F15" class="links">15</a></sup>. As on September 30, 2024, the number of fully insured deposit accounts under the coverage limit was 286.9 crore (281.8 crore a year ago) which constituted 97.7 per cent (97.9 per cent a year ago) of the total number of accounts. In terms of value, the total insured deposits were &#8377;96,74,623 crore (&#8377;90,32,340 crore in the previous year) which was 42.6 per cent (44.2 per cent in the previous year) of assessable deposits<sup data-toggle="tooltip" title="Assessable deposits include all bank deposits except (i) deposits of foreign governments; (ii) deposits of central/state governments; (iii) inter-bank deposits; (iv) deposits received outside India; and (v) deposits specifically exempted by the corporation with prior approval of the Reserve Bank."><a href="#F16" class="links">16</a></sup>. The reserve ratio (i.e., Deposit Insurance Fund/Insured Deposits) as on September 30, 2024 stood at 2.21 per cent (2.02 per cent in the previous year). Currently, the coverage limit is 2.5 times the GDP per capita in 2024-25.</p>    <p>VI.103 The DICGC levies banks a flat rate premium of 0.12 per cent per annum on the total assessable deposits for providing deposit insurance. During 2024-25, deposit insurance premium received was &#8377;26,764 crore, recording a y-o-y growth of 12.1 per cent.</p>    <p>VI.104 The DICGC maintains a Deposit Insurance Fund (DIF) for the settlement of claims of depositors of banks taken into liquidation/amalgamation or put under all-inclusive Directions. The Fund has been built up through transfer of the Corporation&rsquo;s surplus, i.e., excess of income (mainly comprising premium received from insured banks, interest income from investments and cash recovery out of liquidation of assets of failed banks) over expenditure (payment of claims of depositors and related expenses) each year, net of taxes. During 2024-25, the total claims settled by the Corporation amounted to &#8377;476 crore, all of which were towards 43 UCBs liquidated/placed under all-inclusive Directions. The size of the DIF stood at &#8377;2,28,933 crore as on March 31, 2025 recording a y-o-y growth of 15.2 per cent over &#8377;1,98,753 crore as on March 31, 2024.</p>    <p class="head"><a id="S6"></a>6. CONCLUSION</p>    <p>VI.105 The Reserve Bank undertook several measures to safeguard the financial system by further strengthening the regulatory and supervisory framework of banking and non-banking sectors in line with global best practices. Going forward, concerted efforts would be made, inter alia, towards rationalisation and harmonisation of regulations across regulated entities; issuance of prudential guidelines on climate risk for banks; preparing a framework for responsible and ethical adoption of AI in financial sector; strengthening of liquidity stress tests of SCBs; and also examining the migration of UCBs/NBFCs to risk-based supervision, besides strengthening cyber security and fraud detection mechanism. Further, fine-tuning the existing complaint management and grievance redress mechanism, including exploring the use of AI, would remain in focus.</p><hr>  <p class="footnote"><a id="F1"></a><sup>1</sup> Export-Import (EXIM) Bank, National Bank for Agriculture and Rural Development (NABARD), National Housing Bank (NHB), Small Industries Development Bank of India (SIDBI) and National Bank for Financing Infrastructure and Development (NaBFID).</p>    <p class="footnote"><a id="F2"></a><sup>2</sup> Dark patterns are design interfaces and tactics used to trick users into desired behaviour.</p>    <p class="footnote"><a id="F3"></a><sup>3</sup> Annex II of this Report provides a list of regulatory measures undertaken post public consultations during April 2022 to March 2025.</p>    <p class="footnote"><a id="F4"></a><sup>4</sup> This sub section highlights the major circulars/guidelines issued by the DoR. Annex I of this Report provides a comprehensive department-wise chronology of policy announcements during April 2024 to March 2025.</p>    <p class="footnote"><a id="F5"></a><sup>5</sup> Commercial banks, primary UCBs/State Cooperative Banks (StCBs)/ Central Cooperative Banks (CCBs), AIFIs and NBFCs (including HFCs).</p>    <p class="footnote"><a id="F6"></a><sup>6</sup> Focussing on governance and operational risk management.</p>    <p class="footnote"><a id="F7"></a><sup>7</sup> Consisting of areas such as business continuity, incident management and cyber security for ensuring delivery of critical operations in case of disruptions.</p>    <p class="footnote"><a id="F8"></a><sup>8</sup> For the creation of a feedback loop through disclosures and lessons learnt exercises.</p>    <p class="footnote"><a id="F9"></a><sup>9</sup> &lsquo;Retail Payments&rsquo;, &lsquo;Cross Border Payments&rsquo;, &lsquo;MSME Lending&rsquo; and &lsquo;Prevention and Mitigation of Financial Frauds&rsquo;.</p>    <p class="footnote"><a id="F10"></a><sup>10</sup> The Reserve Bank vide <a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=60190" target="_blank" class="links">press release dated April 9, 2025</a> allowed &lsquo;Theme Neutral&rsquo; applications as part of the &lsquo;On-Tap&rsquo; facility under the RS.</p>    <p class="footnote"><a id="F11"></a><sup>11</sup> Please refer to the Reserve Bank&rsquo;s <a href="https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11772&Mode=0" target="_blank" class="links">circular on &lsquo;Comprehensive Cyber Security Framework for Primary (Urban) Cooperative Banks (UCBs) &ndash; A Graded Approach&rsquo; dated December 31, 2019</a> for definition of Level II UCBs.</p>    <p class="footnote"><a id="F12"></a><sup>12</sup> All-inclusive Directions are restrictions imposed by the Reserve Bank on banks in the public interest. These directions are issued under Section 35A of the Banking Regulation Act, 1949.</p>    <p class="footnote"><a id="F13"></a><sup>13</sup> Illustratively, some of them include contravention of/violation related to Section 26A of Banking Regulation Act, 1949; Cyber Security Framework in banks; Exposure Norms and IRAC Norms; <a href="https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=11566" target="_blank" class="links">Reserve Bank of India [Know Your Customer (KYC)] Directions, 2016</a>; <a href="https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=10477" target="_blank" class="links">Reserve Bank of India (Frauds Classification and Reporting by Commercial Banks and Select FIs) Directions, 2016</a>; Reporting Information on CRILC; Submission of Credit Information to Credit Information Companies (CICs); Customer Protection-Limiting Liability of Customers in Unauthorised Electronic Banking Transactions; Director Related Loans; the Housing Finance Companies (NHB) Directions, 2010; and the <a href="https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=11137" target="_blank" class="links">Non-Banking Financial Company - Peer to Peer Lending Platform (Reserve Bank) Directions, 2017</a>.</p>    <p class="footnote"><a id="F14"></a><sup>14</sup> Annex III of this Report provides a list of customer centric measures undertaken during April 2022 to March 2025.</p>    <p class="footnote"><a id="F15"></a><sup>15</sup> Deposit accounts are called so when the depositor has one or more types of deposit accounts and in one or more branches of a bank in his/her personal name. This also includes deposit held in the name of the proprietary concern where the depositor is the sole proprietor. If the depositor has deposit accounts in his/her capacity as a partner of a firm/guardian of a minor/director of a company/trustee of a trust/joint account, in one or more branches of the bank then such accounts are considered as held in different capacity and different right. In the case of joint accounts, if individuals open more than one joint accounts in which their names are not in the same order or group of persons are different, then the deposits held in these joint accounts are considered as held in the different capacity and different right.</p>    <p class="footnote"><a id="F16"></a><sup>16</sup> Assessable deposits include all bank deposits except (i) deposits of foreign governments; (ii) deposits of central/state governments; (iii) inter-bank deposits; (iv) deposits received outside India; and (v) deposits specifically exempted by the corporation with prior approval of the Reserve Bank.<br>    <br>    <p align="right"><a href="https://www.rbi.org.in/Scripts/AnnualReportPublications.aspx?year=2025" class="links">Index</a></p></td>  </tr></table></td></tr></table>
+                                </table>
+                            </div>
+                            <input name="btn" type="button" id="btn" style="visibility: hidden;" value="2026" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <span id="DateSettree_lbltree"><div class="grid_1 archives alpha" id="treeYear"><ul><li><a class="year" href="#" id="2026" onclick='GetYear("2026")'>2026</a></li><li><a class="year" href="#" id="2025" onclick='GetYear("2025")'>2025</a></li><li><a class="year" href="#" id="2024" onclick='GetYear("2024")'>2024</a></li><li><a class="year" href="#" id="2023" onclick='GetYear("2023")'>2023</a></li><li><a class="year" href="#" id="2022" onclick='GetYear("2022")'>2022</a></li><li><a class="year" href="#" id="2021" onclick='GetYear("2021")'>2021</a></li><li><a class="year" href="#" id="2020" onclick='GetYear("2020")'>2020</a></li><li><a class="year" href="#" id="2019" onclick='GetYear("2019")'>2019</a></li><li><a class="year" href="#" id="2018" onclick='GetYear("2018")'>2018</a></li><li><a class="year" href="#" id="2017" onclick='GetYear("2017")'>2017</a></li><h2 class="year"><a href="javascript:void(0);" id="divArchiveMain"  onclick="hideshow('divArchiveSub');" style="cursor: pointer;">Archives</a></h2><div  id="divArchiveSub" style="display: none;"><div class="grid_tree archives alpha" id="treeYear"><ul><li><a class="year" href="#" id="2016" onclick='GetYear("2016")'>2016</a></li><li><a class="year" href="#" id="2015" onclick='GetYear("2015")'>2015</a></li><li><a class="year" href="#" id="2014" onclick='GetYear("2014")'>2014</a></li><li><a class="year" href="#" id="2013" onclick='GetYear("2013")'>2013</a></li><li><a class="year" href="#" id="2012" onclick='GetYear("2012")'>2012</a></li><li><a class="year" href="#" id="2011" onclick='GetYear("2011")'>2011</a></li><li><a class="year" href="#" id="2010" onclick='GetYear("2010")'>2010</a></li><li><a class="year" href="#" id="2009" onclick='GetYear("2009")'>2009</a></li><li><a class="year" href="#" id="2008" onclick='GetYear("2008")'>2008</a></li><li><a class="year" href="#" id="2007" onclick='GetYear("2007")'>2007</a></li><li><a class="year" href="#" id="2006" onclick='GetYear("2006")'>2006</a></li><li><a class="year" href="#" id="2005" onclick='GetYear("2005")'>2005</a></li><li><a class="year" href="#" id="2004" onclick='GetYear("2004")'>2004</a></li><li><a class="year" href="#" id="2003" onclick='GetYear("2003")'>2003</a></li><li><a class="year" href="#" id="2002" onclick='GetYear("2002")'>2002</a></li><li><a class="year" href="#" id="2001" onclick='GetYear("2001")'>2001</a></li><li><a class="year" href="#" id="2000" onclick='GetYear("2000")'>2000</a></li><li><a class="year" href="#" id="1999" onclick='GetYear("1999")'>1999</a></li><li><a class="year" href="#" id="1998" onclick='GetYear("1998")'>1998</a></li><li><a class="year" href="#" id="1997" onclick='GetYear("1997")'>1997</a></li><li><a class="year" href="#" id="1996" onclick='GetYear("1996")'>1996</a></li><li><a class="year" href="#" id="1995" onclick='GetYear("1995")'>1995</a></li><li><a class="year" href="#" id="1994" onclick='GetYear("1994")'>1994</a></li><li><a class="year" href="#" id="1993" onclick='GetYear("1993")'>1993</a></li><li><a class="year" href="#" id="1992" onclick='GetYear("1992")'>1992</a></li><li><a class="year" href="#" id="1991" onclick='GetYear("1991")'>1991</a></li><li><a class="year" href="#" id="1990" onclick='GetYear("1990")'>1990</a></li></ul></div></div></div></span>
+<style type="text/css"> /*added by ni*/
+.year a
+{
+    text-transform:none;
+    margin:0px;
+    /*color:Black;*/
+    font-size:12px;
+    text-decoration:none;
+    padding: 3px 4px 5px 2px;
+    }
+#DateSettree_lbltree h2
+{
+    margin-top:0px;
+}
+.month ul li a {
+    padding: 3px 4px 7px 2px;
+}
+
+.accordionContent ul.accordionlist li {
+    
+    min-height: 24px;
+}
+</style>
+
+
+
+    </main>
+        <div class="clearfix">
+        </div>
+        <a href="#top" class="scrollToTop" id="backToTop">Top</a>
+<div id="backDiv" style=" text-align:center;" >
+<a href="javascript:history.back()" class="paraheader">Back to previous page</a><br/>
+<span id="lblGetLastUpdateDate" class="paraheader"></span>
+</div>
+<footer class="footer">
+
+<div class="footer">
+  <div class="container_12">    
+      <div class="grid_9" style="width: 833px !important; ">
+          
+          <h2><span class="blue">More</span> Links :</h2>
+          
+		<ul class="footerlist" style="column-count:4">
+                  <li ><a href="/Scripts/HolidayMatrixDisplay.aspx">Bank Holidays</a></li>
+                  <li ><a href="https://shabdavali.rbi.org.in/">Banking Glossary</a></li>
+                  <li ><a href="/Scripts/CitiChart.aspx">Citizen's Charter</a></li>
+                  <li ><a href="/Scripts/Complaints.aspx">Complaints</a></li>
+                  <li ><a href="/Scripts/contactus.aspx">Contact Us</a></li>
+  		<li ><a href="https://www.rbi.org.in/scripts/bs_viewcontent.aspx?Id=3894">COVID-19 Measures</a></li>
+                  <li ><a target="_blank" href="https://ncfe.org.in/e-lms">E-LMS</a></li>
+                  <li ><a href="/Scripts/EventsDisplay.aspx">Events</a></li>
+                  <li ><a href="/Scripts/FAQDisplay.aspx">FAQs</a></li>
+                  <li ><a target="_blank" href="https://www.rbi.org.in/FinancialEducation/">Financial Education</a></li>
+		<li ><a href="/Scripts/BS_ViewForms.aspx">Forms</a></li>
+                  <li ><a href="/Scripts/IFSCMICRDetails.aspx">IFSC/MICR Codes</a></li>
+                  <li><a href="/Scripts/OtherLinks.aspx">Important Websites</a></li>
+                  <li><a target="_blank" href="https://opportunities.rbi.org.in/scripts/index.aspx">Opportunities<span>@</span>RBI</a></li>
+                  <li><a href="/Scripts/rbi_clarification.aspx">RBI Clarifications</a></li>
+ 		<li><a target="_blank" href="https://rbikehtahai.rbi.org.in/">RBI Kehta Hai</a></li>
+                  <li><a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/Utkarsh202910042026.pdf" target="_blank">RBI’s Vision and Values <img src="../Images/pdf.gif" alt="PDF document" style="padding-bottom: 4px; width:12px; border:0; vertical-align:middle;"> (652 KB)</a></li>
+                  <li><a href="/Scripts/Righttoinfoact.aspx">Right to Information Act</a></li>
+                  <li><a href="/Scripts/BS_ViewTenders.aspx">Tenders</a></li>
+                  
+              </ul>
+      </div>
+
+    <div class="grid_3" style="width:197px !important">
+      
+        <h2><span class="blue">Follow</span> RBI</h2>
+      <ul class="footerlist">
+        
+
+          <li style="float: left;background: url(/images/footer_list_arrow.gif) left 8px no-repeat;"><a href="/Scripts/rss.aspx"><img src="/images/rss-icon.png" alt="RSS Icon" class="rss">RSS</a></li>
+
+        
+          <li>
+              <a href="https://twitter.com/RBI" target="_blank" class="twitter">
+                  <img src="/images/Twitter_New.png" alt="Twitter Icon" class="videos" style="padding-left: 18%; width:14px;">Twitter
+              </a>
+          </li>
+
+        
+
+          <li style="float: left;"><a href="https://www.youtube.com/channel/UCIfCOl43tunZVNYafeC4RQA" class="videos" target="_blank"><img src="/images/youtube.png" alt="YouTube Icon" class="videos">YouTube</a></li>
+
+          <li>
+              <a href="https://instagram.com/reservebankofindia" class="videos" target="_blank">
+                  <img src="/images/Instagram.jpg" alt="Instagram Icon" class="videos" style="padding-left: 5%; width:14px;">Instagram
+              </a>
+          </li>
+          <li style="float: left;"><a href="https://www.facebook.com/RBIsays" class="videos" target="_blank"><img src="/images/Facebook.jpg" style="width:14px;" alt="Facebook Icon" class="videos">Facebook</a></li>
+          <li>
+              <a href="https://www.linkedin.com/company/reservebankofindia" class="videos" target="_blank">
+                  <img src="/images/LinkedinIcon1.png" alt="LinkedIn Icon" class="" style="padding-left: 4%;width: 17px;background: bottom no-repeat;display: block;float: left;margin: 2px 3px 0 1px;">LinkedIn
+              </a>
+          </li>
+      </ul>
+	<a href="https://www.india.gov.in" class="videos" target="_blank">
+                  <img src="/images/indiaGov.png" alt="National Portal of India logo" class="">
+              </a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="copyright">
+    <div class="container_12">
+     <div class="grid_6 pull_left">&copy; Reserve Bank of India. All Rights Reserved. </div>
+        <div class="grid_5 pull_right"><a href="/Scripts/sitemap.aspx">Sitemap</a> <span aria-hidden="true">|</span> <a href="/Scripts/Disclaimer.aspx">Disclaimer</a></div>
+        <div class="clearfix"></div>
+
+        <div class="grid_6 pull_left">Website owned and managed by Reserve Bank of India. Contact us on helpdoc[at]rbi[dot]org[dot]in</div>
+        <div class="grid_5 pull_right">Website last updated date: Nov 06, 2026</div>
+        <div class="clearfix"></div>
+	<div class="grid_6 pull_left"><a href="https://www.rbi.org.in/scripts/wim.aspx">Web Information Manager</a></div>
+	<div class="grid_5 pull_right"><a href="https://rbidocs.rbi.org.in/rdocs/content/pdfs/Accessibility20012026.pdf" target="_blank">Accessibility Statement
+	<img alt="PDF - Accessibility Statement" style="padding: 1px; width:16px; border:0; vertical-align:middle;" src="../Images/pdf.gif" > (133 KB)
+	</a><span aria-hidden="true"> |</span><a href="/scripts/ScreenReader.aspx" title="Information related to screen reader">Screen Reader and Accessibility Help</a></div>
+	<div class="clearfix"></div>
+        <div class="grid_12 pull_left">Supports: Google Chrome 147+ | Firefox 150+ | Microsoft Edge Version 147+ | Safari 17+</div>
+        
+        <div class="clearfix"></div>
+    </div>
+  </div>
+  
+
+
+
+</div>
+
+</footer>
+
+<script src="/js/ReplaceURL.js" ></script>
+<script >
+
+
+    //this is for floating TOP link
+    
+    $(document).ready(function () {
+
+        var offset = 230;
+        var duration = 500;
+
+
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > offset) {
+                jQuery('.scrollToTop').fadeIn(duration);
+                
+            } else {
+                jQuery('.scrollToTop').fadeOut(duration);
+                
+            }
+        });
+
+        
+	$('.page_title').attr('tabindex','-1');
+        $('.scrollToTop').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+		$('.page_title').focus(); 
+            return false;
+        });
+	
+
+
+	if(!window.location.href.includes("Home.aspx") && !window.location.href.includes("home.aspx"))
+{ 
+if( window.location.href.includes(".aspx")){
+var div= document.getElementById('backDiv');
+	div.removeAttribute("hidden");}
+else{
+var div1= document.getElementById('backDiv');
+	div1.setAttribute("hidden","true");}
+}
+else{
+
+
+	var div1= document.getElementById('backDiv');
+	div1.setAttribute("hidden","true");}
+    });
+
+
+  
+    $(window).scroll(function () {
+
+        if ($('div.banner2').length) {
+
+            if ($(window).scrollTop() >= 265) {
+                $('#menubar').css("position", "fixed");
+                $('#menubar').css("width", "240px");
+                $('#menubar').css("margin-top", "-281px");
+                $('.content_area').css("margin-left", "252px");
+
+                $('.sidebar_nav').css("position", "fixed");
+                $('.sidebar_nav').css("margin-top", "-200px");
+                $('.sidebar_nav').css("width", "236px");
+
+
+             
+
+            }
+
+            else {
+                $('#menubar').css("position", "");
+                $('#menubar').css("width", "");
+                $('#menubar').css("margin-top", "");
+                $('.content_area').css("margin-left", "");
+
+                $('.sidebar_nav').css("position", "");
+                $('.sidebar_nav').css("margin-top", "");
+                $('.sidebar_nav').css("width", "");
+
+
+
+         
+            }
+
+        }
+
+        else if ($(window).scrollTop() >= 185) {
+            $('#menubar').css("position", "fixed");
+            $('#menubar').css("width", "240px");
+            $('#menubar').css("margin-top", "-200px");
+            $('.content_area').css("margin-left", "252px");
+
+            $('.sidebar_nav').css("position", "fixed");
+            $('.sidebar_nav').css("margin-top", "-200px");
+            $('.sidebar_nav').css("width", "236px");
+
+
+          
+		var treeheight=0;
+		if($('#treeYear').height()>0){treeheight=$('#treeYear').height();}
+	    	if($(window).scrollTop() >= $('#example-min').height()-treeheight)
+		{			 
+			$('#menubar').css("position", "absolute");
+            		
+			$('#menubar').css("margin-top", "");
+			$('#menubar').css("top", $('#example-min').height()+100-treeheight +"px");
+		}
+		else{$('#menubar').css("position", "fixed"); $('#menubar').css("top", "");}
+		
+        }
+
+        else {
+            $('#menubar').css("position", "");
+            $('#menubar').css("width", "");
+            $('#menubar').css("margin-top", "");
+            $('.content_area').css("margin-left", "");
+
+            $('.sidebar_nav').css("position", "");
+            $('.sidebar_nav').css("margin-top", "");
+            $('.sidebar_nav').css("width", "");
+
+
+       
+        }
+     
+
+       
+    });
+	
+      
+    $(document).ready(function () {
+	
+	
+		  $('.window .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('#maskWN').hide();
+            $('.window').hide();
+            var scroll = $(window).scrollTop();
+            $("html").scrollTop(scroll);
+        });
+		
+		 $('#maskWN').click(function () {
+            $(this).hide();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('.window').hide();
+
+        });
+
+        
+
+        //if close button is clicked
+        $('.window .close').click(function (e) {
+            //Cancel the link behavior
+            e.preventDefault();
+            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+            $('#mask').hide();
+            $('.window').hide();
+            var scroll = $(window).scrollTop();
+            $("html").scrollTop(scroll);
+        });
+
+        //if mask is clicked
+        $('#mask').click(function () {
+            $(this).hide();
+            $('.window').hide();
+        });
+        $('#feedbackbtn').click(function () {
+            var id = '#dialog';
+
+            //Get the screen height and width
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            //Set heigth and width to mask to fill up the whole screen
+            
+            $('#mask').css({ 'width': '100%', 'height': '100%', 'position': 'fixed' });
+
+            //transition effect
+            $('#mask').fadeIn(500);
+            $('#mask').fadeTo("slow", 0.9);
+
+            //Get the window height and width
+            var winH = $(window).height();
+            var winW = $(window).width();
+
+            //Set the popup window to center
+            $(id).css('top', winH / 2 - $(id).height() / 2);
+            $(id).css('left', winW / 2 - $(id).width() / 2);
+
+            //transition effect
+            $(id).fadeIn(2000);
+        });
+
+        $('.submit').click(function () {
+            var Name = $("[id*=txtFeedbackName]").val();
+            var Email = $("[id*=txtFeedbackEmail]").val();
+            var Comments = $("[id*=txtFeedbackComments]").val();
+            if (Name == "") {
+
+                alert("Please enter your name");
+                $("[id*=txtFeedbackName]").focus();
+                return false;
+            }
+            else if (Email == "") {
+                alert("Please enter your email");
+                $("[id*=txtFeedbackEmail]").focus();
+                return false;
+            }
+            else if (Email != "" && !ValidateEmail(Email)) {
+                alert("Please enter a valid email address");
+                $("[id*=txtFeedbackEmail]").focus();
+                return false;
+            }
+
+            else if (Comments == "") {
+
+                alert("Please enter some comments");
+                $("[id*=txtFeedbackComments]").focus();
+                return false;
+            }
+
+            else {
+                $('[id*=Button1]').attr('disabled', 'disabled');
+
+                var param = { Name: Name, EmailID: Email, Comments: Comments };
+                $.ajax({
+                    type: "POST",
+                    url: "../Home.aspx/SaveFeedback",
+                    data: JSON.stringify(param),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+
+                    success: function (response) {
+
+                        if (response.d == "0") {
+                            alert("Thank you for your feedback");
+                            $.cookie('feedback_Cookie', 'Yes', { expires: 365, path: '/' });
+                            $('#mask').hide();
+                            $('.window').hide();
+                            $('[id*=Button1]').removeAttr('disabled');
+                            $("[id*=txtFeedbackName]").val("");
+                            $("[id*=txtFeedbackEmail]").val("");
+                            $("[id*=txtFeedbackComments]").val("");
+                        }
+                        else {
+                            alert("Please try again");
+                            $('[id*=Button1]').removeAttr('disabled');
+
+
+                        }
+
+                    }
+                });
+            }
+
+        });
+
+        function ValidateEmail(email) {
+            var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            return expr.test(email);
+        };
+
+       
+
+        $('a.style1').each(function () {
+
+            var $this = $(this);
+            var aHref = $this.attr('class');
+            $this.attr('class', aHref.replace('style1', 'links'));
+        });
+
+		
+   });
+
+  function isExternal(url) {
+	if(url){url=url.toLowerCase();
+       if(url=='#' || url=='javascript:void(0);' || url.includes('javascript')||url=='' )
+	{ return false;} 
+	else{//return (url.indexOf("rbi.org.in")==-1)
+	
+	if(url.indexOf("www.rbi.org.in")==-1 || url.indexOf("https://rbi.org.in")==-1)
+		{	
+			if(url.indexOf("rbi.org.in")==-1)		
+    				return "external";
+			else if(url.indexOf("www.rbi.org.in")==-1 && url.indexOf(".rbi.org.in")>0 && url.indexOf("rbidocs.rbi.org.in")==-1)
+				{return "subdomain";}
+			else if(url.indexOf("financialeducation")>0 || url.indexOf("commonperson")>0 || url.indexOf("/rekyc/")>0 || url.indexOf("rbi90years")>0 ){
+				return "subsite";}
+			
+		}
+	
+	}}
+    }
+    document.addEventListener("click", function () {
+	linkMessage();
+        
+    });
+function linkMessage(){
+	if (event.target.tagName.toLowerCase() === "a") {
+            if (isExternal(event.target.href)=="external") {
+
+                if (confirm("You are being redirected to an external website that opens in a new tab. Please note that Reserve Bank of India will not be held responsible for external websites content in any manner.")) {
+
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+            }
+	    if (isExternal(event.target.href)=="subdomain") {
+	    	 if (confirm("You are being redirected to a subdomain that will open in a new browser tab. The subdomain may have a different header, footer, and navigation structure from the main website. Continue?")) {
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+	    }
+		if (isExternal(event.target.href)=="subsite") {
+	    	 if (confirm("You are being redirected to a subsite that will open in a new browser tab. The subsite may have a different header, footer, and navigation structure from the main website. Some design elements and links may vary from the primary site experience. Continue?")) {
+                    return;
+                }
+                else {
+                   
+                    event.preventDefault();
+                    return;
+                }
+	    }
+        }
+	else if (event.target.tagName.toLowerCase() === "img") {
+		$(event.target).preventDefault;		
+		if($(event.target).parent('a').length){
+			 if (isExternal($(event.target).parent('a').prop('href'))==="external") {
+                		if (confirm("You are being redirected to an external website that opens in a new tab. Please note that Reserve Bank of India will not be held responsible for external websites content in any manner.")) {
+                    		return;
+               		 }
+
+                	else {                   
+                    		event.preventDefault();
+                    		return;
+                	}}
+			if (isExternal($(event.target).parent('a').prop('href'))==="subdomain") {
+                		if (confirm("You are being redirected to a subdomain that will open in a new browser tab. The subdomain may have a different header, footer, and navigation structure from the main website. Continue?")) {
+                    		return;
+               		 	}
+
+                		else {                   
+                    		event.preventDefault();
+                    		return;
+                		}
+			}
+			if (isExternal(event.target.href)=="subsite") {
+	    	 	if (confirm("You are being redirected to a subsite that will open in a new browser tab. The subsite may have a different header, footer, and navigation structure from the main website. Some design elements and links may vary from the primary site experience. Continue?")) {
+                    	return;
+                	}
+                	else {
+                   
+                    		event.preventDefault();
+                    	return;
+                	}
+	    		}
+	}}
+	const link = event.target.closest('a[target="_blank"]');
+	if(link){ 
+		event.preventDefault();
+		const docRegx = /\.(pdf|docx?|xlsx?|zip?|xls|doc)$/i;
+		if(docRegx.test(link)){
+			if(/\.pdf$/i.test(link))
+			{	
+				if(confirm("This PDF will open in a new browser tab. Do you want to continue?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.docx$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.doc$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.xlsx$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.xls$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this document?")){
+				window.open(link.href,"_blank");}
+			}
+			else if(/\.zip$/i.test(link))
+			{	
+				if(confirm("Are you sure you want to download this file?")){
+				window.open(link.href,"_blank");}
+			}
+		}
+
+		else 
+		if(confirm("This link will open in a new browser tab. Do you want to continue?")){
+			window.open(link.href,"_blank");
+		}
+	}
+		if (event.target.tagName.toLowerCase() === "button") {
+		if($(event.target).parent('a').length>0){
+			const link1 = event.target.closest('a[target="_blank"]');
+		if(link1){
+			event.preventDefault();
+			if(confirm("This link will open in a new browser tab. Do you want to continue?")){
+				window.open(link.href,"_blank");
+			}
+		}
+		}
+	}
+}
+
+</script>
+<script >
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61369961-1', 'auto');
+  ga('send', 'pageview');
+
+document.querySelectorAll('table.tablebg').forEach(table => {
+    const anchors = table.querySelectorAll('a[href^="#"]:not([href="#"])');
+
+    const hasInPageAnchorsInThisTableOnly = Array.from(anchors).some(a => {
+        // Find the closest table ancestor of this anchor
+        const closestTable = a.closest('table');
+    
+        // Only count it if it belongs to the current table (not a nested one)
+        return closestTable === table;
+    });
+
+    if (!hasInPageAnchorsInThisTableOnly) {
+       // table.setAttribute('role', 'presentation');
+       //} else {
+       //    table.removeAttribute('role'); 
+	if(table.closest('td')){
+	if(table.querySelector('th'))
+	{	
+		table.removeAttribute('role');
+	}
+	else{
+        table.setAttribute('role', 'presentation');
+		}
+	}
+	else{
+        table.setAttribute('role', 'presentation');
+		}
+    }
+});
+$('.brd-ptable1').attr('role','presentation');
+$('html').attr('lang', 'en');
+document.querySelectorAll('br').forEach(br => {br.setAttribute('aria-hidden','true');});
+$('#doublescroll').children('table').filter(':first').attr("role", "presentation");
+$('.page_title').nextAll('table').first().attr("role", "presentation");
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+$('.tableheader b').each(function () {
+		var curEle= $(this);
+           $(curEle).replaceWith("<h2 class='dop_header'>"+$(curEle).html()+"</h2>")
+        });
+ });
+
+//  tooltip 
+var TooltipManager = {
+    _tip: null, // Create the tooltip element once 
+init: function() {
+    if (!this._tip) {
+    
+        this._tip = $('<div id="js-custom-tooltip"></div>').css({
+            "position": "absolute", "background": '#ffffca', "color":"#000", "padding": "2px 5px", "border-radius": "0px", "font-size": "11px","font-family":"Sans-serif", "z-index": "10000", "pointer-events": "none","border":"1px solid #767676", "box-shadow":"2px 2px 3px rgba(0,0,0,0.2)","white-space":"nowrap"
+        }).appendTo('body');
+        
+    }
+}, 
+show: function(element, text) {
+    this.init(); 
+var $el = $(element); // Update text and position 
+    
+this._tip.text(text).show();
+var pos = $el.offset(); 
+this._tip.css({
+    top: pos.top + this._tip.outerHeight()  + "px", // Show above 
+    left: pos.left + ($el.outerWidth() / 2) - (this._tip.outerWidth() / 2) + "px"
+});
+    }, hide: function() { if (this._tip) this._tip.hide(); }
+}; // Apply to all elements that have a ToolTip (ToolTip renders as 'title') 
+$(document).ready(function() {
+   
+    $('body').on('focusin', 'input, button, a, select, textarea, img', function() {
+        var title = $(this).attr('title'); if (title) {
+    
+            
+      
+            TooltipManager.show(this, title);
+        }
+    }).on('focusout', 'input, button, a, select, textarea, img', function() { 
+       
+            TooltipManager.hide();
+       
+    }); // Dismiss on Escape key
+    $(document).keyup(function(e) { if (e.key === "Escape") TooltipManager.hide(); });
+});
+
+//breadcrumb current page announce
+$(document).ready(function(){
+
+const breadcrumbList = document.querySelector('.breadcrumbs');
+
+    if (breadcrumbList) {
+        const listItems = breadcrumbList.querySelectorAll('li');
+    
+        if (listItems.length > 0) {
+            
+            const lastItem = $('.breadcrumbs li').filter(function(){ return $.trim($(this).text())!=="";}).last().attr('aria-current', 'page').css('background','none'); //remove extra icons from empty breadcrumbs
+            $('.breadcrumbs li').filter(function(){ return $.trim($(this).text())==="" && $(this).children().length===0;}).attr('role','presentation');
+	    
+       		$('.breadcrumbs li').filter(function(){
+			if($(this).children().length!==0)
+			{
+				if($(this).children().text() ===""){}
+			}
+		});
+            const lastLink =lastItem.find('a');
+            if (lastLink) {
+                lastLink.attr('aria-current', 'page');               
+                
+            }
+		if($('.breadcrumbs li').last().find('a').length>0)
+		{			
+			const $a = $('.breadcrumbs li').last().find('a');
+			$('<span>',{class: $a.attr('class'), text: $a.text()}).replaceAll($a).attr('aria-current', 'page').css('background','none');
+		}
+		
+		if($('.breadcrumbs li').last().find('span').length>0)
+		{
+			
+			if($('.breadcrumbs li').last().find('span')[0].innerText==='')
+			{
+				$('.breadcrumbs li').last().find('span').removeAttr('aria-current');				
+			}
+			else{
+				$('.breadcrumbs li').last().find('span').filter(function(){ return $(this).attr('role')!=='presentation';}).last().attr('aria-current', 'page').css('background','none');					
+			}		
+		}
+		$('.breadcrumbs li').filter(function(){ return $.trim($(this).text())!=="";}).removeAttr('role','presentation'); 
+		$('.breadcrumbs li').filter(function(){ return $.trim($(this).text())==="" }).css('background','none');//remove extra icons from empty breadcrumbs
+        }
+    }
+});
+
+//document.addEventListener("DOMContentLoaded", () => {
+//    document.querySelectorAll('img').forEach(img => {
+//      try {
+//        const url = new URL(img.src);
+//        img.crossOrigin = "anonymous";
+//        img.src = window.location.origin + url.pathname + url.search + url.hash;
+//      } catch (e) {}
+//    });
+//  });
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+setLetterSpace(false);//]]>
+</script>
+</form>
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/Scroll.js"></script>
+    <script type="text/javascript" language="javascript">
+
+        DoubleScrollWithTree(document.getElementById('doublescroll'));
+        function GetYear(year) {
+            document.getElementById("hdnYear").value = year;
+            document.getElementById("btn").click();
+        }
+        function hideshow(divArchive) {
+            if (!document.getElementById(divArchive))
+                return
+            if (document.getElementById(divArchive).style.display == "block")
+                document.getElementById(divArchive).style.display = "none"
+            else
+                document.getElementById(divArchive).style.display = "block"
+        }
+        function SetTreeStyles() {
+            var strYear = document.getElementById("hdnYear").value;
+            var ArcYear = parseInt(document.getElementById("btn").value) - 9;
+
+
+            if (strYear != "") {
+                var toDay = new Date();
+                document.getElementById(strYear).setAttribute("class", "year active");
+                document.getElementById(strYear).style.display = "block";
+                if (toDay.getFullYear() - 9 > parseInt(strYear)) { document.getElementById("divArchiveSub").style.display = "block" }
+            }
+        }
+    </script>
+</body>
+</html>

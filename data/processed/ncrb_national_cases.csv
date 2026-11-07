@@ -1,0 +1,10 @@
+year,cases,pub_year,source_file
+2016,12317.0,2018,data/raw/ncrb_tables/2018/table-9A.1_0-2018.xlsx
+2017,21796.0,2019,data/raw/ncrb_tables/2019/table-9A.1-2019.xlsx
+2018,27248.0,2020,data/raw/ncrb_tables/2020/table-9A.1-2020.xlsx
+2019,44735.0,2021,data/raw/ncrb_tables/2021/1679661903TABLE9A1.xlsx
+2020,50035.0,2022,data/raw/ncrb_tables/2022/1702030584TABLE9A1.xlsx
+2021,52974.0,2023,data/raw/cii2023_vol2/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf
+2022,65893.0,2024,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+2023,86420.0,2024,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf
+2024,101928.0,2024,data/raw/cii2024_vol2/2crimeinindia2024-volumeii.pdf

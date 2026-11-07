@@ -1,0 +1,1328 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head id="Head1"><title>
+	Press Release Page | Press Information Bureau
+</title><link href="css/style.css?v=1" rel="stylesheet" type="text/css" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="alternate stylesheet" href="css/change.css?v=1" media="screen" title="change" /><link rel="alternate stylesheet" href="css/green.css?v=1" media="screen" title="green" /><link rel="alternate stylesheet" href="css/yellow.css" media="screen" title="yellow" /><link rel="stylesheet" type="text/css" href="css/prtint.css" media="print" /><link rel="stylesheet" href="css/style3.1.css" type="text/css" /><link id="pibA11yCss" rel="stylesheet" href="/css/accessibility.css?v=7" type="text/css" />
+    <script type="text/javascript">
+        (function (d) {
+            var t = "";
+            try {
+                t = window.localStorage.getItem("pibStyle") || "";
+            } catch (e) {
+                t = "";
+            }
+            if (t === "orange") {
+                t = "yellow";
+            }
+            var c = t === "change" ? " pib-hc"
+                : t === "green" ? " pib-theme-green"
+                : t === "yellow" ? " pib-theme-yellow" : "";
+            d.documentElement.className += c + " pib-a11y-content";
+        }(document));
+    </script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/accessibility.js?v=7"></script>
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+                  function getParameterByName(name) {
+                        var url = window.location.href;
+                        name = name.replace(/[\[\]]/g, '\\$&');
+                        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                              results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                  }
+                  let prid = parseInt(getParameterByName('PRID'), 10);
+
+                  if (!isNaN(prid) && prid > 0) {
+                        $.ajax({
+                              type: "POST",
+                              url: "AjaxMethod.aspx/UpdatePRHitCount",
+                              async: false,
+                              data: JSON.stringify({ 'PermId': prid }),
+                              contentType: "application/json; charset=utf-8",
+                              dataType: "json",
+                              success: function (response) {
+                                    console.log(response);
+                              },
+                              error: function (error) {
+                                    console.log("Error in AJAX request", error);
+                              }
+                        });
+                  } else {
+                        console.log("Invalid parameters:", prid);
+                  }
+            });
+    </script>
+    <style type="text/css">
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        full-width {
+            width: 100%;
+        }
+
+        .logo-left, .logo-center, .countdown {
+            display: flex;
+            align-items: center;
+        }
+
+            .logo-left img, .logo-center img {
+                height: 70px;
+            }
+
+        .countdown {
+            text-align: center;
+            background-color: var(--dbim-text, #150202);
+            border-radius: 10px;
+            padding: 10px;
+            border: 2px solid grey;
+        }
+
+        .firstnumber {
+            color: #000000;
+            position: absolute;
+            top: 50px;
+            right: 90px;
+            font-size: 30px;
+        }
+
+        .secondnumber {
+            position: absolute;
+            color: #000000;
+            right: 45px;
+            top: 50px;
+            font-size: 30px;
+        }
+
+        .countdown .days {
+            font-size: 35px;
+            color: gold;
+        }
+
+        .countdown p {
+            margin: 0;
+        }
+
+        .countdown .text {
+            font-size: 16px;
+        }
+
+        a {
+            word-break: break-all;
+        }
+
+        iframe, img {
+            max-width: 100%;
+        }
+
+        /* === DBIM 3.0 Option 4 Separator Line & Reading Meta Styling === */
+        .pr-share--footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-top: 1px solid var(--dbim-border, #d1d5db);
+            padding-top: 16px;
+            margin-top: 24px;
+        }
+
+        .pr-share__left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .pr-reading-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--dbim-text-secondary, #475569);
+            font-weight: 500;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .pr-reading-meta__item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pr-reading-meta__divider {
+            color: var(--dbim-border, #cbd5e1);
+            font-weight: 300;
+        }
+
+        .pib-hc .pr-reading-meta,
+        .pib-hc .pr-reading-meta svg {
+            color: currentColor !important;
+        }
+
+        @media (max-width: 680px) {
+            .pr-share--footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pr-reading-meta {
+                margin-left: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media(max-width:1199px) {
+            .firstnumber {
+                top: 40px;
+                right: 72px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 35px;
+                top: 40px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:990px) {
+            .firstnumber {
+                top: 25px;
+                right: 54px;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 25px;
+                top: 25px;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .countdown, .days {
+                font-size: 12px !important;
+            }
+
+            .firstnumber {
+                top: 25%;
+                right: 8%;
+                font-size: 30px;
+            }
+
+            .secondnumber {
+                right: 4.5%;
+                top: 25%;
+                font-size: 30px;
+            }
+        }
+
+        @media(max-width:475px) {
+            .countdown, .days {
+                font-size: 10px !important;
+                top: 20%;
+            }
+
+            .bannerimgdiv {
+                padding: 0 !important;
+            }
+
+            .bannerimg {
+                width: 108% !important;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+            $(function () {
+                  $("[id*=printPDF]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+            $(function () {
+                  $("[id*=printPDFEvent]").click(function () {
+                        $("[id*=hfGridHtml]").val($("#PdfDiv").html());
+                  });
+            });
+    </script>
+
+    <link id="pibConsentCss" href="/css/consent.css?v=8" rel="stylesheet" type="text/css" /><link id="pibFontsCss" href="/css/fonts-noto.css?v=6" rel="stylesheet" type="text/css" /><link id="pibDbimCss" href="/css/dbim.css?v=1120" rel="stylesheet" type="text/css" /><meta property="og:title" content="CYBERCRIME REPORTING AND INVESTIGATION" /><meta property="og:url" content="www.pib.gov.in/Pressreleaseshare.aspx?PRID=2226441" /><meta property="og:description" content="‘Police’ and ‘Public Order’ are State subjects as per the Seventh Schedule of the Constitution of In" /><meta property="og:image" content="https:/pib.gov.in/images/indian-emblem.png" />
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="C4E7H-KSCMC-422L4-W3EM5-U36MF",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"C4E7H-KSCMC-422L4-W3EM5-U36MF";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="hubzg4yx2m6eq2xoscwa-f-652d93bc3-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1825201","ak.ai":parseInt("1215205",10),"ak.ol":"0","ak.cr":25,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"31d7c4ad","ak.r":48061,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":55078,"ak.gh":"23.201.102.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794019500","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==HDBL8uV11wJaicoYsEs+UWeQXZ1757uA4kdLfvlNTVNkx0Zejjgg8x0KaMP6Ob45SxvS1NuV32MO5oZVHOapoOyGmbc1WZJgYf3Sr//uvHkmZ99M1XCF46PLR2tn0HQtUHqqpjM1DAeiULvRh7frGymw9Rzr/pa1+LBNyIJAuADDHvQm/VUU0hlE1pL5IGRE+9WcqZMn3fzHdp3ptfcThfvlUNhCeWfOygPqTdOXcRuNbrQEARzxjADxa1FzCciKZO+7oy/SnE+V1SkTxG1MkidrAXbi/E7rZHxPvcBShBedLOM18qJ0D0tIEY/KCNt9rQmUxObEXODcVcgAc4Exllsz8Tb8BXTfE7Ki9aURVa2J0E691baYKdztu76k/TPIhouZkxc4Ua/jQP+vZKcmwWhHAGpd5Me3vjOUhXKRHgo=","ak.pv":"9","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+     style="position:absolute;width:0;height:0;overflow:hidden" id="dbim-icon-sprite">
+    <defs>
+        <symbol id="icon-angle-double-left" viewBox="0 0 24 24"><path d="M11.6 4.6 4.2 12l7.4 7.4 2.2-2.2L8.6 12l5.2-5.2z"/><path d="M19 4.6 11.6 12 19 19.4l2.2-2.2L16 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-angle-double-right" viewBox="0 0 24 24"><path d="M12.4 4.6 10.2 6.8 15.4 12l-5.2 5.2 2.2 2.2L19.8 12z"/><path d="M5 4.6 2.8 6.8 8 12l-5.2 5.2L5 19.4 12.4 12z"/></symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="M20.8 10.6H9.6v2.8h11.2z"/><path d="M10.8 5.6 3.2 12l7.6 6.4z"/></symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M3.2 10.6h11.2v2.8H3.2z"/><path d="M13.2 5.6 20.8 12l-7.6 6.4z"/></symbol>
+        <symbol id="icon-blogger" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6.4 2.4h11.2a4 4 0 0 1 4 4v11.2a4 4 0 0 1-4 4H6.4a4 4 0 0 1-4-4V6.4a4 4 0 0 1 4-4zm2.8 5.2a2 2 0 0 0 0 4h2.4a2 2 0 0 0 0-4zm0 5.6a2 2 0 0 0 0 4h5.6a2 2 0 0 0 0-4z"/></symbol>
+        <symbol id="icon-calendar" viewBox="0 0 24 24"><path d="M7.6 2.4H10v2.4H7.6z"/><path d="M14 2.4h2.4v2.4H14z"/><path fill-rule="evenodd" d="M4 4.8h16a1.6 1.6 0 0 1 1.6 1.6v13.2a1.6 1.6 0 0 1-1.6 1.6H4a1.6 1.6 0 0 1-1.6-1.6V6.4A1.6 1.6 0 0 1 4 4.8zm.4 5.6v8.4h15.2v-8.4z"/><path d="M6.4 12.4h3.2v3.2H6.4z"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15.4 4.6 8 12l7.4 7.4 2.2-2.2L12.4 12l5.2-5.2z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M8.6 4.6 6.4 6.8 11.6 12l-5.2 5.2 2.2 2.2L16 12z"/></symbol>
+        <symbol id="icon-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+        <symbol id="icon-download" viewBox="0 0 24 24"><path d="M10.8 3h2.4v7.6h3.4L12 16.6l-4.6-6h3.4z"/><path d="M4 17.2h2.4v2.4h11.2v-2.4H20v3.2a1.4 1.4 0 0 1-1.4 1.4H5.4A1.4 1.4 0 0 1 4 20.4z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M13.6 21.6v-8.4h2.8l.42-3.3h-3.22V7.8c0-.95.27-1.6 1.64-1.6h1.74V3.26a23 23 0 0 0-2.54-.13c-2.5 0-4.22 1.53-4.22 4.34v2.43H7.4v3.3h2.82v8.4z"/></symbol>
+        <symbol id="icon-fact-check" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4 3.6 5.6v6.2c0 4.6 3.4 8.6 8.4 9.8 5-1.2 8.4-5.2 8.4-9.8V5.6zm-1 13.2-3.6-3.6 1.7-1.7 1.9 1.9 4.5-4.5 1.7 1.7z"/></symbol>
+        <symbol id="icon-hashtag" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8.8 3h2.4l-1 6h3.2l1-6h2.4l-1 6h3.4v2.4h-3.8l-.6 3.2h3.6V17h-4l-1 5h-2.4l1-5h-3.2l-1 5H5.4l1-5H3V14.6h3.8l.6-3.2H3.8V9h4zm.6 8.4-.6 3.2h3.2l.6-3.2z"/></symbol>
+        <symbol id="icon-home" viewBox="0 0 24 24"><path d="M12 3.4 2.8 11.6h2.4v8.4a1 1 0 0 0 1 1h3.3v-5.4h5v5.4h3.3a1 1 0 0 0 1-1v-8.4h2.4z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.6 2.4h8.8a5.2 5.2 0 0 1 5.2 5.2v8.8a5.2 5.2 0 0 1-5.2 5.2H7.6a5.2 5.2 0 0 1-5.2-5.2V7.6a5.2 5.2 0 0 1 5.2-5.2zm0 2.4a2.8 2.8 0 0 0-2.8 2.8v8.8a2.8 2.8 0 0 0 2.8 2.8h8.8a2.8 2.8 0 0 0 2.8-2.8V7.6a2.8 2.8 0 0 0-2.8-2.8z"/><path fill-rule="evenodd" d="M12 6.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 2.4a2.8 2.8 0 1 1 0 5.6 2.8 2.8 0 0 1 0-5.6z"/><circle cx="17.3" cy="6.7" r="1.3"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24"><path d="M4.8 8.8h3.6v12H4.8z"/><circle cx="6.6" cy="5.4" r="2.1"/><path d="M10.8 8.8h3.45v1.65h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.35 4.3 5.4v6.6h-3.6v-5.85c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1v5.95h-3.6z"/></symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M2.4 7.6v9.2a1.6 1.6 0 0 0 1.6 1.6h16a1.6 1.6 0 0 0 1.6-1.6V7.6L12 14z"/><path d="M21.2 5.4H2.8L12 11.8z"/></symbol>
+        <symbol id="icon-mail-open" viewBox="0 0 24 24"><path d="M2.4 9.8h19.2v9.6A1.6 1.6 0 0 1 20 21H4a1.6 1.6 0 0 1-1.6-1.6z"/><path d="M12 2.6 21.6 9.2h-3.8L12 5.3 6.2 9.2H2.4z"/><path d="m3.9 11.2 8.1 5.4 8.1-5.4 1.5 1.3-9.6 6.4-9.6-6.4z"/></symbol>
+        <symbol id="icon-map-marker" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a7 7 0 0 0-7 7c0 5.2 7 12.2 7 12.2s7-7 7-12.2a7 7 0 0 0-7-7zm0 9.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2z"/></symbol>
+        <symbol id="icon-newspaper" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.8 4.4h14.8v15.2H2.8zm2 2v11.2h10.8V6.4z"/><path d="M6 7.6h8.4v1.6H6z"/><path d="M6 10.8h8.4v1.6H6z"/><path d="M6 14h5.2v1.6H6z"/><path d="M18.4 8.4h2.8v9.6a1.4 1.4 0 0 1-2.8 0z"/></symbol>
+        <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="7.4" y="4" width="3.6" height="16" rx="0.9"/><rect x="13" y="4" width="3.6" height="16" rx="0.9"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 4.5v15l12-7.5z"/></symbol>
+        <symbol id="icon-picture" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.4 5.2h19.2v13.6H2.4zm2 2v9.6h15.2V7.2z"/><path d="M5.6 16.4 10 11l2.6 3 2-2.2 4 4.6z"/><circle cx="8" cy="10.4" r="1.5"/></symbol>
+        <symbol id="icon-press-conference" viewBox="0 0 24 24"><circle cx="12" cy="5.2" r="2.6"/><path d="M7.6 12.2a4.4 4.4 0 0 1 8.8 0z"/><circle cx="4.9" cy="9.6" r="2.2"/><path d="M1.8 15.2a3.1 3.1 0 0 1 6.2 0z"/><circle cx="19.1" cy="9.6" r="2.2"/><path d="M16 15.2a3.1 3.1 0 0 1 6.2 0z"/><path d="M6.6 13.6h10.8l2.2 7.8H4.4z"/></symbol>
+        <symbol id="icon-print" viewBox="0 0 24 24"><path d="M6.4 2.8h11.2v4.4H6.4z"/><path d="M4 8.4h16a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6h-1.6v-2.8H6v2.8H4a1.6 1.6 0 0 1-1.6-1.6V10A1.6 1.6 0 0 1 4 8.4z"/><path d="M7.2 15.6h9.6v5.6H7.2z"/></symbol>
+        <symbol id="icon-rss" viewBox="0 0 24 24"><circle cx="4.8" cy="19.2" r="2.4"/><path d="M2.4 11.2v3.2a6.4 6.4 0 0 1 6.4 6.4H12A9.6 9.6 0 0 0 2.4 11.2z"/><path d="M2.4 4.8V8A13.6 13.6 0 0 1 16 21.6h3.2A16.8 16.8 0 0 0 2.4 4.8z"/></symbol>
+        <symbol id="icon-search-plus" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M10 2.8a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4zm0 2.4a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6z"/><path d="M15.3 14.6 21.2 20.5l-1.5 1.5-5.9-5.9z"/><path d="M9.2 6.8h1.6v2.4h2.4v1.6h-2.4v2.4H9.2v-2.4H6.8V9.2h2.4z"/></symbol>
+        <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5.6" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="18.4" r="3"/><path d="M8.3 10.9 15.7 7.2l.9 1.8-7.4 3.7z"/><path d="M9.2 13.1 16.6 16.8l-.9 1.8-7.4-3.7z"/></symbol>
+        <symbol id="icon-twitter" viewBox="0 0 24 24"><path d="M4.2 3h4.3l11.3 18h-4.3z"/><path d="M19.3 3h-2.6L4.2 21h2.6z"/></symbol>
+        <symbol id="icon-university" viewBox="0 0 24 24"><path d="M12 2.4 21.6 7.2v1.6H2.4V7.2z"/><path d="M4.8 10.4h2.4v8H4.8z"/><path d="M9.2 10.4h2.4v8H9.2z"/><path d="M13.4 10.4h2.4v8h-2.4z"/><path d="M17.6 10.4H20v8h-2.4z"/><path d="M3.2 19.8h17.6v1.8H3.2z"/></symbol>
+        <symbol id="icon-volume-up" viewBox="0 0 24 24"><path d="M3.2 9.2h3.3l5-4.2v14l-5-4.2H3.2z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2l1.6 1.6a7.2 7.2 0 0 0 0-10.4z"/><path d="M17.4 5.6a8.8 8.8 0 0 1 0 12.8l1.5 1.5a10.9 10.9 0 0 0 0-15.8z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.4a9.5 9.5 0 0 0-8.1 14.5L2.4 21.6l4.8-1.4A9.5 9.5 0 1 0 12 2.4zm0 2.2a7.3 7.3 0 1 1-3.8 13.5l-.4-.2-2.6.7.7-2.5-.3-.4A7.3 7.3 0 0 1 12 4.6z"/><path d="M9.4 7.8c-.2-.5-.4-.5-.6-.5h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6 6 0 0 1-1.8-1.1 6.6 6.6 0 0 1-1.2-1.6c-.1-.2 0-.4.1-.5l.4-.5.3-.5v-.5z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10.2 15.1V8.9l5.1 3.1z"/></symbol>
+    </defs>
+</svg>
+
+    <form method="post" action="./PressReleasePage.aspx?PRID=2226441&amp;lang=1&amp;reg=3" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="sc_HiddenField" id="sc_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZPQet1wIx1Q48y3xJY2k25Y7qxH5RrQ9qQcN-OiTC9guZtri9w2&amp;t=639246315009809930" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=x6wALODbMJK5e0eRC_p1LdIxBJXt0U_WW5GWfJqHAqo6frgCmGRfEywglicTersO2OKrFhK1gAIp0Wk2al2YrpdR3uWqH6f4nfjBsCyRUfTUUVmb0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=P5lTttoqSeZXoYRLQMIScH645UK3RD852IErF2548Wz9Ssv0rLjB4fhVKnHcMpqkaMHpNAGOeWY02Lf4aBYN9-dVBme_SNK5KJwmFQNpMixYDZ7M0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/PressReleasePage.aspx?_TSM_HiddenField_=sc_HiddenField&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d3.5.7.123%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3a5a4df314-b4a2-4da2-a207-9284f1b1e96c%3ade1feab2%3af2c8e708%3a8613aea7%3af9cec9bc%3a3202a5a2%3aab09e3fe%3a87104b7c%3a720a52bf%3a589eaa30%3aa67c2700%3abe6fb298" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="59B53027" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="hfRR00fSFsn7E7I7KWDBM9ugdF1/DSr8Ccrjl/LB9gwEmxxX/eSe1LehUqhiEXz7LbxwFczWFxazD7T0qgBYJK2y22JkC1Jid02sFuGV5Jr60+DKFIozIpUawMUI0VjNcaaFav9Q6wv1g7NsGnunZFVd2LxiLZCEygAb4mmBqESLhmgpscXW66i8/RjpSSmtBKpPVb8BWU9JBBXmv2RlMtIEpT1K6v51ywRQ9emwPdRaGoqs+rJRDsuaBsy4hfeeU5uUTmRzER6RWUoCmVLkAui4tuI=" />
+</div>
+        
+        <div id="templateCss"></div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('sc', 'form1', ['tupdate12','update12'], [], [], 90, '');
+//]]>
+</script>
+
+        <input type="hidden" name="hfGridHtml" id="hfGridHtml" />
+        <div class="container" style='margin-bottom: 50px;'>
+            <div id="accessories">
+                
+                <div class="pull-right" style="display: flex">
+                    <div id="voll"></div>
+                    <div id="vollDT"></div>
+                    
+
+<span class="print-icons">
+<input type="image" name="Print1$print" id="Print1_print" aria-label="Print" src="images/printer_icon.png" alt="print page button" style="padding: 5px 10px 5px 10px;" />
+</span>
+                </div>
+            </div>
+            <input type="hidden" name="hydpermid" id="hydpermid" value="2226441" />
+            
+
+            <div class="innner-page-main-about-us-content-right-part">
+                <div id="MinistryName" class="MinistryNameSubhead text-center">
+                    Ministry of Home Affairs
+                </div>
+                <div id="lg_g"><div class='log_oo'>  <img src='https://static.pib.gov.in/WriteReadData/specificdocs/photo/2026/sep/ph_9768_20260902_10000501.png' alt='azadi ka amrit mahotsav' /> </div></div>
+
+                <div class="text-center event-heading-background">
+                    
+                    <h1 id="Titleh2">
+                        CYBERCRIME REPORTING AND INVESTIGATION
+                    </h1>
+                    <h3 id="Subtitleh3">
+                        <span id="ltrSubtitle"></span>
+                    </h3>
+                </div>
+
+                <div id="PrDateTime" class="ReleaseDateSubHeaddateTime text-center pt20">
+                    Posted On:
+                              11 FEB 2026 4:35PM by PIB Delhi
+                </div>
+                
+                <div class='pt20'>
+                </div>
+                <input type="hidden" name="hydphotoUrl" id="hydphotoUrl" />
+                
+
+                <!-- Release content wrapper for client-side zero-reflow word count -->
+                <div id="pibReleaseBody">
+                    <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&lsquo;Police&rsquo; and &lsquo;Public Order&rsquo; are State subjects as per the Seventh Schedule of the Constitution of India. The States/UTs are primarily responsible for the prevention, detection, investigation and prosecution of crimes including cyber crime through their Law Enforcement Agencies (LEAs). The Central Government supplements the initiatives of the States/UTs through advisories and financial assistance under various schemes for capacity building of their LEAs. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Home Affairs has set up the &lsquo;Indian Cyber Crime Coordination Centre&rsquo; (I4C) as an attached office to deal with all types of cyber crimes in the country, in a coordinated and comprehensive manner.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The &lsquo;National Cyber Crime Reporting Portal&rsquo; (NCRP) (https://cybercrime.gov.in) has been launched, as a part of the I4C, to enable public to report incidents pertaining to all types of cyber crimes, with special focus on cyber crimes against women and children. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The &lsquo;Citizen Financial Cyber Fraud Reporting and Management System&rsquo; (CFCFRMS), under I4C, has been launched in year 2021 for immediate reporting of financial frauds and to stop siphoning off funds by the fraudsters. As per CFCFRMS operated by I4C, till 31.12.2025, financial amount of more than Rs. 8,189 Crore has been saved in more than 23.61 lakh complaints.&nbsp; A toll-free Helpline number &lsquo;1930&rsquo; has been operationalized to get assistance in lodging online cyber complaints. As per NCRP &amp; CFCFRMS operated by I4C, total amount reported by citizens due to cyber frauds from the year 2021 to 2025 are as under:</span></span></p>
+
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" class="Table" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td style="width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Year</span></span></p>
+			</td>
+			<td style="width:51.14%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Number of financial frauds complaints on NCRP</span></span></p>
+			</td>
+			<td style="width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Amount Reported </span></span></p>
+
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">(₹ In Crore)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2021</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2,62,846</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">551</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2022</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">6,94,446</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2290</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2023</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">13,10,357</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">7465</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2024</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">19,18,835</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">22848</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2025 </span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">24,02,579</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">22495</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Note: Data is dynamic in nature. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Cyber crime incidents reported on National Cyber Crime Reporting Portal, their conversion into FIRs and subsequent action i.e. filing of chargesheets, arrest and resolution of complaints, thereon are handled by the State/UT Law Enforcement Agencies concerned as per the provisions of the law.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The state of the art National-Digital Investigation Support Centre (previously known as National Cyber Forensic (Investigation) Laboratory&nbsp; {NCFL(I)}) has been established, as a part of the I4C, at New Delhi (on 18.02.2019) and at Assam (on 29.08.2025) to provide early stage cyber forensic assistance to Investigating Officers (IOs) of State/UT Police. Till 31.12.2025, National-Digital Investigation Support Centre, New Delhi has provided its services to State/UT LEAs in more than 13,299 cases pertaining to cyber crimes.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Central Government provided continued support to the States/UTs for upgradation of the State Forensic Science Laboratories. As per the available information, Cyber forensic divisions are available in 27 State / UT FSLs namely, Himachal Pradesh, Mizoram, Rajasthan, Jharkhand, Kerala, Tripura, Uttar Pradesh, Karnataka, Chhattisgarh, Gujarat, Odisha, Puducherry, Uttarakhand, Assam, Manipur, Delhi, Maharashtra, West Bengal, Haryana, Andhra Pradesh, Tamil Nadu, Bihar, Jammu &amp; Kashmir, Meghalaya, Goa, Arunachal Pradesh and Telangana. The Government of India has established a National Cyber Forensic Laboratory (Evidentiary) (NCFL (E)) at the CFSL, Hyderabad with a total financial outlay of Rs. 37.34 crore. Further, 07 Central Forensic Science Laboratories (CFSLs) are also operational across the country to assist in investigation of cybercrime cases. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Home Affairs has released financial assistance to the tune of Rs. 132.93 crores under the &lsquo;Cyber Crime Prevention against Women and Children (CCPWC)&rsquo; Scheme, to the States/UTs for their capacity building such as setting up of cyber forensic-cum-training laboratories, hiring of junior cyber consultants and training of LEAs&rsquo; personnel, public prosecutors and judicial officers. Cyber forensic-cum-training laboratories have been commissioned in 33 States/UTs and more than 24,600 LEA personnel, judicial officers and prosecutors have been provided training on cyber crime awareness, investigation, forensics etc.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This was stated by the Minister of State in the Ministry of Home Affairs Shri Bandi Sanjay Kumar in a written reply to a question in the Rajya Sabha.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">*****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">RK/PR/PS/SK/SC</span></span></strong></p>
+
+                </div>
+
+                <div id="reel_pic">
+                </div>
+
+                <br />
+                <span id="ReleaseId">(Release ID: 2226441)</span>
+                <span id="lblViews">Visitor Counter : 4287</span>
+                <div>
+                    
+                </div>
+                
+
+                <span id="lblRefPhoto"></span>
+
+                <div class="BackgroundRelease">
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="ReleaseLang">Read this release in: 
+                
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2226549' target="_blank">
+                            Urdu </a>
+                    
+                        ,
+                    
+                        <a href='https://pib.gov.in/PressReleasePage.aspx?PRID=2226788' target="_blank">
+                            हिन्दी </a>
+                    
+                </div>
+
+                <div class="RelTag">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="clear">
+                </div>
+
+                <!-- DBIM 3.0 Option 4: Separator Line with Left Share Rail & Right Reading Metrics -->
+                <div class="pr-share pr-share--footer" role="region" aria-label="Share and reading details">
+                    <div class="pr-share__left">
+                        <span class="pr-share__label" aria-hidden="true">Share</span>
+                        <ul class="pr-share__list">
+                            <li><a class="pr-share__btn pr-share__btn--facebook"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2226441"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on Facebook">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-facebook" xlink:href="#icon-facebook"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--twitter"
+                                href="https://twitter.com/intent/tweet?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2226441"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on X">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-twitter" xlink:href="#icon-twitter"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--whatsapp"
+                                href="https://api.whatsapp.com/send?text=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2226441"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on WhatsApp">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-whatsapp" xlink:href="#icon-whatsapp"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--linkedin"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2226441"
+                                target="_blank" rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-linkedin" xlink:href="#icon-linkedin"></use>
+                                </svg>
+                            </a></li>
+                            <li><a class="pr-share__btn pr-share__btn--mail"
+                                href="mailto:?subject=Press+release+from+PIB&amp;body=https%3a%2f%2fpib.gov.in%2fPressReleasePage.aspx%3fPRID%3d2226441"
+                                aria-label="Share by email">
+                                <svg class="dbim-icon dbim-icon-24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+                                    <use href="#icon-mail" xlink:href="#icon-mail"></use>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="pr-reading-meta" id="prReadingMeta" aria-label="Reading statistics">
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Document / Word Count Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                            </svg>
+                            <span id="prWordCount">-- words</span>
+                        </span>
+
+                        <span class="pr-reading-meta__divider" aria-hidden="true">|</span>
+
+                        <span class="pr-reading-meta__item">
+                            <!-- Modern Precision Clock / Read Time Icon -->
+                            <svg class="pr-reading-meta__icon" width="18" height="18" viewbox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                            </svg>
+                            <span id="prReadTime">-- min read</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="RelLink" class="RelLink">
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <center>
+                    
+                </center>
+            </div>
+
+            <div id="update12">
+	
+                    
+                    <input type="hidden" name="Hidden" id="Hidden" />
+                    <div id="P_CategoryManagement" class="ModalWindow" style="border-width:0px;height:60%;width:60%;overflow:auto;display: none">
+		
+                        <div>
+                            <input type="image" name="btnClose" id="btnClose" src="images/close_flat_icon.png" />
+                        </div>
+                        <div id="description">
+                        </div>
+                        <div class="text-center">
+                            <h2>
+                                
+                                <br>
+                                
+                            </h2>
+                        </div>
+                        <br />
+                        <div class="clear">
+                        </div>
+                        
+                    
+	</div>
+                
+</div>
+        </div>
+
+        <div id="PdfDiv" style="display: none;">
+            <table width="100%">
+                <tr>
+                    <td style="font-weight: 200; text-align: center">
+                        Ministry of Home Affairs
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            CYBERCRIME REPORTING AND INVESTIGATION
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: center; font-size: 30px;">
+                            
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="text-align: center; font-size: 14px;">
+                            Posted On:
+                                          11 FEB 2026 4:35PM by PIB Delhi
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 200; text-align: left; font-size: 16px;">
+                            <p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">&lsquo;Police&rsquo; and &lsquo;Public Order&rsquo; are State subjects as per the Seventh Schedule of the Constitution of India. The States/UTs are primarily responsible for the prevention, detection, investigation and prosecution of crimes including cyber crime through their Law Enforcement Agencies (LEAs). The Central Government supplements the initiatives of the States/UTs through advisories and financial assistance under various schemes for capacity building of their LEAs. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Home Affairs has set up the &lsquo;Indian Cyber Crime Coordination Centre&rsquo; (I4C) as an attached office to deal with all types of cyber crimes in the country, in a coordinated and comprehensive manner.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The &lsquo;National Cyber Crime Reporting Portal&rsquo; (NCRP) (https://cybercrime.gov.in) has been launched, as a part of the I4C, to enable public to report incidents pertaining to all types of cyber crimes, with special focus on cyber crimes against women and children. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The &lsquo;Citizen Financial Cyber Fraud Reporting and Management System&rsquo; (CFCFRMS), under I4C, has been launched in year 2021 for immediate reporting of financial frauds and to stop siphoning off funds by the fraudsters. As per CFCFRMS operated by I4C, till 31.12.2025, financial amount of more than Rs. 8,189 Crore has been saved in more than 23.61 lakh complaints.&nbsp; A toll-free Helpline number &lsquo;1930&rsquo; has been operationalized to get assistance in lodging online cyber complaints. As per NCRP &amp; CFCFRMS operated by I4C, total amount reported by citizens due to cyber frauds from the year 2021 to 2025 are as under:</span></span></p>
+
+<table border="1" bordercolor="#ccc" cellpadding="5" cellspacing="0" class="Table" style="border-collapse:collapse">
+	<tbody>
+		<tr>
+			<td style="width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Year</span></span></p>
+			</td>
+			<td style="width:51.14%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Number of financial frauds complaints on NCRP</span></span></p>
+			</td>
+			<td style="width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Amount Reported </span></span></p>
+
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">(₹ In Crore)</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2021</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2,62,846</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">551</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2022</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">6,94,446</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2290</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2023</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">13,10,357</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">7465</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2024</span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">19,18,835</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">22848</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:white; width:13.24%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">2025 </span></span></p>
+			</td>
+			<td style="background-color:white; width:51.14%">
+			<p style="margin-left:0cm; margin-right:-3.75pt; text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">24,02,579</span></span></p>
+			</td>
+			<td style="background-color:white; width:35.62%">
+			<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">22495</span></span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align:justify">&nbsp;</p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Note: Data is dynamic in nature. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">Cyber crime incidents reported on National Cyber Crime Reporting Portal, their conversion into FIRs and subsequent action i.e. filing of chargesheets, arrest and resolution of complaints, thereon are handled by the State/UT Law Enforcement Agencies concerned as per the provisions of the law.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The state of the art National-Digital Investigation Support Centre (previously known as National Cyber Forensic (Investigation) Laboratory&nbsp; {NCFL(I)}) has been established, as a part of the I4C, at New Delhi (on 18.02.2019) and at Assam (on 29.08.2025) to provide early stage cyber forensic assistance to Investigating Officers (IOs) of State/UT Police. Till 31.12.2025, National-Digital Investigation Support Centre, New Delhi has provided its services to State/UT LEAs in more than 13,299 cases pertaining to cyber crimes.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Central Government provided continued support to the States/UTs for upgradation of the State Forensic Science Laboratories. As per the available information, Cyber forensic divisions are available in 27 State / UT FSLs namely, Himachal Pradesh, Mizoram, Rajasthan, Jharkhand, Kerala, Tripura, Uttar Pradesh, Karnataka, Chhattisgarh, Gujarat, Odisha, Puducherry, Uttarakhand, Assam, Manipur, Delhi, Maharashtra, West Bengal, Haryana, Andhra Pradesh, Tamil Nadu, Bihar, Jammu &amp; Kashmir, Meghalaya, Goa, Arunachal Pradesh and Telangana. The Government of India has established a National Cyber Forensic Laboratory (Evidentiary) (NCFL (E)) at the CFSL, Hyderabad with a total financial outlay of Rs. 37.34 crore. Further, 07 Central Forensic Science Laboratories (CFSLs) are also operational across the country to assist in investigation of cybercrime cases. </span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">The Ministry of Home Affairs has released financial assistance to the tune of Rs. 132.93 crores under the &lsquo;Cyber Crime Prevention against Women and Children (CCPWC)&rsquo; Scheme, to the States/UTs for their capacity building such as setting up of cyber forensic-cum-training laboratories, hiring of junior cyber consultants and training of LEAs&rsquo; personnel, public prosecutors and judicial officers. Cyber forensic-cum-training laboratories have been commissioned in 33 States/UTs and more than 24,600 LEA personnel, judicial officers and prosecutors have been provided training on cyber crime awareness, investigation, forensics etc.</span></span></p>
+
+<p style="text-align:justify"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">This was stated by the Minister of State in the Ministry of Home Affairs Shri Bandi Sanjay Kumar in a written reply to a question in the Rajya Sabha.</span></span></p>
+
+<p style="text-align:center"><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">*****</span></span></p>
+
+<p style="text-align:justify"><strong><span style="font-family:Times New Roman,Times,serif"><span style="font-size:16px">RK/PR/PS/SK/SC</span></span></strong></p>
+
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                        <div style="font-weight: 100; text-align: left; font-size: 16px;">
+                            (Release ID: 2226441)
+                        </div>
+                        <div style="height: 30px; width: 100%;">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 200; text-align: center; font-size: 24px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="clearfix">
+        </div>
+
+        <div class="section1">
+            <div id="frst_t">
+                <div id="arr_rm"><div class='sticky-social_mb'><ul class='social_mb'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&text=CYBERCRIME REPORTING AND INVESTIGATION' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=CYBERCRIME REPORTING AND INVESTIGATION&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&title=CYBERCRIME REPORTING AND INVESTIGATION&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+            <div id="second_t">
+                <div id="sndr_rm"><div class='sticky-social'><ul class='social'><a href='http://www.facebook.com/share.php?u=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441' target='_blank'><li class='fb_b'   ></li></a><a href='https://twitter.com/intent/tweet?url=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&text=CYBERCRIME REPORTING AND INVESTIGATION' target='_blank'><li class='twitter_r'  > </li></a><a href='https://api.whatsapp.com/send?text=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441' target='_blank'><li class='whatsapp_r'  ></li></a><a href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=CYBERCRIME REPORTING AND INVESTIGATION&body=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&ui=2&tf=1&pli=1' title='Share by Email' target='_blank'><li class='fa-envelope_r' ></li></a><a href='https://www.linkedin.com/shareArticle?mini=true&url=https://pib.gov.in/PressReleasePage.aspx?PRID=2226441&title=CYBERCRIME REPORTING AND INVESTIGATION&summary=My%20favorite%20developer%20program&source=LinkedIn' target='_blank'><li class='fa-linkedin_r'  ></li></a></ul></div></div>
+            </div>
+        </div>
+        <input type="hidden" name="ltrTitlee" id="ltrTitlee" value="CYBERCRIME REPORTING AND INVESTIGATION" />
+        <input type="hidden" name="ltrSubtitlee" id="ltrSubtitlee" />
+        <input type="hidden" name="ltrDescriptionn" id="ltrDescriptionn" value="&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>&amp;lsquo;Police&amp;rsquo; and &amp;lsquo;Public Order&amp;rsquo; are State subjects as per the Seventh Schedule of the Constitution of India. The States/UTs are primarily responsible for the prevention, detection, investigation and prosecution of crimes including cyber crime through their Law Enforcement Agencies (LEAs). The Central Government supplements the initiatives of the States/UTs through advisories and financial assistance under various schemes for capacity building of their LEAs. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Ministry of Home Affairs has set up the &amp;lsquo;Indian Cyber Crime Coordination Centre&amp;rsquo; (I4C) as an attached office to deal with all types of cyber crimes in the country, in a coordinated and comprehensive manner.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The &amp;lsquo;National Cyber Crime Reporting Portal&amp;rsquo; (NCRP) (https://cybercrime.gov.in) has been launched, as a part of the I4C, to enable public to report incidents pertaining to all types of cyber crimes, with special focus on cyber crimes against women and children. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The &amp;lsquo;Citizen Financial Cyber Fraud Reporting and Management System&amp;rsquo; (CFCFRMS), under I4C, has been launched in year 2021 for immediate reporting of financial frauds and to stop siphoning off funds by the fraudsters. As per CFCFRMS operated by I4C, till 31.12.2025, financial amount of more than Rs. 8,189 Crore has been saved in more than 23.61 lakh complaints.&amp;nbsp; A toll-free Helpline number &amp;lsquo;1930&amp;rsquo; has been operationalized to get assistance in lodging online cyber complaints. As per NCRP &amp;amp; CFCFRMS operated by I4C, total amount reported by citizens due to cyber frauds from the year 2021 to 2025 are as under:&lt;/span>&lt;/span>&lt;/p>
+
+&lt;table border=&quot;1&quot; bordercolor=&quot;#ccc&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot; class=&quot;Table&quot; style=&quot;border-collapse:collapse&quot;>
+	&lt;tbody>
+		&lt;tr>
+			&lt;td style=&quot;width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Year&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:51.14%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Number of financial frauds complaints on NCRP&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Amount Reported &lt;/span>&lt;/span>&lt;/p>
+
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>(₹ In Crore)&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;background-color:white; width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2021&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:51.14%&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:-3.75pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2,62,846&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>551&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;background-color:white; width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2022&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:51.14%&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:-3.75pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>6,94,446&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2290&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;background-color:white; width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2023&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:51.14%&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:-3.75pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>13,10,357&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>7465&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;background-color:white; width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2024&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:51.14%&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:-3.75pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>19,18,835&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>22848&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+		&lt;tr>
+			&lt;td style=&quot;background-color:white; width:13.24%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>2025 &lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:51.14%&quot;>
+			&lt;p style=&quot;margin-left:0cm; margin-right:-3.75pt; text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>24,02,579&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+			&lt;td style=&quot;background-color:white; width:35.62%&quot;>
+			&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>22495&lt;/span>&lt;/span>&lt;/p>
+			&lt;/td>
+		&lt;/tr>
+	&lt;/tbody>
+&lt;/table>
+
+&lt;p style=&quot;text-align:justify&quot;>&amp;nbsp;&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Note: Data is dynamic in nature. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>Cyber crime incidents reported on National Cyber Crime Reporting Portal, their conversion into FIRs and subsequent action i.e. filing of chargesheets, arrest and resolution of complaints, thereon are handled by the State/UT Law Enforcement Agencies concerned as per the provisions of the law.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The state of the art National-Digital Investigation Support Centre (previously known as National Cyber Forensic (Investigation) Laboratory&amp;nbsp; {NCFL(I)}) has been established, as a part of the I4C, at New Delhi (on 18.02.2019) and at Assam (on 29.08.2025) to provide early stage cyber forensic assistance to Investigating Officers (IOs) of State/UT Police. Till 31.12.2025, National-Digital Investigation Support Centre, New Delhi has provided its services to State/UT LEAs in more than 13,299 cases pertaining to cyber crimes.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Central Government provided continued support to the States/UTs for upgradation of the State Forensic Science Laboratories. As per the available information, Cyber forensic divisions are available in 27 State / UT FSLs namely, Himachal Pradesh, Mizoram, Rajasthan, Jharkhand, Kerala, Tripura, Uttar Pradesh, Karnataka, Chhattisgarh, Gujarat, Odisha, Puducherry, Uttarakhand, Assam, Manipur, Delhi, Maharashtra, West Bengal, Haryana, Andhra Pradesh, Tamil Nadu, Bihar, Jammu &amp;amp; Kashmir, Meghalaya, Goa, Arunachal Pradesh and Telangana. The Government of India has established a National Cyber Forensic Laboratory (Evidentiary) (NCFL (E)) at the CFSL, Hyderabad with a total financial outlay of Rs. 37.34 crore. Further, 07 Central Forensic Science Laboratories (CFSLs) are also operational across the country to assist in investigation of cybercrime cases. &lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>The Ministry of Home Affairs has released financial assistance to the tune of Rs. 132.93 crores under the &amp;lsquo;Cyber Crime Prevention against Women and Children (CCPWC)&amp;rsquo; Scheme, to the States/UTs for their capacity building such as setting up of cyber forensic-cum-training laboratories, hiring of junior cyber consultants and training of LEAs&amp;rsquo; personnel, public prosecutors and judicial officers. Cyber forensic-cum-training laboratories have been commissioned in 33 States/UTs and more than 24,600 LEA personnel, judicial officers and prosecutors have been provided training on cyber crime awareness, investigation, forensics etc.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>This was stated by the Minister of State in the Ministry of Home Affairs Shri Bandi Sanjay Kumar in a written reply to a question in the Rajya Sabha.&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:center&quot;>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>*****&lt;/span>&lt;/span>&lt;/p>
+
+&lt;p style=&quot;text-align:justify&quot;>&lt;strong>&lt;span style=&quot;font-family:Times New Roman,Times,serif&quot;>&lt;span style=&quot;font-size:16px&quot;>RK/PR/PS/SK/SC&lt;/span>&lt;/span>&lt;/strong>&lt;/p>
+" />
+        <script type="text/javascript">
+                  var mPlayer = document.getElementById("background_music");
+                  var mPlayAction = document.getElementById("playbutton");
+                  var isPlaying = false;
+
+                  function playAudio() {
+                        mPlayer.play();
+                        isPlaying = true;
+                        document.getElementById('stopA').style.display = "block";
+                        document.getElementById('playA').style.display = "none";
+                  }
+
+                  function pauseAudio() {
+                        mPlayer.pause();
+                        isPlaying = false;
+                        document.getElementById('playA').style.display = "block";
+                        document.getElementById('stopA').style.display = "none";
+                  }
+        </script>
+        <script type="text/javascript">
+                  var synth = window.speechSynthesis;
+
+                  function CleanHtml(html) {
+                        html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
+                        return html;
+                  }
+                  function stripHtml(html) {
+                        let tmp = document.createElement("DIV");
+                        tmp.innerHTML = CleanHtml(html);
+                        return tmp.textContent || tmp.innerText || "";
+                  }
+        </script>
+        <script type="text/javascript">
+                  $(document).ready(function () {
+                        $("table").each(function () {
+                              if (!$(this).closest(".table-responsive").length) {
+                                    $(this).wrap("<div class='table-responsive'></div>");
+                              }
+                        });
+
+                        var width = $(window).width();
+                        if (width < 768) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 991) {
+                              document.getElementById('frst_t').style.display = "block";
+                              document.getElementById('second_t').style.display = "none";
+                        } else if (width < 1199) {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        } else {
+                              document.getElementById('frst_t').style.display = "none";
+                              document.getElementById('second_t').style.display = "block";
+                        }
+                  });
+        </script>
+        <style type="text/css">
+            @media print {
+                .sticky-social, .sticky-social_mb, .pull-right, #printPDF {
+                    display: none !important;
+                }
+            }
+
+            .f_vl {
+                padding-right: 30px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+
+            .log_oo {
+                display: flex;
+                justify-content: space-between;
+            }
+
+                .log_oo img {
+                    width: 150px;
+                }
+
+            .sticky-social_mb {
+                position: fixed;
+                bottom: 0px;
+                padding: 0px;
+                margin: 0px;
+                width: 100%;
+            }
+
+            .social_mb {
+                list-style: none;
+                display: flex;
+                width: 100%;
+                margin-bottom: -8px;
+            }
+
+                .social_mb a {
+                    padding: 8px 0px;
+                    font-size: 30px;
+                    transition: all 0.8s ease-in-out;
+                    width: 20% !important;
+                    text-align: center;
+                }
+        </style>
+        <style type="text/css">
+            .section1 {
+                position: relative;
+                padding: 10px 0px;
+                width: 100%;
+            }
+
+            .sticky-social {
+                position: fixed;
+                top: 20px;
+                left: 0px;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            .social {
+                list-style: none;
+            }
+
+                .social a li {
+                    padding: 8px 12px;
+                    font-size: 25px;
+                    transition: all 0.8s ease-in-out;
+                }
+
+                    .social a li:hover {
+                        margin-right: -30px;
+                        box-shadow: 2px 5px 10px grey;
+                    }
+
+                        .social a li:hover .fa {
+                            margin-left: 20px;
+                        }
+
+            .fb_b {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .twitter_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .whatsapp_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-envelope_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+
+            .fa-linkedin_r {
+                background-color: var(--dbim-key, #0F5757);
+            }
+        </style>
+        <style type="text/css">
+            @media only screen and (max-device-width: 767px) {
+                p span img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                p img {
+                    max-width: 90% !important;
+                    height: auto !important;
+                }
+
+                h2 {
+                    font-size: var(--dbim-h2, 20px);
+                    font-weight: 600 !important;
+                }
+
+                h3 {
+                    font-size: var(--dbim-h3, 16px);
+                    font-weight: 600 !important;
+                }
+            }
+        </style>
+        <style type="text/css">
+            .film-roll-badge {
+                position: absolute;
+                top: 82%;
+                right: 20px;
+                width: 230px;
+                height: 70px;
+                background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 18px, var(--dbim-text, #150202) 18px, var(--dbim-text, #150202) 36px );
+                border-top: 8px solid var(--dbim-green-key, #0F5757);
+                border-bottom: 8px solid var(--dbim-green-key, #0F5757);
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                animation: moveFilm 8s linear infinite;
+                z-index: 10;
+            }
+
+                .film-roll-badge::before,
+                .film-roll-badge::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 10px;
+                    background: repeating-linear-gradient( to right, var(--dbim-green-key, #0F5757) 0px, var(--dbim-green-key, #0F5757) 10px, #fff 10px, #fff 20px );
+                    left: 0;
+                    z-index: 2;
+                }
+
+                .film-roll-badge::before {
+                    top: -4px;
+                }
+
+                .film-roll-badge::after {
+                    bottom: -4px;
+                }
+
+            .film-roll-inner {
+                position: relative;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: flicker 2s infinite ease-in-out;
+            }
+
+            .countdown-text {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #fff;
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 10px #000;
+                white-space: nowrap;
+            }
+
+            @keyframes moveFilm {
+                0% {
+                    background-position: 0 0;
+                }
+
+                100% {
+                    background-position: 120px 0;
+                }
+            }
+
+            @keyframes flicker {
+                0%, 100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.9;
+                }
+
+                25% {
+                    opacity: 0.95;
+                }
+
+                75% {
+                    opacity: 0.85;
+                }
+            }
+
+            @media (max-width: 1500px) {
+                .film-roll-badge {
+                    top: 68%;
+                    right: 18px;
+                    height: 65px;
+                    font-size: 0.85rem;
+                }
+
+                .press-section {
+                    margin-top: 35px;
+                }
+            }
+
+            @media (max-width: 992px) {
+                .film-roll-badge {
+                    top: 52%;
+                    right: 10px;
+                    width: 200px;
+                    height: 60px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .film-roll-badge {
+                    top: 56%;
+                    right: 10px;
+                    width: 124px;
+                    height: 55px;
+                }
+
+                .countdown-text {
+                    font-size: 0.9rem;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .film-roll-badge {
+                    top: 59%;
+                    right: 5px;
+                    height: 50px;
+                }
+
+                .countdown-text {
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+        <script type="text/javascript">
+                  const festivalStart = new Date("2025-11-20T00:00:00").getTime();
+                  const festivalEnd = new Date("2025-11-28T23:59:59").getTime();
+                  const countdownElement = document.getElementById("countdown");
+
+                  if (countdownElement) {
+                        const interval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < festivalStart) {
+                                    const diff = festivalStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                                    countdownElement.innerHTML = `${days} Day${days !== 1 ? 's' : ''} ${hours} Hour${hours !== 1 ? 's' : ''} to go`;
+                              } else if (now >= festivalStart && now <= festivalEnd) {
+                                    const dayNumber = Math.floor((now - festivalStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    countdownElement.innerHTML = `56th IFFI - Day ${dayNumber}`;
+                              } else {
+                                    countdownElement.innerHTML = `✨ IFFI closes but never ends…`;
+                                    const elements = document.querySelectorAll('.film-roll-badge');
+                                    elements.forEach(el => el.style.width = "350px");
+                                    clearInterval(interval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+        <script type="text/javascript">
+                  const miffStart = new Date("2026-06-15T00:00:00").getTime();
+                  const miffEnd = new Date("2026-06-15T23:59:59").getTime();
+                  const miffElement = document.getElementById("miff");
+
+                  if (miffElement) {
+                        const miffInterval = setInterval(() => {
+                              const now = new Date().getTime();
+
+                              if (now < miffStart) {
+                                    const diff = miffStart - now;
+                                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                    miffElement.innerHTML = `${days} Day${days === 1 ? '' : 's'} to MIFF ...`;
+                              } else if (now >= miffStart && now <= miffEnd) {
+                                    const dayNumber = Math.floor((now - miffStart) / (1000 * 60 * 60 * 24)) + 1;
+                                    miffElement.innerHTML = `19th MIFF - Day ${dayNumber}`;
+                              } else {
+                                    miffElement.innerHTML = `✨ MIFF concludes, cinema lives on...`;
+                                    document.querySelectorAll('.film-roll-badge').forEach(el => el.style.width = "350px");
+                                    clearInterval(miffInterval);
+                              }
+                        }, 1000);
+                  }
+        </script>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("sc_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"P_CategoryManagement","dynamicServicePath":"/PressReleasePage.aspx","id":"mpe"}, null, null, $get("Hidden"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="A5u77hanqByZCTONpObezE_8GRBWqDqxhdJ555AqQu4y0NHpWStJRtKxwlAB0-rdgkvDMHgiM65mDBJFIVoO29tZgnM-I3LpAul51g1odF6W-wazIj1J-A=="/></form>
+    
+
+<script type="application/json" id="pibConsentConfig">{"ga4Id":"G-Q414Y0X6EE,G-QJJ6LZ8LHV","policyUrl":"/CookiePolicy.aspx","text":{"bannerLabel":"Cookie consent","title":"Cookies on this website","body":"We use essential cookies to make this website work. We also set analytics cookies when you arrive, so we can see how the site is used and improve it - you can switch these off below or at any time from the Cookie Policy page. Cookies from embedded social media content are set only if you allow them.","policyLink":"Read our Cookie Policy","accept":"Accept all","reject":"Reject optional","customize":"Customise","prefsTitle":"Cookie preferences","prefsIntro":"Choose which cookies this website may set. Essential cookies cannot be switched off because the site does not work without them. Analytics cookies are on unless you turn them off. Social media cookies stay off until you allow them. You can change these choices at any time from the Cookie Policy page.","essentialName":"Essential cookies","essentialDesc":"Needed for the site to function. These remember your session, your language and region, your text size and colour theme, and verify the security check on forms. They are always on.","analyticsName":"Analytics cookies","analyticsDesc":"Help us understand how visitors use the site - which pages are read and how long people stay - so it can be improved. The information is collected in a form that does not directly identify you. These are on when you arrive; switching them off here stops them and deletes the ones already set.","socialName":"Social media cookies","socialDesc":"Set by content embedded from X, Facebook and YouTube, such as timelines and videos. These platforms may use them to track you across websites. They stay off until you allow them.","save":"Save preferences","cancel":"Cancel"}}</script>
+<script type="text/javascript" src='/js/consent.js?v=10'></script>
+
+<script type="text/javascript" src='/js/consent-embeds.js?v=10'></script>
+
+
+    <!-- Minimal O(N) Time and O(1) Auxiliary Space Word Count & Read Time Calculation -->
+    <script type="text/javascript">
+            (function () {
+                  function calculateReadingStats() {
+                        var bodyEl = document.getElementById("pibReleaseBody");
+                        if (!bodyEl) return;
+
+                        // textContent extracts text without triggering expensive layout/reflow computations
+                        var text = bodyEl.textContent || "";
+                        var words = 0;
+                        var inWord = false;
+
+                        // O(N) single pass character code scan: achieves O(1) space with zero array allocations
+                        for (var i = 0, len = text.length; i < len; i++) {
+                              var code = text.charCodeAt(i);
+                              // Delimits on ASCII whitespace, control characters, tabs, newlines, and non-breaking spaces (160)
+                              if (code <= 32 || code === 160) {
+                                    inWord = false;
+                              } else if (!inWord) {
+                                    inWord = true;
+                                    words++;
+                              }
+                        }
+
+                        // Standard 250 WPM reading speed (e.g., 612 words yields 2 min read)
+                        var minutes = Math.max(1, Math.round(words / 250));
+
+                        var elWords = document.getElementById("prWordCount");
+                        var elTime = document.getElementById("prReadTime");
+
+                        if (elWords) elWords.textContent = words + (words === 1 ? " word" : " words");
+                        if (elTime) elTime.textContent = minutes + " min read";
+                  }
+
+                  if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", calculateReadingStats);
+                  } else {
+                        calculateReadingStats();
+                  }
+            })();
+    </script>
+
+    <script type="text/javascript">
+            (function () {
+                  try {
+                        if (window.self === window.top) { return; }
+                  } catch (e) { return; }
+                  var s = document.createElement("style");
+                  s.textContent = ".sticky-social, .sticky-social_mb { display: none !important; }";
+                  (document.head || document.documentElement).appendChild(s);
+            }());
+    </script>
+</body>
+</html>
